@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
   // window.getState = store.getState; // for testing
-  // window.dispatch = store.dispatch; // just for testing!    
+   window.dispatch = store.dispatch; // just for testing!    
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
-	// window.logout = sessionActions.logout;
+	window.logout = sessionActions.logout;
 	const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
