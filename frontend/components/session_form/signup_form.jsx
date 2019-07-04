@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to BenchBnB!
+					Welcome to MaskedHabbit signup
           <br />
 					Please {this.props.formType} or {this.props.navLink}
 					{this.renderErrors()}
