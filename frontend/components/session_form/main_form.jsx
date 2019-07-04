@@ -9,10 +9,19 @@ class MainForm extends React.Component {
 	render() {
 		return (
 			<div>
+				{/* <style>
+					<link rel="stylesheet" type="text/css" 
+						href="../../../app/assets/stylesheets/api/splash.css">
+
+					</link>
+				</style> */}
 				<header>
 					<NavbarContainer />
 				</header>
-				<h2>main form</h2>
+				<div className = "splash">
+					<h2>main form</h2>
+				</div>
+
 			</div>
 		)
 	}

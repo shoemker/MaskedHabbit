@@ -37,19 +37,20 @@ class SignupForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
+			<div className="signup-form-container">
+
+				<form onSubmit={this.handleSubmit} className="signup-form-box">
 					Welcome to MaskedHabbit signup
           <br />
 					Please {this.props.formType} or {this.props.navLink}
 					{this.renderErrors()}
-					<div className="login-form">
+					<div className="signup-form">
 						<br />
 						<label>Username:
               <input type="text"
 								value={this.state.username}
 								onChange={this.update('username')}
-								className="login-input"
+								className="signup-input"
 							/>
 						</label>
 						<br />
@@ -57,13 +58,14 @@ class SignupForm extends React.Component {
               <input type="password"
 								value={this.state.password}
 								onChange={this.update('password')}
-								className="login-input"
+								className="signup-input"
 							/>
 						</label>
 						<br />
-						<input className="session-submit" type="submit" value={this.props.formType} />
+						<input className="signup-submit" type="submit" value={this.props.formType} />
 					</div>
 				</form>
+
 			</div>
 		);
 	}
