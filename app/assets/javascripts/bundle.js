@@ -670,6 +670,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
@@ -690,7 +692,7 @@ function (_React$Component) {
         className: "signup-submit",
         type: "submit",
         value: this.props.formType
-      }))));
+      })))));
     }
   }]);
 

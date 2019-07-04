@@ -37,35 +37,35 @@ class SignupForm extends React.Component {
 
 	render() {
 		return (
-			<div className="signup-form-container">
-
-				<form onSubmit={this.handleSubmit} className="signup-form-box">
-					Welcome to MaskedHabbit signup
-          <br />
-					Please {this.props.formType} or {this.props.navLink}
-					{this.renderErrors()}
-					<div className="signup-form">
+			<div className = "signup-background">
+				<div className = "signup-form-container">
+					<form onSubmit={this.handleSubmit} className="signup-form-box">
+						Welcome to MaskedHabbit signup
 						<br />
-						<label>Username:
-              <input type="text"
-								value={this.state.username}
-								onChange={this.update('username')}
-								className="signup-input"
-							/>
-						</label>
-						<br />
-						<label>Password:
-              <input type="password"
-								value={this.state.password}
-								onChange={this.update('password')}
-								className="signup-input"
-							/>
-						</label>
-						<br />
-						<input className="signup-submit" type="submit" value={this.props.formType} />
-					</div>
-				</form>
-
+						Please {this.props.formType} or {this.props.navLink}
+						{this.renderErrors()}
+						<div className="signup-form">
+							<br />
+							<label>Username:
+								<input type="text"
+									value={this.state.username}
+									onChange={this.update('username')}
+									className="signup-input"
+								/>
+							</label>
+							<br />
+							<label>Password:
+								<input type="password"
+									value={this.state.password}
+									onChange={this.update('password')}
+									className="signup-input"
+								/>
+							</label>
+							<br />
+							<input className="signup-submit" type="submit" value={this.props.formType} />
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

@@ -1,3 +1,7 @@
-.signup-form-container {
-	background-image: '../../images/signup_groceries.jpg';
+.signup-background {
+	height: 1000px;
+	width: 100%;
+
+	background-image: url('signup_groceries.jpg');
+	background-position: center; 
 }
