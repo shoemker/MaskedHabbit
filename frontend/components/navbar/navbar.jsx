@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 // from BenchBnB
-const Greeting = ({ currentUser, logout }) => {
+const Navbar = ({ currentUser, logout }) => {
     const sessionLinks = () => (
         <nav className="login-signup">
             <Link to="/login">Login</Link>
@@ -22,4 +22,4 @@ const Greeting = ({ currentUser, logout }) => {
 };
 
 
-export default Greeting;
+export default Navbar;
