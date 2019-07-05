@@ -41,34 +41,35 @@ class SignupForm extends React.Component {
 		this.props.processForm(user);
 	}
 
-	renderErrors(type) {
-		return (
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
-	}
 	// renderErrors(type) {
-	
-	// 	for(let i = 0; i< this.props.errors.length; i++){
-
-	// 			if (this.props.errors[i].includes(type)) {
-	// 					return (
-	// 						<div>
-	// 							{ this.props.errors[i] }
-	// 						</div>
-	// 					);
-	// 			}
-	// 	}
+	// 	return (
+	// 		<ul>
+	// 			{this.props.errors.map((error, i) => (
+	// 				<li key={`error-${i}`}>
+	// 					{error}
+	// 				</li>
+	// 			))}
+	// 		</ul>
+	// 	);
 	// }
+	renderErrors(type) {
+	
+		for(let i = 0; i< this.props.errors.length; i++){
+
+				if (this.props.errors[i].includes(type)) {
+						return (
+							<div className='error-display'>
+								{ this.props.errors[i] }
+							</div>
+						);
+				}
+		}
+	}
 
 	render() {
 		return (
 			<div className = "signup-background">
+				<div className = 'left-text'>Start Masking</div>
 				<div className = "signup-form-container">
 					<form onSubmit={this.handleSubmit} className="signup-form-box">
 						<h2 className="signup-form-title">Become a Masker</h2>
@@ -85,7 +86,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{/* {this.renderErrors('Username')} */}
+							{this.renderErrors('Username')}
 							<br />
 							
 							<label>
@@ -96,7 +97,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{/* {this.renderErrors('Password')} */}
+							{this.renderErrors('Password')}
 							<br />
 
 							<label>
@@ -107,6 +108,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
+							{this.renderErrors('Email')}
 							<br />
 
 							<label>
@@ -117,6 +119,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
+							{this.renderErrors('Price')}
 							<br />
 							<span className='tasker-txt'>Masker?</span>
 							<input type="checkbox"  
@@ -125,7 +128,7 @@ class SignupForm extends React.Component {
 								<br></br>
 							<input className="signup-submit" type="submit" value="Registration" />
 							<br></br>Already have an account? <br></br>{this.props.navLink}
-							{this.renderErrors()}
+							{/* {this.renderErrors()} */}
 						</div>
 					</form>
 				</div>
