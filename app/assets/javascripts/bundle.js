@@ -635,9 +635,13 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SignupForm).call(this, props));
     _this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: '',
+      price_per_hour: '',
+      is_tasker: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.check = _this.check.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -646,9 +650,20 @@ function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      return function (e) {
+      if (field === 'price_per_hour') {
+        return function (e) {
+          return _this2.setState(_defineProperty({}, field, parseFloat(e.currentTarget.value)));
+        };
+      } else return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
+    }
+  }, {
+    key: "check",
+    value: function check() {
+      this.setState({
+        is_tasker: !this.state.is_tasker
+      });
     }
   }, {
     key: "handleSubmit",
@@ -678,36 +693,44 @@ function (_React$Component) {
         className: "signup-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "signup-form-title"
-      }, "Become a Masker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Create an account to get started. All fields required. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Become a Masker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "all-fields-required"
+      }, "Create an account to get started. All fields required. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "username",
+        placeholder: "Username",
         value: this.state.username,
         onChange: this.update('username'),
         className: "signup-input"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
-        placeholder: "password",
+        placeholder: "Password",
         value: this.state.password,
         onChange: this.update('password'),
         className: "signup-input"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "e-mail",
-        value: this.state.password,
+        placeholder: "E-mail",
+        value: this.state.mail,
         onChange: this.update('email'),
         className: "signup-input"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "price per hour",
-        value: this.state.password,
-        onChange: this.update('email'),
+        placeholder: "Price Per Hour",
+        value: this.state.price_per_hour,
+        onChange: this.update('price_per_hour'),
         className: "signup-input"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "tasker-txt"
+      }, "Masker?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        value: "true",
+        onChange: this.check
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit",
         type: "submit",
-        value: this.props.formType
+        value: "Registration"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Already have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.props.navLink, this.renderErrors()))));
     }
   }]);
