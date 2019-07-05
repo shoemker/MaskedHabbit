@@ -674,13 +674,24 @@ function (_React$Component) {
     }
   }, {
     key: "renderErrors",
-    value: function renderErrors() {
+    value: function renderErrors(type) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "error-".concat(i)
         }, error);
       }));
-    }
+    } // renderErrors(type) {
+    // 	for(let i = 0; i< this.props.errors.length; i++){
+    // 			if (this.props.errors[i].includes(type)) {
+    // 					return (
+    // 						<div>
+    // 							{ this.props.errors[i] }
+    // 						</div>
+    // 					);
+    // 			}
+    // 	}
+    // }
+
   }, {
     key: "render",
     value: function render() {

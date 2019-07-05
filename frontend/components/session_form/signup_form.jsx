@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
 		this.props.processForm(user);
 	}
 
-	renderErrors() {
+	renderErrors(type) {
 		return (
 			<ul>
 				{this.props.errors.map((error, i) => (
@@ -52,6 +52,19 @@ class SignupForm extends React.Component {
 			</ul>
 		);
 	}
+	// renderErrors(type) {
+	
+	// 	for(let i = 0; i< this.props.errors.length; i++){
+
+	// 			if (this.props.errors[i].includes(type)) {
+	// 					return (
+	// 						<div>
+	// 							{ this.props.errors[i] }
+	// 						</div>
+	// 					);
+	// 			}
+	// 	}
+	// }
 
 	render() {
 		return (
@@ -72,6 +85,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
+							{/* {this.renderErrors('Username')} */}
 							<br />
 							
 							<label>
@@ -82,6 +96,7 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
+							{/* {this.renderErrors('Password')} */}
 							<br />
 
 							<label>
