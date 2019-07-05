@@ -69,7 +69,11 @@ class SignupForm extends React.Component {
 	render() {
 		return (
 			<div className = "signup-background">
-				<div className = 'left-text'>Start Masking</div>
+				<div className = 'left-text'>
+					<div className="text-white left-1">Start Tasking.</div>
+					<div className="text-white left-2">Earn money your way.</div>
+					<div className="text-white left-3">Be someone's hero today. Earn money by helping people with their everyday to-dos.</div>
+				</div>
 				<div className = "signup-form-container">
 					<form onSubmit={this.handleSubmit} className="signup-form-box">
 						<h2 className="signup-form-title">Become a Masker</h2>

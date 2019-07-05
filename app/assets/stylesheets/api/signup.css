@@ -2,8 +2,34 @@
 	height: 1000px;
 	width: 100%;
 
-	background-image: url('signup_groceries.jpg');
+	background-image: url('signup_drill.jpg');
 	background-position: center; 
+	display: flex;
+	flex-direction: row;
+}
+
+.left-text {
+	display:block;
+	padding-top: 300px;
+	width: 50%;
+}
+
+.left-1 {
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 48px;
+	width: 100%;
+}
+
+.left-2 {
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 48px;
+	width: 100%;
+}
+
+.left-3 {
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	width: 100%;
 }
 
 .signup-form-container {
@@ -73,4 +99,9 @@
 	color: red;
 	font-size: 15px;
 	font-family: Proxima, Arial, Helvetica, sans-serif;
+}
+
+
+.text-white{
+	color: white;
 }

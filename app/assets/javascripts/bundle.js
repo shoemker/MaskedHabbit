@@ -701,7 +701,13 @@ function (_React$Component) {
         className: "signup-background"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "left-text"
-      }, "Start Masking"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-white left-1"
+      }, "Start Tasking."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-white left-2"
+      }, "Earn money your way."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-white left-3"
+      }, "Be someone's hero today. Earn money by helping people with their everyday to-dos.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
