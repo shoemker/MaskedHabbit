@@ -6,6 +6,9 @@
 #  username        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
+#  email           :string           not null
+#  price_per_hour  :float            not null
+#  is_tasker       :boolean          not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -14,8 +17,8 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true
+  validates :username, :password_digest, :session_token, :email, :price_per_hour, :is_tasker, presence: true
+  validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token

@@ -40,12 +40,12 @@ class SignupForm extends React.Component {
 			<div className = "signup-background">
 				<div className = "signup-form-container">
 					<form onSubmit={this.handleSubmit} className="signup-form-box">
-						Become a Masker
-						<br />
+						<h2 className="signup-form-title">Become a Masker</h2>
+						<div>Create an account to get started. All fields required.	</div>
 
-						{this.renderErrors()}
+					
 						<div className="signup-form">
-							<br />
+						
 							<label>
 								<input type="text"
 									placeholder = "username"
@@ -55,6 +55,7 @@ class SignupForm extends React.Component {
 								/>
 							</label>
 							<br />
+							
 							<label>
 								<input type="password"
 									placeholder = "password"
@@ -64,8 +65,29 @@ class SignupForm extends React.Component {
 								/>
 							</label>
 							<br />
+
+							<label>
+								<input type="text"
+									placeholder="e-mail"
+									value={this.state.password}
+									onChange={this.update('email')}
+									className="signup-input"
+								/>
+							</label>
+							<br />
+
+							<label>
+								<input type="text"
+									placeholder="price per hour"
+									value={this.state.password}
+									onChange={this.update('email')}
+									className="signup-input"
+								/>
+							</label>
+														<br />
 							<input className="signup-submit" type="submit" value={this.props.formType} />
 							<br></br>Already have an account? <br></br>{this.props.navLink}
+							{this.renderErrors()}
 						</div>
 					</form>
 				</div>

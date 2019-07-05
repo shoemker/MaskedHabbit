@@ -19,5 +19,20 @@
   padding-right: 32px;
   padding-bottom: 24px;
   padding-left: 32px;
+	border-radius: 5px;
+}
 
+.signup-form-title {
+	display: block;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 0px;
+  /* border: 1px solid black; */
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	line-height: 50px;
+	height: 60 px;
+	text-align: start;
+	letter-spacing: normal;
+	font-weight: normal;
 }
