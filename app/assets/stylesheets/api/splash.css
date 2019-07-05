@@ -1,6 +1,10 @@
 .splash {
-	background-image: '../../images/splash.jpg';
-	height: 100px;
+	background-image: url('splash.jpg');
+	height: 1000px;
+	width: 2000px;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 

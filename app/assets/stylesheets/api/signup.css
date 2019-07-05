@@ -5,3 +5,19 @@
 	background-image: url('signup_groceries.jpg');
 	background-position: center; 
 }
+
+.signup-form-container {
+	display: block;
+	box-sizing: content-box;
+	margin: 0 auto;
+	position: fixed;
+	right: 30px;
+	background-color: rgb(249, 250, 251);
+	width: 325 px;
+	height: 696 px;
+	padding-top: 24px;
+  padding-right: 32px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+
+}
