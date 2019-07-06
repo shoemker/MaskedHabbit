@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+	//	this.handleIndErrors = this.handleIndErrors.bind(this);
 	}
 
 	update(field) {
@@ -23,31 +24,19 @@ class LoginForm extends React.Component {
 		this.props.processForm(user).then( () => this.props.history.push("/"));
 	}
 
-	renderErrors() {
-		return (
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+	renderIndErrors(type) {
+
+		for (let i = 0; i < this.props.errors.length; i++) {
+
+			if (this.props.errors[i].includes(type)) {
+				return (
+					<div className='error-display'>
+						{this.props.errors[i]}
+					</div>
+				);
+			}
+		}
 	}
-
-	// renderErrors(type) {
-
-	// 	for (let i = 0; i < this.props.errors.length; i++) {
-
-	// 		if (this.props.errors[i].includes(type)) {
-	// 			return (
-	// 				<div className='error-display'>
-	// 					{this.props.errors[i]}
-	// 				</div>
-	// 			);
-	// 		}
-	// 	}
-	// }
 
 	render() {
 		return (
@@ -57,26 +46,28 @@ class LoginForm extends React.Component {
 						Welcome to MaskedHabbit login
 						<br />
 						Please {this.props.formType} or {this.props.navLink}
-						{this.renderErrors()}
+						{/* {this.renderErrors()} */}
 						<div className="login-form">
 							<br />
-							<label>Username:
+							<label><span className='tasker-txt login-txt'>Username</span>
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update('username')}
 									className="login-input"
 								/>
+								{this.renderIndErrors('Username')}
 							</label>
 							<br />
-							<label>Password:
+							<label><span className='tasker-txt login-txt'>Password</span>
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update('password')}
 									className="login-input"
 								/>
+								{this.renderIndErrors('Password')}
 							</label>
 							<br />
-							<input className="login-submit" type="submit" value={this.props.formType} />
+							<input className="login-submit" type="submit" value="Log In" />
 						</div>
 					</form>
 				</div>
