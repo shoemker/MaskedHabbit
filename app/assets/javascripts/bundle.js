@@ -394,11 +394,24 @@ function (_React$Component) {
           key: "error-".concat(i)
         }, error);
       }));
-    }
+    } // renderErrors(type) {
+    // 	for (let i = 0; i < this.props.errors.length; i++) {
+    // 		if (this.props.errors[i].includes(type)) {
+    // 			return (
+    // 				<div className='error-display'>
+    // 					{this.props.errors[i]}
+    // 				</div>
+    // 			);
+    // 		}
+    // 	}
+    // }
+
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
@@ -419,7 +432,7 @@ function (_React$Component) {
         className: "login-submit",
         type: "submit",
         value: this.props.formType
-      }))));
+      })))));
     }
   }]);
 
