@@ -1,18 +1,69 @@
-.navbar-containger {
+.navbar-container {
 	background-color: white;
 	display: flex ;
 	flex-direction: row;
 	height: 75px;
+		/* border: 1px solid black; */
 }
 
 .nav-logo {
 	height:40px;
 	width: 200px;
-	padding-top: 15px;
+	padding-top: 12px;
+	position: absolute;
+	left: 50px;
 }
 
 .nav-log-text {
 	color: #7dd161;
 	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
 	text-decoration: none;
+	position: absolute;
+	right: 310px;
+	margin-top:22px;
+}
+
+.become-tasker-button {
+	background-color: white;
+	color: #7dd161;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	border: 1px solid #7dd161;
+	border-radius: 4px;
+	height: 50px;
+	width: 180px;
+	margin-top: 8px;
+	position:absolute;
+	right: 100px;
+
+}
+
+.navbar-logout-button{
+	background-color: white;
+	color: #7dd161;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	border: 1px solid #7dd161;
+	border-radius: 4px;
+	height: 50px;
+	width: 180px;
+	margin-top: 8px;
+	position:absolute;
+	right: 100px;
+}
+
+.navbar-button:hover {
+	background-color: #7dd161;
+	color: white;
+}
+
+.loggedin-name {
+	color: #7dd161;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	text-decoration: none;
+	position: absolute;
+	right: 310px;
+	margin-top:22px;
 }

@@ -218,9 +218,9 @@ var Navbar = function Navbar(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
-  var sessionLinks = function sessionLinks() {
+  var loggedOutNavBar = function loggedOutNavBar() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "login-signup navbar-containger"
+      className: "login-signup navbar-container"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -235,26 +235,29 @@ var Navbar = function Navbar(_ref) {
       className: "nav-log-text"
     }, "Log in")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/signup"
-    }, "Become a Tasker"));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "become-tasker-button  navbar-button"
+    }, "Become a Tasker")));
   };
 
-  var personalGreeting = function personalGreeting() {
+  var loggedInNavBar = function loggedInNavBar() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "header-group navbar-containger"
+      className: "header-group navbar-container"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "nav-logo",
       src: "/images/Logo1.jpg"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "header-name"
-    }, "Hi, ", currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "header-button",
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "loggedin-name"
+    }, "Account: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "navbar-logout-button navbar-button",
       onClick: logout
-    }, "Log Out"));
+    }, "Log out"));
   };
 
-  return currentUser ? personalGreeting() : sessionLinks();
+  return currentUser ? loggedInNavBar() : loggedOutNavBar();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbar);
