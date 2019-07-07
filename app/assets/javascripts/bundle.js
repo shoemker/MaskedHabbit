@@ -600,12 +600,19 @@ function (_React$Component) {
         className: "category-button"
       }, "General Handyman"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-button"
-      }, "Heavy Lifting")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Heavy Lifting")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "magnifying-parent"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        value: "Need something different?" // onChange={this.update('username')}
+        value: "\xA0\xA0\xA0\xA0\xA0\xA0Need something different?" // onChange={this.update('username')}
         ,
         id: "main-page-search"
-      }))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "mag",
+        src: window.magURL
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: true
+      })));
     }
   }]);
 

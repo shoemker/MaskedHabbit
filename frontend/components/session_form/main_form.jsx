@@ -31,12 +31,19 @@ class MainForm extends React.Component {
 						<button className="category-button">Heavy Lifting</button>
 
 					</div>
-					<div>
+					<div class="magnifying-parent">
+
 						<input type="text"
-							value="Need something different?"
+							value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Need something different?"
 							// onChange={this.update('username')}
 							id="main-page-search"
 						/>
+						<span>
+							<img id='mag' src={window.magURL} />
+						</span>
+					</div>
+					<div className>
+
 					</div>
 				</div>
 
