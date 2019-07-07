@@ -345,7 +345,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
- // import logo from '../../../app/assets/images/Logo1.jpg' 
+
+var USERNAMES = ['jacob', 'frank', 'peter', 'ridley', 'becky', 'francine', 'abe', 'zach', 'craig', 'dan'];
 
 var LoginForm =
 /*#__PURE__*/
@@ -362,8 +363,8 @@ function (_React$Component) {
       username: '',
       password: ''
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); //	this.handleIndErrors = this.handleIndErrors.bind(this);
-
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -385,6 +386,21 @@ function (_React$Component) {
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
         return _this3.props.history.push("/");
+      });
+    }
+  }, {
+    key: "handleDemoSubmit",
+    value: function handleDemoSubmit(e) {
+      var _this4 = this;
+
+      e.preventDefault();
+      var name = USERNAMES[Math.floor(Math.random() * USERNAMES.length)];
+      var user = {
+        username: name,
+        password: '123456'
+      };
+      this.props.processForm(user).then(function () {
+        return _this4.props.history.push("/");
       });
     }
   }, {
@@ -419,7 +435,8 @@ function (_React$Component) {
         type: "text",
         value: this.state.username,
         onChange: this.update('username'),
-        className: "login-input"
+        className: "login-input",
+        id: "login-username"
       }), this.renderIndErrors('Username')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "tasker-txt login-txt"
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -431,7 +448,13 @@ function (_React$Component) {
         className: "login-submit",
         type: "submit",
         value: "Log In"
-      })))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleDemoSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "demo-submit login-submit",
+        type: "submit",
+        value: "Demo Log In"
+      }))));
     }
   }]);
 

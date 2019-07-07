@@ -1,6 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import logo from '../../../app/assets/images/Logo1.jpg' 
+
+const USERNAMES = ['jacob',
+									'frank',
+									'peter',
+									'ridley',
+									'becky',
+									'francine',
+									'abe',
+									'zach',
+									'craig',
+									'dan']
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -10,7 +20,8 @@ class LoginForm extends React.Component {
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-	//	this.handleIndErrors = this.handleIndErrors.bind(this);
+		this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+
 	}
 
 	update(field) {
@@ -23,6 +34,13 @@ class LoginForm extends React.Component {
 		e.preventDefault();
 		const user = Object.assign({}, this.state);
 		this.props.processForm(user).then( () => this.props.history.push("/"));
+	}
+
+	handleDemoSubmit(e) {
+		e.preventDefault();
+		const name = USERNAMES[Math.floor(Math.random() * USERNAMES.length)];
+		const user = {username: name, password: '123456'}
+		this.props.processForm(user).then(() => this.props.history.push("/"));
 	}
 
 	renderIndErrors(type) {
@@ -56,6 +74,7 @@ class LoginForm extends React.Component {
 									value={this.state.username}
 									onChange={this.update('username')}
 									className="login-input"
+									id = "login-username"
 								/>
 								{this.renderIndErrors('Username')}
 							</label>
@@ -71,6 +90,9 @@ class LoginForm extends React.Component {
 							<br />
 							<input className="login-submit" type="submit" value="Log In" />
 						</div>
+					</form>
+					<form onSubmit ={this.handleDemoSubmit}>
+						<input className="demo-submit login-submit" type="submit" value="Demo Log In" />
 					</form>
 				</div>
 			</div>
