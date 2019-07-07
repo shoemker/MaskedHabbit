@@ -1,0 +1,12 @@
+.navbar-containger {
+	background-color: white;
+	display: flex ;
+	flex-direction: row;
+	height: 75px;
+}
+
+.nav-logo {
+	height:40px;
+	width: 200px;
+	padding-top: 15px;
+}
