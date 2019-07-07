@@ -15,7 +15,7 @@ const Navbar = ({ currentUser, logout }) => {
 
         <Link to="/signup">
 					<button type="button" className="become-tasker-button  navbar-button">
-						Become a Tasker
+						Become a Masker
      			</button>
 				</Link>
       </nav>

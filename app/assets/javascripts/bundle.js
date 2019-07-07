@@ -238,7 +238,7 @@ var Navbar = function Navbar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       className: "become-tasker-button  navbar-button"
-    }, "Become a Tasker")));
+    }, "Become a Masker")));
   };
 
   var loggedInNavBar = function loggedInNavBar() {
@@ -578,7 +578,29 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-first"
+      }, "The convenient & affordable way ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "to get things done around the home."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-choose-txt"
+      }, "Choose from over 140,000 background checked Taskers for help without breaking the bank."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons-first-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "Mounting & Installation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "Moving & Packing"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "Furniture Assembly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons-second-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "Home Improvement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "General Handyman"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-button"
+      }, "Heavy Lifting"))));
     }
   }]);
 
