@@ -42,12 +42,24 @@ class MainForm extends React.Component {
 							<img id='mag' src={window.magURL} />
 						</span>
 					</div>
-					<div className>
 
+				</div>
+				<div className="how-it-works">
+					How It Works
+				</div>
+				<div className="second-part">
+					<div className="steps">
+						<img id='describe' src={window.describeURL} />
+					</div>
+					<div className="steps">
+						<img id='describe' src={window.chooseURL} />
+					</div>					
+					<div className="steps">
+						<img id='describe' src={window.getURL} />
 					</div>
 				</div>
-
 			</div>
+
 		)
 	}
 }
