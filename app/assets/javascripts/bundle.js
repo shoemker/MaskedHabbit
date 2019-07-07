@@ -225,7 +225,7 @@ var Navbar = function Navbar(_ref) {
       to: "/"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "nav-logo",
-      src: "/images/Logo1.jpg"
+      src: window.logoURL
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/login",
       style: {
@@ -2477,8 +2477,10 @@ module.exports = invariant;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var toString = {}.toString;
+
 module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
+  return toString.call(arr) == '[object Array]';
 };
 
 

@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ currentUser, logout }) => {
 	const loggedOutNavBar = () => (
       <nav className="login-signup navbar-container" >
-				<Link to="/"><img className='nav-logo' src="/images/Logo1.jpg" /></Link>
+				<Link to="/">
+					<img className='nav-logo' src={window.logoURL} />
+
+				</Link>
 				
 				<Link to="/login" style={{ textDecoration: 'none' }}>
 					<div className='nav-log-text'>Log in</div>
