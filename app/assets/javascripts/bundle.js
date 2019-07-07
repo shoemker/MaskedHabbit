@@ -444,7 +444,7 @@ function (_React$Component) {
         className: "login-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "login-logo",
-        src: "/images/Logo1.jpg"
+        src: window.logoURL
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -584,7 +584,7 @@ function (_React$Component) {
         className: "splash-first"
       }, "The convenient & affordable way ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "to get things done around the home."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-choose-txt"
-      }, "Choose from over 140,000 background checked Taskers for help without breaking the bank."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Choose from over 140,000 background checked Maskers for help without breaking the bank."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons-first-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-button"
@@ -600,7 +600,12 @@ function (_React$Component) {
         className: "category-button"
       }, "General Handyman"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-button"
-      }, "Heavy Lifting"))));
+      }, "Heavy Lifting")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: "Need something different?" // onChange={this.update('username')}
+        ,
+        id: "main-page-search"
+      }))));
     }
   }]);
 

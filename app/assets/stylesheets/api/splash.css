@@ -42,7 +42,7 @@
 	flex-direction: row;
 	position:absolute;
 	left:50%;
-	margin-left: -325px;
+	margin-left: -350px;
 	margin-top: 230px;
 }
 
@@ -53,15 +53,16 @@
 	font-size: 16px;
 	border: 1px solid #7dd161;
 	border-radius: 4px;
-	height: 50px;
-	width: 200px;
-	margin: 10px;
+	height: 48px;
 
+	margin: 10px;
+	padding-right: 30px;
+	padding-left: 30px;
 
 }
 
 .category-button:hover {
-	background-color: #7dd161;
+	background-color: #2e661b;
 	color: white;
 }
 
@@ -71,5 +72,21 @@
 	position:absolute;
 	left:50%;
 	margin-left: -325px;
-	margin-top: 330px;
+	margin-top: 300px;
+}
+
+#main-page-search{
+	width: 640px;
+	height: 50px;
+	padding: 5px;
+	margin-bottom: 30px;
+	border-radius: 4px;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: gray;
+	position:absolute;
+	left:50%;
+	margin-left: -340px;
+	margin-top: 380px;
+	border: 0px;
 }
