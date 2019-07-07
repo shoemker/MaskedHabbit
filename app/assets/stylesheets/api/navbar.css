@@ -10,3 +10,9 @@
 	width: 200px;
 	padding-top: 15px;
 }
+
+.nav-log-text {
+	color: #7dd161;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
