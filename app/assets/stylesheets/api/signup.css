@@ -1,7 +1,7 @@
 .signup-background {
 	height: 1000px;
 	width: 100%;
-
+	background-repeat: no-repeat;
 	background-image: url('signup_drill.jpg');
 	background-position: center; 
 	display: flex;
@@ -36,9 +36,11 @@
 	display: block;
 	box-sizing: content-box;
 	margin: 0 auto;
-	position: fixed;
-	top: 50px;
-	right: 150px;
+	position:absolute;
+  top:50%;
+	left:70%;
+	margin-top:-200px;
+	margin-left:-200px;
 	background-color:#e8ebef;
 	width: 325 px;
 	height: 696 px;

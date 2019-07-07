@@ -1,10 +1,13 @@
-.splash {
+.splash-background {
 	background-image: url('splash.jpg');
-	height: 1000px;
-	width: 2000px;
+
 	background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
+	/* background-position:  */
+	background-size: 100% 800px;
+	height: 1000px;
+	width: 100%;
+	border: 1px solid black;
+
 }
 
 
