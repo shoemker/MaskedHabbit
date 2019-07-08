@@ -2,14 +2,14 @@
 	background-color: white;
 	display: flex ;
 	flex-direction: row;
-	height: 75px;
+	height: 60px;
 		/* border: 1px solid black; */
 }
 
 .nav-logo {
 	height:40px;
 	width: 200px;
-	padding-top: 12px;
+	padding-top: 8px;
 	position: absolute;
 	left: 50px;
 }
@@ -21,7 +21,7 @@
 	text-decoration: none;
 	position: absolute;
 	right: 310px;
-	margin-top:22px;
+	margin-top:17px;
 }
 
 .become-tasker-button {
@@ -33,7 +33,7 @@
 	border-radius: 4px;
 	height: 50px;
 	width: 180px;
-	margin-top: 8px;
+	margin-top: 3px;
 	position:absolute;
 	right: 100px;
 
@@ -48,7 +48,7 @@
 	border-radius: 4px;
 	height: 50px;
 	width: 180px;
-	margin-top: 8px;
+	margin-top: 3px;
 	position:absolute;
 	right: 100px;
 }
@@ -65,5 +65,5 @@
 	text-decoration: none;
 	position: absolute;
 	right: 310px;
-	margin-top:22px;
+	margin-top:17px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import NavbarContainer from '../navbar/navbar_container'
 
 class SignupForm extends React.Component {
 	constructor(props) {
@@ -69,6 +70,9 @@ class SignupForm extends React.Component {
 	render() {
 		return (
 			<div className = "signup-background">
+				<header>
+					<NavbarContainer />
+				</header>
 				<div className = 'left-text'>
 					<div className="text-white left-1">Start Tasking.</div>
 					<div className="text-white left-2">Earn money your way.</div>

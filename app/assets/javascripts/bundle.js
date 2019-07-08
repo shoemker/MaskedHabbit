@@ -248,7 +248,7 @@ var Navbar = function Navbar(_ref) {
       to: "/"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "nav-logo",
-      src: "/images/Logo1.jpg"
+      src: window.logoURL
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "loggedin-name"
     }, "Account: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -617,19 +617,31 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "describe",
+        className: "steps-img",
         src: window.describeURL
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-text"
+      }, "\u2460 Describe Your Mask"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-lower-text"
+      }, "Tell us what you need done, when and where it works for you. ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "describe",
+        className: "steps-img",
         src: window.chooseURL
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-text"
+      }, "\u2461 Choose Your Masker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-lower-text"
+      }, "Browse trusted Maskers by skills, reviews, and price. Select the right person for the job and chat to confirm details.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        id: "describe",
+        className: "steps-img",
         src: window.getURL
-      }))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-text"
+      }, "\u2462 Get It Done"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "task-lower-text"
+      }, "Your Masker arrives and gets the job done. Pay securely and leave a review, all through MaskedHabbit."))));
     }
   }]);
 
@@ -703,6 +715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -722,6 +735,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -803,7 +817,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-white left-1"
@@ -2495,22 +2509,6 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-
-
-/***/ }),
-
-/***/ "./node_modules/isarray/index.js":
-/*!***************************************!*\
-  !*** ./node_modules/isarray/index.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
 
 
 /***/ }),
@@ -6293,7 +6291,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
+var isarray = __webpack_require__(/*! isarray */ "./node_modules/path-to-regexp/node_modules/isarray/index.js")
 
 /**
  * Expose `pathToRegexp`.
@@ -6719,6 +6717,20 @@ function pathToRegexp (path, keys, options) {
 
   return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/path-to-regexp/node_modules/isarray/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/path-to-regexp/node_modules/isarray/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
 
 
 /***/ }),

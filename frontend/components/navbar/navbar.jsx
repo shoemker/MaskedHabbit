@@ -25,7 +25,9 @@ const Navbar = ({ currentUser, logout }) => {
     );
     const loggedInNavBar = () => (
 			<nav className="header-group navbar-container">
-				<Link to="/"><img className='nav-logo' src="/images/Logo1.jpg" /></Link>
+				<Link to="/">
+					<img className='nav-logo' src={window.logoURL} />
+				</Link>
             
 				<div className="loggedin-name">Account: {currentUser.username}</div>
         <button className="navbar-logout-button navbar-button" onClick={logout}>Log out</button>

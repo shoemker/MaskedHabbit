@@ -49,16 +49,28 @@ class MainForm extends React.Component {
 				</div>
 				<div className="second-part">
 					<div className="steps">
-						<img id='describe' src={window.describeURL} />
+						<img className='steps-img' src={window.describeURL} />
+				
+						<p className="task-text">&#9312; Describe Your Mask</p>
+						<p className="task-lower-text">Tell us what you need done, when and where it works for you. </p>
 					</div>
 					<div className="steps">
-						<img id='describe' src={window.chooseURL} />
+						<img className='steps-img' src={window.chooseURL} />
+			
+						<p className="task-text">&#9313; Choose Your Masker</p>	
+						<p className="task-lower-text">Browse trusted Maskers by skills, reviews, and price. Select the right person for the job and chat to confirm details.</p>		
 					</div>					
 					<div className="steps">
-						<img id='describe' src={window.getURL} />
+						<img className='steps-img' src={window.getURL} />
+				
+						<p className="task-text">&#9314; Get It Done</p>	
+						<p className="task-lower-text">Your Masker arrives and gets the job done. Pay securely and leave a review, all through MaskedHabbit.</p>
 					</div>
+
 				</div>
+
 			</div>
+		
 
 		)
 	}
