@@ -13,6 +13,7 @@ class MainForm extends React.Component {
 					<NavbarContainer />
 				</header>
 				<div className="splash-main">
+					{/* <img className='splash-img' src={window.splashUrl} /> */}
 					<div className= "splash-first">
 						The convenient & affordable way <br></br>to get things done around the home.
 					</div>

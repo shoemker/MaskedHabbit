@@ -8,7 +8,6 @@ const Navbar = ({ currentUser, logout }) => {
       <nav className="login-signup navbar-container" >
 				<Link to="/">
 					<img className='nav-logo' src={window.logoURL} />
-
 				</Link>
 				
 				<Link to="/login" style={{ textDecoration: 'none' }}>
