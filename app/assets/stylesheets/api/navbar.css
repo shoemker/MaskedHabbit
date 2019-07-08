@@ -1,9 +1,13 @@
 .navbar-container {
+	background:none;
 	background-color: white;
 	display: flex ;
 	flex-direction: row;
 	height: 60px;
-		/* border: 1px solid black; */
+	width:100%;
+	overflow:auto;
+	
+	z-index: 0;
 }
 
 .nav-logo {

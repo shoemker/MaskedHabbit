@@ -69,10 +69,12 @@ class SignupForm extends React.Component {
 
 	render() {
 		return (
-			<div className = "signup-background">
+			<div>
 				<header>
 					<NavbarContainer />
 				</header>
+			<div className = "signup-background">
+
 				<div className = 'left-text'>
 					<div className="text-white left-1">Start Tasking.</div>
 					<div className="text-white left-2">Earn money your way.</div>
@@ -140,6 +142,7 @@ class SignupForm extends React.Component {
 						</div>
 					</form>
 				</div>
+			</div>
 			</div>
 		);
 	}

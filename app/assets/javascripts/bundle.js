@@ -815,9 +815,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "left-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-white left-1"
@@ -870,7 +870,7 @@ function (_React$Component) {
         className: "signup-submit",
         type: "submit",
         value: "Registration"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Already have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.props.navLink))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Already have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.props.navLink)))));
     }
   }]);
 
