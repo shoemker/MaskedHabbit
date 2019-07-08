@@ -1,5 +1,5 @@
 .splash-background {
-	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/splash.jpg');
+	/* background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/splash.jpg'); */
 	background-repeat: no-repeat;
 	background-size: 100% 800px;
 	height: 750px;
