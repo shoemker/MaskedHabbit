@@ -15,7 +15,7 @@
 	height: 1000px;
 	width: 100%;
 	background-repeat: no-repeat;
-	background-image: url('signup_drill.jpg');
+	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/signup_drill.jpg');
 	background-position: center top;
 	display: flex;
 	flex-direction: row;
