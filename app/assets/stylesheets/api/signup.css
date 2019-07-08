@@ -1,3 +1,16 @@
+.navbar-container {
+	background:none;
+	background-color: white;
+	display: flex ;
+	flex-direction: row;
+	height: 60px;
+	width:100%;
+	overflow:auto;
+	
+
+}
+
+
 .signup-background {
 	height: 1000px;
 	width: 100%;
@@ -107,4 +120,18 @@
 
 .text-white{
 	color: white;
+}
+
+#login-link {
+	text-decoration: none;
+	color: #7dd161;
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	text-align: center
+}
+
+#account-question {
+	font-family: Proxima, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	text-align: center
 }

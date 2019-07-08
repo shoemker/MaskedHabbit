@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import NavbarContainer from '../navbar/navbar_container'
+
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
 	constructor(props) {
@@ -71,7 +72,12 @@ class SignupForm extends React.Component {
 		return (
 			<div>
 				<header>
-					<NavbarContainer />
+					<nav className="navbar-container" >
+						<Link to="/">
+							<img className='nav-logo' src={window.logoURL} />
+
+						</Link>
+					</nav>
 				</header>
 			<div className = "signup-background">
 
@@ -137,7 +143,10 @@ class SignupForm extends React.Component {
 									onChange={this.check}></input>									
 								<br></br>
 							<input className="signup-submit" type="submit" value="Registration" />
-							<br></br>Already have an account? <br></br>{this.props.navLink}
+								<br></br><div id='account-question'>Already have an account?</div>
+							<Link to="/login">
+									<div id='login-link'>Log in to continue</div>
+							</Link>
 							{/* {this.renderErrors()} */}
 						</div>
 					</form>

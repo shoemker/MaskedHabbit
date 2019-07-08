@@ -141,12 +141,14 @@
 
 
 .task-text {
+		 display: inline-block;
 	font-family: Proxima, Arial, Helvetica, sans-serif;
 	font-size: 24px;
 	justify-content: left;
 	position:absolute;
 	text-align: left;
 	margin-top: 170px;
+	width:30%;
 }
 
 
