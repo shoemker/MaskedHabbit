@@ -2,7 +2,7 @@
 //import * as PostApiUtil from './util/session_api_util.js'
 
 import * as sessionActions from './actions/session_actions';
-import fetchTasks from './util/task_api_util.js'
+import * as APIutil from './util/task_api_util.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		store = configureStore();
 	}
 
-	window.fetchTasks = fetchTasks;
+	window.fetchTasks = APIutil.fetchTasks;
+	window.fetchTask = APIutil.fetchTask;
+
   // window.getState = store.getState; // for testing
   //  window.dispatch = store.dispatch; // just for testing!    
   // window.login = sessionActions.login;

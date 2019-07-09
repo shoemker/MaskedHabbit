@@ -1005,7 +1005,8 @@ document.addEventListener('DOMContentLoaded', function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])();
   }
 
-  window.fetchTasks = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["default"]; // window.getState = store.getState; // for testing
+  window.fetchTasks = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"];
+  window.fetchTask = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["fetchTask"]; // window.getState = store.getState; // for testing
   //  window.dispatch = store.dispatch; // just for testing!    
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
@@ -1315,19 +1316,25 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/task_api_util.js ***!
   \****************************************/
-/*! exports provided: default */
+/*! exports provided: fetchTasks, fetchTask */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTasks", function() { return fetchTasks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTask", function() { return fetchTask; });
 var fetchTasks = function fetchTasks() {
   return $.ajax({
     method: 'GET',
     url: 'api/tasks'
   });
 };
-
-/* harmony default export */ __webpack_exports__["default"] = (fetchTasks);
+var fetchTask = function fetchTask(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/tasks/".concat(id)
+  });
+};
 
 /***/ }),
 

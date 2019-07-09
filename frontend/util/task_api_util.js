@@ -1,6 +1,6 @@
 
 
-const fetchTasks = () => {
+export const fetchTasks = () => {
 
 	return (
 		$.ajax({
@@ -10,4 +10,16 @@ const fetchTasks = () => {
 	)
 }
 
-export default fetchTasks;
+
+
+export const fetchTask = (id) => {
+
+	return (
+		$.ajax({
+			method: 'GET',
+			url: `api/tasks/${id}`
+		})
+	)
+}
+
+

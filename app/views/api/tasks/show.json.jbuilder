@@ -1,4 +1,9 @@
-json.extract! task,  	:id,            
+	
+	
+	
+	
+json.bench do
+		json.extract! @task, :id,            
  											:brief,          
  											:description,    
  											:location,       
@@ -7,3 +12,4 @@ json.extract! task,  	:id,
  											:task_maker_id, 
  											:category_id,    
  											:task_doer_id
+end
