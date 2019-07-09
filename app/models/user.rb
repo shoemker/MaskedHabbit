@@ -13,6 +13,9 @@
 #  updated_at      :datetime         not null
 #
 
+
+
+
 class User < ApplicationRecord
 
   attr_reader :password
@@ -23,13 +26,14 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-#   has_many :reviews,
-#     foreign_key: :author_id
-    
-#   has_many :favorites
-#   has_many :favorite_benches,
-#     through: :favorites,
-#     source: :bench
+	has_many :tasks_made,
+	foreign_key: :task_maker_id,
+	class_name: :Task
+
+	has_many :tasks_to_do,
+	foreign_key: :task_doer_id,
+	class_name: :Task
+	
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

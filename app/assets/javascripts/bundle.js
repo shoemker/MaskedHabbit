@@ -868,8 +868,9 @@ function (_React$Component) {
         className: "signup-input"
       })), this.renderErrors('Price'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "tasker-txt"
-      }, "Masker?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Masker? (Are you a task doer?)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
+        id: "tasker-checkbox",
         value: "true",
         onChange: this.check
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -978,13 +979,12 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])();
   } // window.getState = store.getState; // for testing
-
-
-  window.dispatch = store.dispatch; // just for testing!    
+  //  window.dispatch = store.dispatch; // just for testing!    
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
+  // window.logout = sessionActions.logout;
 
-  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["logout"];
+
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store

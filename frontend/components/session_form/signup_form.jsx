@@ -137,8 +137,9 @@ class SignupForm extends React.Component {
 							</label>
 							{this.renderErrors('Price')}
 							<br />
-							<span className='tasker-txt'>Masker?</span>
-							<input type="checkbox"  
+							<span className='tasker-txt'>Masker? (Are you a task doer?)</span>
+							<input type="checkbox"
+									id="tasker-checkbox"  
 									value="true"
 									onChange={this.check}></input>									
 								<br></br>
