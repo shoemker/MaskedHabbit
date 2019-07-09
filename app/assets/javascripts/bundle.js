@@ -364,7 +364,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var USERNAMES = ['jacob', 'frank', 'peter', 'ridley', 'becky', 'francine', 'abe', 'zach', 'craig', 'dan'];
+var DOER_NAMES = ['jacob', 'frank', 'peter', 'ridley', 'becky'];
+var MAKER_NAMES = ['francine', 'abe', 'zach', 'craig', 'dan'];
 
 var LoginForm =
 /*#__PURE__*/
@@ -382,7 +383,8 @@ function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemoMakerSubmit = _this.handleDemoMakerSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemoDoerSubmit = _this.handleDemoDoerSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -407,18 +409,33 @@ function (_React$Component) {
       });
     }
   }, {
-    key: "handleDemoSubmit",
-    value: function handleDemoSubmit(e) {
+    key: "handleDemoMakerSubmit",
+    value: function handleDemoMakerSubmit(e) {
       var _this4 = this;
 
       e.preventDefault();
-      var name = USERNAMES[Math.floor(Math.random() * USERNAMES.length)];
+      var name = MAKER_NAMES[Math.floor(Math.random() * MAKER_NAMES.length)];
       var user = {
         username: name,
         password: '123456'
       };
       this.props.processForm(user).then(function () {
         return _this4.props.history.push("/");
+      });
+    }
+  }, {
+    key: "handleDemoDoerSubmit",
+    value: function handleDemoDoerSubmit(e) {
+      var _this5 = this;
+
+      e.preventDefault();
+      var name = DOER_NAMES[Math.floor(Math.random() * DOER_NAMES.length)];
+      var user = {
+        username: name,
+        password: '123456'
+      };
+      this.props.processForm(user).then(function () {
+        return _this5.props.history.push("/");
       });
     }
   }, {
@@ -467,11 +484,17 @@ function (_React$Component) {
         type: "submit",
         value: "Log In"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleDemoSubmit
+        onSubmit: this.handleDemoMakerSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "demo-submit login-submit",
         type: "submit",
-        value: "Demo Log In"
+        value: "Demo Task Maker Log In"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleDemoDoerSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "demo-submit login-submit",
+        type: "submit",
+        value: "Demo Task Doer Log In"
       }))));
     }
   }]);
@@ -946,16 +969,18 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/task_api_util.js */ "./frontend/util/task_api_util.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // frontend/entry.jsx
 //import * as PostApiUtil from './util/session_api_util.js'
+
 
 
 
@@ -974,19 +999,20 @@ document.addEventListener('DOMContentLoaded', function () {
         id: window.currentUser.id
       }
     };
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])(preloadedState);
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])(preloadedState);
     delete window.currentUser;
   } else {
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  } // window.getState = store.getState; // for testing
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  }
+
+  window.fetchTasks = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["default"]; // window.getState = store.getState; // for testing
   //  window.dispatch = store.dispatch; // just for testing!    
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
   // window.logout = sessionActions.logout;
 
-
   var root = document.getElementById('root');
-  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
   }), root);
 });
@@ -1282,6 +1308,26 @@ var logout = function logout() {
     url: 'api/session'
   });
 };
+
+/***/ }),
+
+/***/ "./frontend/util/task_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/task_api_util.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var fetchTasks = function fetchTasks() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/tasks'
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (fetchTasks);
 
 /***/ }),
 
@@ -30643,7 +30689,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

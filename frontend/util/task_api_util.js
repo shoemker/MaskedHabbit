@@ -1,11 +1,13 @@
 
 
-export const fetchTasks = () => {
+const fetchTasks = () => {
 
 	return (
 		$.ajax({
-			method: 'get',
-			url: 'api/task'
+			method: 'GET',
+			url: 'api/tasks'
 		})
 	)
 }
+
+export default fetchTasks;

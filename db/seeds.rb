@@ -66,6 +66,7 @@ User.create(username: "dan",
 						email: "j21@gmail.com", 
 						price_per_hour: 16, 
 						is_tasker: false)
+						
 
 Category.create(title: "Mounting & Installation")
 Category.create(title: "Moving & Packing")
@@ -73,6 +74,7 @@ Category.create(title: "Furniture Assembly")
 Category.create(title: "Home Improvement")
 Category.create(title: "General Handyman")
 Category.create(title: "Heavy Lifting")
+
 
 Task.create(brief: "Install sound system",
 						description: "In my car",

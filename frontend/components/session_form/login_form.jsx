@@ -1,16 +1,17 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const USERNAMES = ['jacob',
+const DOER_NAMES = ['jacob',
 									'frank',
 									'peter',
 									'ridley',
-									'becky',
-									'francine',
-									'abe',
-									'zach',
-									'craig',
-									'dan']
+									'becky']
+
+const MAKER_NAMES = ['francine',
+										'abe',
+										'zach',
+										'craig',
+										'dan']
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -20,8 +21,8 @@ class LoginForm extends React.Component {
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
-
+		this.handleDemoMakerSubmit = this.handleDemoMakerSubmit.bind(this);
+		this.handleDemoDoerSubmit = this.handleDemoDoerSubmit.bind(this);
 	}
 
 	update(field) {
@@ -36,10 +37,17 @@ class LoginForm extends React.Component {
 		this.props.processForm(user).then( () => this.props.history.push("/"));
 	}
 
-	handleDemoSubmit(e) {
+	handleDemoMakerSubmit(e) {
 		e.preventDefault();
-		const name = USERNAMES[Math.floor(Math.random() * USERNAMES.length)];
-		const user = {username: name, password: '123456'}
+		let name = MAKER_NAMES[Math.floor(Math.random() * MAKER_NAMES.length)];
+		let user = {username: name, password: '123456'}
+		this.props.processForm(user).then(() => this.props.history.push("/"));
+	}
+
+	handleDemoDoerSubmit(e){
+		e.preventDefault();
+		let name = DOER_NAMES[Math.floor(Math.random() * DOER_NAMES.length)];
+		let user = { username: name, password: '123456' }
 		this.props.processForm(user).then(() => this.props.history.push("/"));
 	}
 
@@ -91,8 +99,11 @@ class LoginForm extends React.Component {
 							<input className="login-submit" type="submit" value="Log In" />
 						</div>
 					</form>
-					<form onSubmit ={this.handleDemoSubmit}>
-						<input className="demo-submit login-submit" type="submit" value="Demo Log In" />
+					<form onSubmit ={this.handleDemoMakerSubmit}>
+						<input className="demo-submit login-submit" type="submit" value="Demo Task Maker Log In" />
+					</form>
+					<form onSubmit={this.handleDemoDoerSubmit}>
+						<input className="demo-submit login-submit" type="submit" value="Demo Task Doer Log In" />
 					</form>
 				</div>
 			</div>
