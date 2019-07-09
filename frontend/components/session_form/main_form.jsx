@@ -32,7 +32,7 @@ class MainForm extends React.Component {
 						<button className="category-button">Heavy Lifting</button>
 
 					</div>
-					<div class="magnifying-parent">
+					<div className="magnifying-parent">
 
 						<input type="text"
 							value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Need something different?"

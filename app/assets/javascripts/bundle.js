@@ -154,6 +154,88 @@ var logout = function logout() {
 
 /***/ }),
 
+/***/ "./frontend/actions/task_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/task_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_TASKS, RECEIVE_TASK, REMOVE_TASK, fetchTasks, fetchTask, deleteTask, updateTask, createTask */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_TASKS", function() { return RECEIVE_TASKS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_TASK", function() { return RECEIVE_TASK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_TASK", function() { return REMOVE_TASK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTasks", function() { return fetchTasks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTask", function() { return fetchTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTask", function() { return deleteTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTask", function() { return updateTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTask", function() { return createTask; });
+/* harmony import */ var _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/task_api_util.js */ "./frontend/util/task_api_util.js");
+
+var RECEIVE_TASKS = 'RECEIVE_TASKS';
+var RECEIVE_TASK = 'RECEIVE_TASK';
+var REMOVE_TASK = 'REMOVE_TASK';
+
+var receiveTasks = function receiveTasks(tasks) {
+  return {
+    type: RECEIVE_TASKS,
+    tasks: tasks
+  };
+};
+
+var receiveTask = function receiveTask(task) {
+  return {
+    type: RECEIVE_BENCH,
+    task: task
+  };
+};
+
+var removeTask = function removeTask(task) {
+  return {
+    type: REMOVE_TASK,
+    taskId: task.id
+  };
+};
+
+var fetchTasks = function fetchTasks() {
+  return function (dispatch) {
+    return _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchTasks"]().then(function (tasks) {
+      return dispatch(receiveTasks(tasks));
+    });
+  };
+};
+var fetchTask = function fetchTask(id) {
+  return function (dispatch) {
+    return _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchTask"](id).then(function (task) {
+      return dispatch(receiveTask(task));
+    });
+  };
+};
+var deleteTask = function deleteTask(id) {
+  return function (dispatch) {
+    return _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__["deleteTask"](id).then(function (task) {
+      return dispatch(removeTask(task));
+    });
+  };
+};
+var updateTask = function updateTask(task) {
+  return function (dispatch) {
+    return _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__["updateTask"](task).then(function (task) {
+      return dispatch(receiveTask(task));
+    });
+  };
+};
+var createTask = function createTask(task) {
+  return function (dispatch) {
+    return _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_0__["createTask"](task).then(function (task) {
+      return dispatch(receiveTask(task));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/App.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/App.jsx ***!
@@ -624,7 +706,7 @@ function (_React$Component) {
       }, "General Handyman"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-button"
       }, "Heavy Lifting")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "magnifying-parent"
+        className: "magnifying-parent"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: "\xA0\xA0\xA0\xA0\xA0\xA0Need something different?" // onChange={this.update('username')}
@@ -968,19 +1050,19 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/task_api_util.js */ "./frontend/util/task_api_util.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/task_actions */ "./frontend/actions/task_actions.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // frontend/entry.jsx
-//import * as PostApiUtil from './util/session_api_util.js'
-
+//import * as PostApiUtil from './util/session_api_util.js';
+// import * as sessionActions from './actions/session_actions';
+ // import * as TaskApiUtil from './util/task_api_util.js'
 
 
 
@@ -999,21 +1081,24 @@ document.addEventListener('DOMContentLoaded', function () {
         id: window.currentUser.id
       }
     };
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])(preloadedState);
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])(preloadedState);
     delete window.currentUser;
   } else {
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  }
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  } // window.fetchTasks = TaskApiUtil.fetchTasks;
+  // window.fetchTask = TaskApiUtil.fetchTask;
 
-  window.fetchTasks = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"];
-  window.fetchTask = _util_task_api_util_js__WEBPACK_IMPORTED_MODULE_1__["fetchTask"]; // window.getState = store.getState; // for testing
-  //  window.dispatch = store.dispatch; // just for testing!    
-  // window.login = sessionActions.login;
+
+  window.getState = store.getState; // for testing
+
+  window.dispatch = store.dispatch; // just for testing!  
+
+  window.fetchTasks = _actions_task_actions__WEBPACK_IMPORTED_MODULE_0__["fetchTasks"]; // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
   // window.logout = sessionActions.logout;
 
   var root = document.getElementById('root');
-  react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
 });
@@ -1031,10 +1116,13 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _tasks_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks_reducer */ "./frontend/reducers/tasks_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  tasks: _tasks_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1154,6 +1242,51 @@ var sessionReducer = function sessionReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/tasks_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/tasks_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/task_actions */ "./frontend/actions/task_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var tasksReducer = function tasksReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState;
+
+  switch (action.type) {
+    case _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_TASKS"]:
+      return action.tasks;
+
+    case _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_TASK"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, _defineProperty({}, action.task.id, action.task));
+      return newState;
+
+    case _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_TASK"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState);
+      delete newState[action.taskId];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (tasksReducer);
 
 /***/ }),
 
@@ -1316,13 +1449,16 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/task_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchTasks, fetchTask */
+/*! exports provided: fetchTasks, fetchTask, createTask, updateTask, deleteTask */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTasks", function() { return fetchTasks; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTask", function() { return fetchTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTask", function() { return createTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTask", function() { return updateTask; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTask", function() { return deleteTask; });
 var fetchTasks = function fetchTasks() {
   return $.ajax({
     method: 'GET',
@@ -1332,6 +1468,30 @@ var fetchTasks = function fetchTasks() {
 var fetchTask = function fetchTask(id) {
   return $.ajax({
     method: 'GET',
+    url: "api/tasks/".concat(id)
+  });
+};
+var createTask = function createTask(task) {
+  return $.ajax({
+    method: 'POST',
+    url: "api/tasks",
+    data: {
+      task: task
+    }
+  });
+};
+var updateTask = function updateTask(task) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/tasks/".concat(task.id),
+    data: {
+      task: task
+    }
+  });
+};
+var deleteTask = function deleteTask(id) {
+  return $.ajax({
+    method: 'DELETE',
     url: "api/tasks/".concat(id)
   });
 };
@@ -30696,7 +30856,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

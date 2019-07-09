@@ -1,8 +1,9 @@
 // frontend/entry.jsx
-//import * as PostApiUtil from './util/session_api_util.js'
+//import * as PostApiUtil from './util/session_api_util.js';
+// import * as sessionActions from './actions/session_actions';
+import * as taskActions from './actions/task_actions'
+// import * as TaskApiUtil from './util/task_api_util.js'
 
-import * as sessionActions from './actions/session_actions';
-import * as APIutil from './util/task_api_util.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
@@ -25,14 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		store = configureStore();
 	}
 
-	window.fetchTasks = APIutil.fetchTasks;
-	window.fetchTask = APIutil.fetchTask;
+	// window.fetchTasks = TaskApiUtil.fetchTasks;
+	// window.fetchTask = TaskApiUtil.fetchTask;
 
-  // window.getState = store.getState; // for testing
-  //  window.dispatch = store.dispatch; // just for testing!    
+  window.getState = store.getState; // for testing
+	window.dispatch = store.dispatch; // just for testing!  
+	window.fetchTasks = taskActions.fetchTasks;  
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
 	// window.logout = sessionActions.logout;
+
+
 	const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });

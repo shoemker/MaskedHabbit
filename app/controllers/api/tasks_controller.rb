@@ -31,6 +31,9 @@ class Api::TasksController < ApplicationController
 		end
 	end
 
+	def destroy
+
+	end
 
 
 	def task_params

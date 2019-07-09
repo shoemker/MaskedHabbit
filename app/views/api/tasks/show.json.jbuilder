@@ -2,7 +2,7 @@
 	
 	
 	
-json.bench do
+json.task do
 		json.extract! @task, :id,            
  											:brief,          
  											:description,    
