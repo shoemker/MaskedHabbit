@@ -1139,9 +1139,11 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var tasks = Object.values(state.entities.tasks);
   var categoryId = ownProps.match.params.categoryId;
+  var currentUser = state.entities.users[state.session.id];
   return {
     categoryId: categoryId,
-    tasks: tasks
+    tasks: tasks,
+    currentUser: currentUser
   };
 };
 
@@ -1209,8 +1211,10 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var tasks = this.props.tasks.map(function (task) {
-        return task.brief;
+      var catId = this.props.match.params.categoryId;
+      var tasks = [];
+      this.props.tasks.forEach(function (task) {
+        if (parseInt(catId, 10) === task.category_id) tasks.push(task.brief);
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-by-cat-background"

@@ -7,14 +7,17 @@ class TasksByCat extends React.Component {
 		this.props.fetchTasks();
 	}
 
-	render() {
-		
-		let tasks = this.props.tasks.map( task => {
 
-			return(
-				task.brief
-			)
-		})
+	
+
+	render() {
+		let catId = this.props.match.params.categoryId;
+		let tasks = [];
+		
+		this.props.tasks.forEach(function(task) {
+			if (parseInt(catId,10) === task.category_id) tasks.push(task.brief)
+		});
+	
 
 		return (
 			<div className="tasks-by-cat-background">

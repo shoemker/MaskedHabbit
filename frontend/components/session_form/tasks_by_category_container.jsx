@@ -7,11 +7,12 @@ const mapStateToProps = (state, ownProps) => {
 
 	let tasks = Object.values(state.entities.tasks);
 	let categoryId = ownProps.match.params.categoryId;
-
+	let currentUser = state.entities.users[state.session.id];
 
 	return ({
 		categoryId: categoryId,
-		tasks: tasks
+		tasks: tasks,
+		currentUser:currentUser
 	})
 }
 
