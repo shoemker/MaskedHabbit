@@ -1137,9 +1137,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var tasks = Object.values(state.entities.tasks);
   var categoryId = ownProps.match.params.categoryId;
   return {
-    categoryId: categoryId
+    categoryId: categoryId,
+    tasks: tasks
   };
 };
 
@@ -1207,9 +1209,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var tasks = this.props.tasks.map(function (task) {
+        return task.brief;
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-by-cat-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.match.params.categoryId));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.match.params.categoryId), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, tasks)));
     }
   }]);
 

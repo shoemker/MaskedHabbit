@@ -4,9 +4,14 @@ import TasksByCat from './tasks_by_category_form';
 import { fetchTasks } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
+
+	let tasks = Object.values(state.entities.tasks);
 	let categoryId = ownProps.match.params.categoryId;
+
+
 	return ({
-		categoryId: categoryId
+		categoryId: categoryId,
+		tasks: tasks
 	})
 }
 
