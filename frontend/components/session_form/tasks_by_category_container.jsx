@@ -2,6 +2,7 @@
 import { connect } from 'react-redux';
 import TasksByCat from './tasks_by_category_form';
 import { fetchTasks } from '../../actions/task_actions';
+import { fetchCategory } from '../../actions/category_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -21,7 +22,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
 	return ({
-		fetchTasks: () => dispatch(fetchTasks())
+		fetchTasks: () => dispatch(fetchTasks()),
+		fetchCategory: (id) => dispatch(fetchCategory(id))
 	})
 }
 
