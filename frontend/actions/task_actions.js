@@ -4,7 +4,7 @@ export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const RECEIVE_TASK =  'RECEIVE_TASK';
 export const REMOVE_TASK = 	 'REMOVE_TASK';
 
-const receiveTasks = tasks => ({
+const receiveTasks = (tasks) => ({
 	type:RECEIVE_TASKS,
 	tasks: tasks
 });
@@ -17,7 +17,7 @@ const receiveTask = (task) => ({
 const removeTask = (task) => ({
 	type: REMOVE_TASK,
 	taskId: task.id
-})
+});
 
 export const fetchTasks = () => (dispatch) => (
 	TaskApiUtil.fetchTasks().then(tasks => dispatch(receiveTasks(tasks))) 

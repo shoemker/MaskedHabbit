@@ -1,7 +1,6 @@
 
 
 export const fetchTasks = () => {
-
 	return (
 		$.ajax({
 			method: 'GET',
@@ -13,7 +12,6 @@ export const fetchTasks = () => {
 
 
 export const fetchTask = (id) => {
-
 	return (
 		$.ajax({
 			method: 'GET',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../navbar/navbar_container'
+import { Link } from 'react-router-dom';
 
 class MainForm extends React.Component {
 
@@ -13,7 +14,7 @@ class MainForm extends React.Component {
 					<NavbarContainer />
 				</header>
 				<div className="splash-main">
-					{/* <img className='splash-img' src={window.splashUrl} /> */}
+
 					<div className= "splash-first">
 						The convenient & affordable way <br></br>to get things done around the home.
 					</div>
@@ -21,16 +22,39 @@ class MainForm extends React.Component {
 						Choose from over 140,000 background checked Maskers for help without breaking the bank.
 					</div>
 					<div className="buttons-first-row">
-						<button className="category-button">Mounting & Installation</button>
-						<button className="category-button">Moving & Packing</button>
-						<button className="category-button">Furniture Assembly</button>
 
+						<Link to = {`/tasks/1`}>
+							<form action="">
+								<button className="category-button">Mounting & Installation</button>
+							</form>
+						</Link>
+						<Link to={`/tasks/2`}>
+							<form action="">
+								<button className="category-button">Moving & Packing</button>
+							</form>
+						</Link>
+						<Link to={`/tasks/3`}>
+							<form action="">
+								<button className="category-button">Furniture Assembly</button>
+							</form>
+						</Link>
 					</div>
 					<div className="buttons-second-row">
-						<button className="category-button">Home Improvement</button>
-						<button className="category-button">General Handyman</button>
-						<button className="category-button">Heavy Lifting</button>
-
+						<Link to={`/tasks/4`}>
+							<form action="">
+								<button className="category-button">Home Improvement</button>
+							</form>
+						</Link>
+						<Link to={`/tasks/5`}>
+							<form action="">
+								<button className="category-button">General Handyman</button>
+							</form>
+						</Link>
+						<Link to={`/tasks/6`}>
+							<form action="">
+								<button className="category-button">Heavy Lifting</button>
+							</form>
+						</Link>
 					</div>
 					<div className="magnifying-parent">
 

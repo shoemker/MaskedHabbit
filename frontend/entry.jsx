@@ -2,7 +2,9 @@
 //import * as PostApiUtil from './util/session_api_util.js';
 // import * as sessionActions from './actions/session_actions';
 import * as taskActions from './actions/task_actions'
+import * as categoryActions from './actions/category_actions'
 // import * as TaskApiUtil from './util/task_api_util.js'
+// import * as CategoryApiUtil from './util/category_api_util.js'
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -28,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// window.fetchTasks = TaskApiUtil.fetchTasks;
 	// window.fetchTask = TaskApiUtil.fetchTask;
+	// window.fetchCategories = CategoryApiUtil.fetchCategories;
+	// window.fetchCategory = CategoryApiUtil.fetchCategory;
 
   window.getState = store.getState; // for testing
 	window.dispatch = store.dispatch; // just for testing!  
-	window.fetchTasks = taskActions.fetchTasks;  
+	window.fetchCategories = categoryActions.fetchCategories;  
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
 	// window.logout = sessionActions.logout;
