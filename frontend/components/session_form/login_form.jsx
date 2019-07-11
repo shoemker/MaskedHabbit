@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
 		e.preventDefault();
 		let name = DOER_NAMES[Math.floor(Math.random() * DOER_NAMES.length)];
 		let user = { username: name, password: '123456' }
-		this.props.processForm(user).then(() => this.props.history.push("/"));
+		this.props.processForm(user).then(() => this.props.history.push("/doer"));
 	}
 
 	renderIndErrors(type) {

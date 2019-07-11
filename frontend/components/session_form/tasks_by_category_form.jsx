@@ -7,6 +7,7 @@ class TasksByCat extends React.Component {
 	componentDidMount() {
 		this.props.fetchTasks();
 		this.props.fetchCategory(this.props.match.params.categoryId);
+		// let catId = this.props.match.params.categoryId;
 	}
 
 
@@ -25,11 +26,6 @@ class TasksByCat extends React.Component {
 
 
 	render() {
-		let catId = this.props.match.params.categoryId;
-
-
-		
-	
 
 		return (
 			<div className="tasks-by-cat-background">
@@ -41,9 +37,12 @@ class TasksByCat extends React.Component {
 					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
 						return (
 							<div className='task-container'>
-								<h3 id='task'>Task</h3>
-									<p> {task.brief}</p> 
-							
+				
+								<p className = "task-brief">Task: {task.brief}</p> 
+								<p className = 'task-fields'>Description: {task.description}	</p>
+								<p className = 'task-fields'>Location: {task.location}</p>
+								<p className = 'task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+	
 							</div>
 							)
 					})}
