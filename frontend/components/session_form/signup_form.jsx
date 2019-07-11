@@ -43,17 +43,7 @@ class SignupForm extends React.Component {
 		this.props.processForm(user);
 	}
 
-	// renderErrors(type) {
-	// 	return (
-	// 		<ul>
-	// 			{this.props.errors.map((error, i) => (
-	// 				<li key={`error-${i}`}>
-	// 					{error}
-	// 				</li>
-	// 			))}
-	// 		</ul>
-	// 	);
-	// }
+
 	renderErrors(type) {
 	
 		for(let i = 0; i< this.props.errors.length; i++){

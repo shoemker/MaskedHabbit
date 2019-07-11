@@ -35,13 +35,14 @@ class LoginForm extends React.Component {
 		e.preventDefault();
 		const user = Object.assign({}, this.state);
 		this.props.processForm(user).then( () => this.props.history.push("/"));
+		
 	}
 
 	handleDemoMakerSubmit(e) {
 		e.preventDefault();
 		let name = MAKER_NAMES[Math.floor(Math.random() * MAKER_NAMES.length)];
 		let user = {username: name, password: '123456'}
-		this.props.processForm(user).then(() => this.props.history.push("/"));
+		this.props.processForm(user).then(() => this.props.history.push("/maker"));
 	}
 
 	handleDemoDoerSubmit(e){
