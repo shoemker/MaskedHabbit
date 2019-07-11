@@ -23,16 +23,13 @@ class TasksByCat extends React.Component {
 		}	
 	}
 
-	
 
 	render() {
 		let catId = this.props.match.params.categoryId;
-		let tasks = [];
+
+
 		
-		this.props.tasks.forEach(function(task) {
-			if (parseInt(catId,10) === task.category_id) tasks.push(task.brief)
-		});
-		
+	
 
 		return (
 			<div className="tasks-by-cat-background">
@@ -40,11 +37,18 @@ class TasksByCat extends React.Component {
 					<NavbarContainer />
 				</header>
 				{this.greeting()}
-				<div>
-					<ul>
-						{tasks}
-					</ul>
+				<div className = 'parent-task-container'> 
+					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
+						return (
+							<div className='task-container'>
+								<h3 id='task'>Task</h3>
+									<p> {task.brief}</p> 
+							
+							</div>
+							)
+					})}
 				</div>
+				
 			</div>
 		)
 	}

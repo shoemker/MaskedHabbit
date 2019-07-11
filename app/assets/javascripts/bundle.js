@@ -1133,14 +1133,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tasks_by_category_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasks_by_category_form */ "./frontend/components/session_form/tasks_by_category_form.jsx");
 /* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
 /* harmony import */ var _actions_category_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/category_actions */ "./frontend/actions/category_actions.js");
+/* harmony import */ var _store_selectors_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/selectors.js */ "./frontend/store/selectors.js");
+
 
 
 
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var tasks = Object.values(state.entities.tasks);
   var categoryId = ownProps.match.params.categoryId;
+  var tasks = Object(_store_selectors_js__WEBPACK_IMPORTED_MODULE_4__["filterTasksByCategoryId"])(state, categoryId);
   var currentUser = state.entities.users[state.session.id];
   return {
     categoryId: categoryId,
@@ -1236,13 +1238,17 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var catId = this.props.match.params.categoryId;
-      var tasks = [];
-      this.props.tasks.forEach(function (task) {
-        if (parseInt(catId, 10) === task.category_id) tasks.push(task.brief);
-      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-by-cat-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, tasks)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "parent-task-container"
+      }, this.props.tasks.length > 0 && this.props.tasks.map(function (task) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "task-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          id: "task"
+        }, "Task"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", task.brief));
+      })));
     }
   }]);
 
@@ -1582,6 +1588,29 @@ var usersReducer = function usersReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (usersReducer);
+
+/***/ }),
+
+/***/ "./frontend/store/selectors.js":
+/*!*************************************!*\
+  !*** ./frontend/store/selectors.js ***!
+  \*************************************/
+/*! exports provided: filterTasksByCategoryId */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterTasksByCategoryId", function() { return filterTasksByCategoryId; });
+var filterTasksByCategoryId = function filterTasksByCategoryId(state, categoryId) {
+  var tasks = Object.values(state.entities.tasks);
+  var stuff = [];
+  tasks.forEach(function (task) {
+    if (parseInt(categoryId, 10) === task.category_id && task.completed === false) {
+      stuff.push(task);
+    }
+  });
+  return stuff;
+};
 
 /***/ }),
 
@@ -31142,7 +31171,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

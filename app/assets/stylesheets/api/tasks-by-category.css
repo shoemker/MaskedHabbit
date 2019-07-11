@@ -24,5 +24,24 @@
 	margin-top: 2px;
 }
 
+.parent-task-container {
+	display: flex ;
+  flex-wrap: wrap;
+	position:absolute;
+	left:50%;
+}
 
+.task-container {
+	width: 350px;
+	height: 500px;
+	background-color: #e8ebef;
 
+	left:50%;
+	margin-left: -175px;
+	margin-top: 120px;
+}
+
+#task{
+	font-family:  Arial, Helvetica, sans-serif;
+	text-align: center;
+}
