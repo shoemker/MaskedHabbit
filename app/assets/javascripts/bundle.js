@@ -301,7 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_main_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/main_form_container */ "./frontend/components/session_form/main_form_container.jsx");
 /* harmony import */ var _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/tasks_by_category_container */ "./frontend/components/session_form/tasks_by_category_container.jsx");
-/* harmony import */ var _session_form_logged_in_doer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/logged_in_doer */ "./frontend/components/session_form/logged_in_doer.jsx");
+/* harmony import */ var _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/logged_in_doer_container */ "./frontend/components/session_form/logged_in_doer_container.jsx");
 /* harmony import */ var _session_form_logged_in_maker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./session_form/logged_in_maker */ "./frontend/components/session_form/logged_in_maker.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
@@ -322,7 +322,7 @@ var App = function App() {
     component: _session_form_logged_in_maker__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     path: "/doer",
-    component: _session_form_logged_in_doer__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     path: "/tasks/:categoryId",
     component: _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -478,10 +478,53 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/session_form/logged_in_doer.jsx":
-/*!*************************************************************!*\
-  !*** ./frontend/components/session_form/logged_in_doer.jsx ***!
-  \*************************************************************/
+/***/ "./frontend/components/session_form/logged_in_doer_container.jsx":
+/*!***********************************************************************!*\
+  !*** ./frontend/components/session_form/logged_in_doer_container.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _tasks_by_category_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasks_by_category_form */ "./frontend/components/session_form/tasks_by_category_form.jsx");
+/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
+/* harmony import */ var _logged_in_doer_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./logged_in_doer_form */ "./frontend/components/session_form/logged_in_doer_form.jsx");
+/* harmony import */ var _store_selectors_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/selectors.js */ "./frontend/store/selectors.js");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var categoryId = ownProps.match.params.categoryId;
+  var tasks = Object(_store_selectors_js__WEBPACK_IMPORTED_MODULE_4__["filterTasksByCategoryId"])(state, categoryId); // let currentUser = state.entities.users[state.session.id];
+
+  return {
+    categoryId: categoryId,
+    tasks: tasks // currentUser: currentUser
+
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchTasks: function fetchTasks() {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_2__["fetchTasks"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_logged_in_doer_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/session_form/logged_in_doer_form.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/components/session_form/logged_in_doer_form.jsx ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -525,7 +568,35 @@ function (_React$Component) {
   _createClass(LoggedInDoerForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons-all"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "Mounting & Installation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "Moving & Packing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "Furniture Assembly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "Home Improvement")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "General Handyman")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "category-doer-button"
+      }, "Heavy Lifting")))));
     }
   }]);
 
@@ -1244,9 +1315,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "account-question"
       }, "Already have an account?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/login"
+        to: "/login",
+        className: "link-get-rid-of-underline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "login-link"
+        className: "login-link"
       }, "Log in to continue")))))));
     }
   }]);

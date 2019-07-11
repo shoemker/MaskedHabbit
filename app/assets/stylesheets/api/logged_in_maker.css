@@ -1,9 +1,9 @@
 .maker-background {
 	height: 1000px;
 	width: 100%;
-	background-repeat: no-repeat;
+
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/caulking.jpg');
-	background-position: center top;
+	background-position: center;
 
 }
 
