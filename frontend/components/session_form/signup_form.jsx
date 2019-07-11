@@ -69,7 +69,7 @@ class SignupForm extends React.Component {
 						</Link>
 					</nav>
 				</header>
-			<div className = "signup-background">
+				<div className = "signup-background">
 
 				<div className = 'left-text'>
 					<div className="text-white left-1">Start Tasking.</div>
@@ -129,7 +129,7 @@ class SignupForm extends React.Component {
 							<br />
 							<span className='tasker-txt'>Masker? (Are you a task doer?)</span>
 							<input type="checkbox"
-									id="tasker-checkbox"  
+									className="tasker-checkbox"  
 									value="true"
 									onChange={this.check}></input>									
 								<br></br>

@@ -397,10 +397,12 @@ var Navbar = function Navbar(_ref) {
       src: window.logoURL
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "loggedin-name"
-    }, "Account: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Account: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "navbar-logout-button navbar-button",
       onClick: logout
-    }, "Log out"));
+    }, "Log out")));
   };
 
   return currentUser ? loggedInNavBar() : loggedOutNavBar();
@@ -523,7 +525,7 @@ function (_React$Component) {
   _createClass(LoggedInDoerForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Logged In Doer"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 
@@ -547,6 +549,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -572,27 +576,73 @@ var LoggedInMakerForm =
 function (_React$Component) {
   _inherits(LoggedInMakerForm, _React$Component);
 
-  function LoggedInMakerForm() {
+  function LoggedInMakerForm(props) {
+    var _this;
+
     _classCallCheck(this, LoggedInMakerForm);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(LoggedInMakerForm).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoggedInMakerForm).call(this, props));
+    _this.state = {
+      brief: '',
+      desription: '',
+      location: '',
+      completed: false,
+      category_id: 0
+    }; // this.handleSubmit = this.handleSubmit.bind(this);
+
+    return _this;
   }
 
   _createClass(LoggedInMakerForm, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
     key: "render",
-    // constructor(props) {
-    // 	super(props);
-    // 	this.state = {
-    // 		brief: '',
-    // 		desription: '',
-    // 		location: '',
-    // 		completed: false,
-    // 		category_id: 0
-    // 	};
-    // 	this.handleSubmit = this.handleSubmit.bind(this);
-    // }
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Logged In Maker"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "maker-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "maker-form-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit,
+        className: "signup-form-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dir", {
+        className: "maker-form-title"
+      }, "Describe a New Task"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "Brief Description",
+        onChange: this.update('brief'),
+        className: "signup-input"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "Longer Description",
+        onChange: this.update('description'),
+        className: "signup-input"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "Location",
+        placeholder: "Location",
+        onChange: this.update('location'),
+        className: "signup-input"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "tasker-txt"
+      }, "Vehicle Needed?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "tasker-checkbox",
+        value: "true",
+        onChange: this.check
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "signup-submit",
+        type: "submit",
+        value: "Create New Task"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))))));
     }
   }]);
 
@@ -1181,7 +1231,7 @@ function (_React$Component) {
         className: "tasker-txt"
       }, "Masker? (Are you a task doer?)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
-        id: "tasker-checkbox",
+        className: "tasker-checkbox",
         value: "true",
         onChange: this.check
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

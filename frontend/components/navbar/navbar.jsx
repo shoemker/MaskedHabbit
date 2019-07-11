@@ -29,7 +29,9 @@ const Navbar = ({ currentUser, logout }) => {
 				</Link>
             
 				<div className="loggedin-name">Account: {currentUser.username}</div>
+				<Link to="/">			
         <button className="navbar-logout-button navbar-button" onClick={logout}>Log out</button>
+				</Link>
       </nav>
     );
 

@@ -12,7 +12,7 @@ class LoggedInDoerForm extends React.Component {
 				<header>
 					<NavbarContainer />
 				</header>
-				<h2>Logged In Doer</h2>
+			
 
 			</div>
 		)
