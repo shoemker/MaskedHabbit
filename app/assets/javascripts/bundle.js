@@ -523,7 +523,7 @@ function (_React$Component) {
   _createClass(LoggedInDoerForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Logged In Doer");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Logged In Doer"));
     }
   }]);
 
@@ -580,8 +580,18 @@ function (_React$Component) {
 
   _createClass(LoggedInMakerForm, [{
     key: "render",
+    // constructor(props) {
+    // 	super(props);
+    // 	this.state = {
+    // 		brief: '',
+    // 		desription: '',
+    // 		location: '',
+    // 		completed: false,
+    // 		category_id: 0
+    // 	};
+    // 	this.handleSubmit = this.handleSubmit.bind(this);
+    // }
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Logged In Maker"));
     }
   }]);
@@ -668,7 +678,7 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        return _this3.props.history.push("/");
+        return _this3.props.history.push("/doer");
       });
     }
   }, {
@@ -1078,11 +1088,12 @@ function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      if (field === 'price_per_hour') {
-        return function (e) {
-          return _this2.setState(_defineProperty({}, field, parseFloat(e.currentTarget.value)));
-        };
-      } else return function (e) {
+      // if (field === 'price_per_hour') {
+      // 	return e => this.setState({
+      // 		[field]: parseFloat(e.currentTarget.value)
+      // 	});
+      // }
+      return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
@@ -1157,7 +1168,7 @@ function (_React$Component) {
       })), this.renderErrors('Password'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "E-mail",
-        value: this.state.mail,
+        value: this.state.email,
         onChange: this.update('email'),
         className: "signup-input"
       })), this.renderErrors('Email'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

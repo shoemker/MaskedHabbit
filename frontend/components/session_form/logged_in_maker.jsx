@@ -4,10 +4,21 @@ import NavbarContainer from '../navbar/navbar_container'
 
 
 class LoggedInMakerForm extends React.Component {
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		brief: '',
+	// 		desription: '',
+	// 		location: '',
+	// 		completed: false,
+	// 		category_id: 0
+	// 	};
+	// 	this.handleSubmit = this.handleSubmit.bind(this);
+	// }
 
 
 	render() {
-		debugger
+
 		return (
 			<div>
 				<header>

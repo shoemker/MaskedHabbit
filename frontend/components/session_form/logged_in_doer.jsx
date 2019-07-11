@@ -8,10 +8,13 @@ class LoggedInDoerForm extends React.Component {
 
 	render() {
 		return (
-			<h2>Logged In Doer</h2>
+			<div >
+				<header>
+					<NavbarContainer />
+				</header>
+				<h2>Logged In Doer</h2>
 
-
-
+			</div>
 		)
 	}
 }

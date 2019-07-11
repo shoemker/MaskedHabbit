@@ -18,12 +18,12 @@ class SignupForm extends React.Component {
 	}
 
 	update(field) {
-		if (field === 'price_per_hour') {
-			return e => this.setState({
-				[field]: parseFloat(e.currentTarget.value)
-			});
-		}
-		else return e => this.setState({
+		// if (field === 'price_per_hour') {
+		// 	return e => this.setState({
+		// 		[field]: parseFloat(e.currentTarget.value)
+		// 	});
+		// }
+		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
 	}
@@ -109,7 +109,7 @@ class SignupForm extends React.Component {
 							<label>
 								<input type="text"
 									placeholder="E-mail"
-									value={this.state.mail}
+									value={this.state.email}
 									onChange={this.update('email')}
 									className="signup-input"
 								/>
