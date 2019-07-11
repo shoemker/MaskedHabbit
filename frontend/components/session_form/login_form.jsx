@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const DOER_NAMES = ['jacob',
 									'frank',
@@ -71,8 +72,9 @@ class LoginForm extends React.Component {
 			<div className="login-background">
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
-		
-						<img className='login-logo' src={window.logoURL} />
+						<Link to="/">
+							<img className='login-logo' src={window.logoURL} />
+						</Link>
 						<br />
 						{/* Please {this.props.formType} or {this.props.navLink} */}
 						{/* {this.renderErrors()} */}
