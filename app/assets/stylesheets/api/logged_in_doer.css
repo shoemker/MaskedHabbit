@@ -1,5 +1,16 @@
+.logged-in-doer-main {
+	height: 1000px;
+	width: 100%;
+	background-size: 1100px 700px;
+	background-position: left top; 
+	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/gardening.jpg');
+	flex-direction: row;
+  background-repeat: no-repeat;
+}
+
+
 .buttons-all {
-	width: 225px;
+	width: 25%;
 	display: flex ;
 	flex-direction: column;
 	position:absolute;
@@ -22,4 +33,12 @@
 .category-doer-button:hover {
 	background-color: #2e661b;
 	color: white;
+}
+
+.logged-in-doer-right{
+	width:70%;
+	height:500px;
+	border: 1px solid black;
+	position:absolute;
+	right: 0px;
 }

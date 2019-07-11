@@ -4,7 +4,9 @@
 
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/caulking.jpg');
 	background-position: center;
-
+	background-size: 1100px 700px;
+	 background-repeat: no-repeat;
+	background-position: left top; 
 }
 
 

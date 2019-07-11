@@ -488,36 +488,32 @@ var Root = function Root(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _tasks_by_category_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasks_by_category_form */ "./frontend/components/session_form/tasks_by_category_form.jsx");
-/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
-/* harmony import */ var _logged_in_doer_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./logged_in_doer_form */ "./frontend/components/session_form/logged_in_doer_form.jsx");
-/* harmony import */ var _store_selectors_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/selectors.js */ "./frontend/store/selectors.js");
-
+/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
+/* harmony import */ var _logged_in_doer_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logged_in_doer_form */ "./frontend/components/session_form/logged_in_doer_form.jsx");
+/* harmony import */ var _store_selectors_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/selectors.js */ "./frontend/store/selectors.js");
 
 
 
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var categoryId = ownProps.match.params.categoryId;
-  var tasks = Object(_store_selectors_js__WEBPACK_IMPORTED_MODULE_4__["filterTasksByCategoryId"])(state, categoryId); // let currentUser = state.entities.users[state.session.id];
-
+  var tasks = Object.values(state.entities.tasks);
+  var currentUser = state.entities.users[state.session.id];
   return {
-    categoryId: categoryId,
-    tasks: tasks // currentUser: currentUser
-
+    currentUser: currentUser,
+    tasks: tasks
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchTasks: function fetchTasks() {
-      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_2__["fetchTasks"])());
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_logged_in_doer_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_logged_in_doer_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -559,44 +555,63 @@ var LoggedInDoerForm =
 function (_React$Component) {
   _inherits(LoggedInDoerForm, _React$Component);
 
-  function LoggedInDoerForm() {
+  function LoggedInDoerForm(props) {
+    var _this;
+
     _classCallCheck(this, LoggedInDoerForm);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(LoggedInDoerForm).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoggedInDoerForm).call(this, props));
+    _this.catId = 1;
+    return _this;
   }
 
   _createClass(LoggedInDoerForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchTasks();
+    }
+  }, {
+    key: "handleCatSubmit",
+    value: function handleCatSubmit(catNum) {
+      this.catId = catNum;
+    }
+  }, {
     key: "render",
     value: function render() {
+      var tasks = this.props.tasks.map(function (task) {
+        return task.brief;
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "splash-main"
+        className: "logged-in-doer-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons-all"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(1)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
       }, "Mounting & Installation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(2)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
       }, "Moving & Packing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(3)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
       }, "Furniture Assembly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(4)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
       }, "Home Improvement")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(5)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
       }, "General Handyman")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
+        onSubmit: this.handleCatSubmit(6)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "category-doer-button"
-      }, "Heavy Lifting")))));
+      }, "Heavy Lifting"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "logged-in-doer-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, tasks))));
     }
   }]);
 
@@ -31428,7 +31443,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
