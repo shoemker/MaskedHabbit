@@ -926,7 +926,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "tasker-txt login-txt"
+        className: "login-txt"
       }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
@@ -934,7 +934,7 @@ function (_React$Component) {
         className: "login-input",
         id: "login-username"
       }), this.renderIndErrors('Username')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "tasker-txt login-txt"
+        className: "login-txt"
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
@@ -1343,25 +1343,25 @@ function (_React$Component) {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Username",
+        placeholder: " Username",
         value: this.state.username,
         onChange: this.update('username'),
         className: "signup-input"
       })), this.renderErrors('Username'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
-        placeholder: "Password",
+        placeholder: " Password",
         value: this.state.password,
         onChange: this.update('password'),
         className: "signup-input"
       })), this.renderErrors('Password'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "E-mail",
+        placeholder: " E-mail",
         value: this.state.email,
         onChange: this.update('email'),
         className: "signup-input"
       })), this.renderErrors('Email'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Price Per Hour",
+        placeholder: " Price Per Hour",
         value: this.state.price_per_hour,
         onChange: this.update('price_per_hour'),
         className: "signup-input"

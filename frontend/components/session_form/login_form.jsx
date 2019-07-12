@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
 						{/* {this.renderErrors()} */}
 						<div className="login-form">
 							<br />
-							<label><span className='tasker-txt login-txt'>Username</span>
+							<label><span className='login-txt'>Username</span>
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update('username')}
@@ -90,7 +90,7 @@ class LoginForm extends React.Component {
 								{this.renderIndErrors('Username')}
 							</label>
 							<br />
-							<label><span className='tasker-txt login-txt'>Password</span>
+							<label><span className='login-txt'>Password</span>
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update('password')}
