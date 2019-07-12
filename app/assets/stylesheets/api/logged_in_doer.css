@@ -1,9 +1,9 @@
 .logged-in-doer-main {
 	height: 1000px;
 	width: 100%;
-	background-size: 1100px 700px;
+	background-size: 1100px 750px;
 	background-position: left top; 
-	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/gardening.jpg');
+	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/mounting.jpg');
 	flex-direction: row;
   background-repeat: no-repeat;
 }
@@ -14,6 +14,7 @@
 	display: flex ;
 	flex-direction: column;
 	position:absolute;
+	margin-top: 100px;
 }
 
 .category-doer-button {
@@ -21,7 +22,7 @@
 	color: #7dd161;
 	font-family:  Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	border: 1px solid #7dd161;
+
 	border-radius: 4px;
 	height: 48px;
 	width: 100%;
@@ -38,7 +39,33 @@
 .logged-in-doer-right{
 	width:70%;
 	height:500px;
-	border: 1px solid black;
+
 	position:absolute;
 	right: 0px;
+	margin-top: 80px;
+}
+
+.doer-task-container{
+	background-color:white;
+	width:500px;
+	height: 200px;
+	margin: 20px;
+	
+	border-radius: 10px;
+}
+
+.task-accept-button{
+	background-color: #2e661b;
+	color: white;
+	width:100px;
+	height:45px;
+	margin-left:190px;
+
+	font-family:  Arial, Helvetica, sans-serif;
+}
+
+.task-accept-button:hover{
+	background-color: white;
+	color: #7dd161;
+
 }

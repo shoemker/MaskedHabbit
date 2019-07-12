@@ -647,7 +647,7 @@ function (_React$Component) {
         className: "logged-in-doer-right"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "task-container"
+          className: "doer-task-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
         }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -656,7 +656,10 @@ function (_React$Component) {
           className: "task-fields"
         }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"));
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "task-accept-button",
+          type: "submit"
+        }, "Accept Task"));
       }))));
     }
   }]);
@@ -1375,12 +1378,14 @@ function (_React$Component) {
         value: "Registration"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "account-question"
-      }, "Already have an account?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Already have an account?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "link-dark"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login",
         className: "link-get-rid-of-underline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-link"
-      }, "Log in to continue")))))));
+      }, "Log in to continue"))))))));
     }
   }]);
 

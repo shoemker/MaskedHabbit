@@ -135,9 +135,11 @@ class SignupForm extends React.Component {
 								<br></br>
 							<input className="signup-submit" type="submit" value="Registration" />
 								<br></br><div id='account-question'>Already have an account?</div>
-							<Link to="/login" className="link-get-rid-of-underline">
-									<div className='login-link'>Log in to continue</div>
-							</Link>
+							<div id= "link-dark">
+								<Link to="/login" className="link-get-rid-of-underline">
+										<div className='login-link'>Log in to continue</div>
+								</Link>
+							</div>
 							{/* {this.renderErrors()} */}
 						</div>
 					</form>

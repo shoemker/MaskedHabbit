@@ -28,6 +28,10 @@
 	margin-top:17px;
 }
 
+.nav-log-text:hover {
+	color:rgb(68, 134, 51);
+}
+
 .become-tasker-button {
 	background-color: white;
 	color: #7dd161;
@@ -41,6 +45,9 @@
 	position:absolute;
 	right: 100px;
 
+}
+.become-tasker-button:hover {
+	cursor: pointer;
 }
 
 .navbar-logout-button{
@@ -60,6 +67,7 @@
 .navbar-button:hover {
 	background-color:  #2e661b;;
 	color: white;
+	cursor: pointer;
 }
 
 .loggedin-name {

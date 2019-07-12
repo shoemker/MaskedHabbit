@@ -183,3 +183,12 @@ Task.create(brief: "Carry dog to vet",
 						task_maker_id: 7,
 						category_id: 6
 						)
+
+Task.create(brief: "Install wall television",
+						description: "50 in tv",
+						location: "532 Fulton",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 6,
+						category_id: 1
+						)
