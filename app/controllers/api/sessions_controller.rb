@@ -17,11 +17,11 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render "api/users/show"
 		elsif params[:user][:username].length == 0
-			render json: ["Username can't be blank"], status: 401	
+			render json: ["username can't be blank"], status: 401	
 		elsif params[:user][:password].length == 0
-			render json: ["Password can't be blank"], status: 401	
+			render json: ["password can't be blank"], status: 401	
 		elsif params[:user][:password].length < 6 
-			render json: ["Password must be at least 6 chars"], status: 401
+			render json: ["password must be at least 6 chars"], status: 401
 		else			
 			render json: ["Invalid Username or Password"], status: 401
 		end

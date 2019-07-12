@@ -38,7 +38,7 @@ class TasksByCat extends React.Component {
 						return (
 							<div className='task-container'>
 				
-								<p className = "task-brief">Task: {task.brief}</p> 
+								<p className = "task-brief"> {task.brief}</p> 
 								<p className = 'task-fields'>Description: {task.description}	</p>
 								<p className = 'task-fields'>Location: {task.location}</p>
 								<p className = 'task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>

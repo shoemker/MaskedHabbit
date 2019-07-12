@@ -843,7 +843,8 @@ function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleDemoMakerSubmit = _this.handleDemoMakerSubmit.bind(_assertThisInitialized(_this));
-    _this.handleDemoDoerSubmit = _this.handleDemoDoerSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemoDoerSubmit = _this.handleDemoDoerSubmit.bind(_assertThisInitialized(_this)); // this.props.errors=[];
+
     return _this;
   }
 
@@ -933,14 +934,14 @@ function (_React$Component) {
         onChange: this.update('username'),
         className: "login-input",
         id: "login-username"
-      }), this.renderIndErrors('Username')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }), this.renderIndErrors('username')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "login-txt"
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
         onChange: this.update('password'),
         className: "login-input"
-      }), this.renderIndErrors('Password')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), this.renderIndErrors('password')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "login-submit",
         type: "submit",
         value: "Log In"
@@ -1564,7 +1565,7 @@ function (_React$Component) {
           className: "task-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields"
         }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields"

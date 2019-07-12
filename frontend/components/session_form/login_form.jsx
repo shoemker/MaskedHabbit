@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleDemoMakerSubmit = this.handleDemoMakerSubmit.bind(this);
 		this.handleDemoDoerSubmit = this.handleDemoDoerSubmit.bind(this);
+		// this.props.errors=[];
 	}
 
 	update(field) {
@@ -87,7 +88,7 @@ class LoginForm extends React.Component {
 									className="login-input"
 									id = "login-username"
 								/>
-								{this.renderIndErrors('Username')}
+								{this.renderIndErrors('username')}
 							</label>
 							<br />
 							<label><span className='login-txt'>Password</span>
@@ -96,7 +97,7 @@ class LoginForm extends React.Component {
 									onChange={this.update('password')}
 									className="login-input"
 								/>
-								{this.renderIndErrors('Password')}
+								{this.renderIndErrors('password')}
 							</label>
 							<br />
 							<input className="login-submit" type="submit" value="Log In" />
