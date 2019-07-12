@@ -564,7 +564,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoggedInDoerForm).call(this, props));
     _this.state = {
-      catId: 1
+      catId: 0
     };
     return _this;
   }

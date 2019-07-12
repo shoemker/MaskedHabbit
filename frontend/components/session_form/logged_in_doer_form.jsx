@@ -7,7 +7,7 @@ class LoggedInDoerForm extends React.Component {
 		constructor(props) {
 		super(props);
 	
-		this.state = {catId: 1}
+		this.state = {catId: 0}
 	
 	}
 

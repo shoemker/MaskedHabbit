@@ -11,7 +11,7 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 <br><br>
 <h2>Technologies Used</h2>
 <ol>
-	<li>**Rails**: This app uses a Rails backend.</li>
+	<li>Rails: This app uses a Rails backend.</li>
 	<li>Ruby: The migrations, models, controllers and other rails components use the Ruby language.</li>
 	<li>PostgreSQL: The Rails backend uses a PostgreSQL relational database.
 	<li>React: This app is a one-page app that re-renders with a React frontend.</li>
@@ -24,9 +24,23 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 <br>
 <h2>Features</h2>
 <ol>
-	<li>User Auth: Ability to sign up and login/logout as either a Task creator 	or a talsk doer</li>
+	<li>User Auth: Frontend to backend user authentication using BCrypt for passwords, giving the ability to securely signup, login and logut. </li>
 	<li>Tasks organized into categories</li>
 	<li>Ability to create tasks</li>
 	<li>Ability to accept tasks</li>
 </ol>
-<br><br>
+<br>
+
+
+<h2>Interesting Code</h2>
+After a task doer logs in, they are sent to a page with categories on the left side and the tasks associated with those categories on the right side. Clicking on a category re-renders the page and changes the tasks.
+
+
+
+```
+<form onSubmit={() => this.setState({ catId: 1 })}>
+  <button className="category-doer-button"type="submit" >
+    Mounting & Installation
+  </button>
+</form>
+```
