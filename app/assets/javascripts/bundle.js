@@ -645,7 +645,19 @@ function (_React$Component) {
         type: "submit"
       }, "type", "submit"), "Heavy Lifting"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.catId))));
+      }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "task-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-brief"
+        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"));
+      }))));
     }
   }]);
 

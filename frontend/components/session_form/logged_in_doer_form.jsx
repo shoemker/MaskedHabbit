@@ -21,7 +21,6 @@ class LoggedInDoerForm extends React.Component {
 	render() {
 		let tasksSelected = [];
 	
-
 		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
 
 			if (this.state.catId === task.category_id && task.completed === false) {
@@ -37,7 +36,7 @@ class LoggedInDoerForm extends React.Component {
 				<div className="logged-in-doer-main">
 					<div className="buttons-all">
 
-						<form onSubmit={() => this.setState({catId: 1})}>
+						<form onSubmit={() => this.setState({ catId: 1 })}>
 							<button className="category-doer-button" type="submit" >Mounting & Installation</button>
 						</form>
 				
@@ -64,10 +63,20 @@ class LoggedInDoerForm extends React.Component {
 					</div>
 
 					<div className="logged-in-doer-right">
-						<ul>
-							
-							{this.state.catId}
-						</ul>
+						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+							return (
+								<div className='task-container'>
+
+									<p className="task-brief">Task: {task.brief}</p>
+									<p className='task-fields'>Description: {task.description}	</p>
+									<p className='task-fields'>Location: {task.location}</p>
+									<p className='task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+
+								</div>
+							)
+						})}
+							{/* {this.state.catId} */}
+					
 
 					</div>
 				</div>
