@@ -34,13 +34,50 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 
 <h2>Interesting Code</h2>
 After a task doer logs in, they are sent to a page with categories on the left side and the tasks associated with those categories on the right side. Clicking on a category re-renders the page and changes the tasks.
+<br>
 
-
+First, in the constructor of logged_in_doer_form.jsx:
+```
+this.state = {categoryId: 0}
+```
+The state now has a key/value pair that we can use to access the categoryId and we can change it with setState.<br>
+Below we can see that clicking on the button (the category button that is on the left side of the page) will set the categoryId in state to a new value. setState() will also trigger a new render, which is exactly what we want to see the new tasks.
 
 ```
-<form onSubmit={() => this.setState({ catId: 1 })}>
+<form onSubmit={() => this.setState({ categoryId: 1 })}>
   <button className="category-doer-button"type="submit" >
     Mounting & Installation
   </button>
 </form>
 ```
+Next, we take the list of all the tasks and select the ones that match the new CategoryId, putting them in the tasksSelected array. The following code is in the render() method.
+```
+let tasksSelected = [];
+	
+ (this.props.tasks.length > 0) && this.props.tasks.forEach( (task) = {
+  if (this.state.categoryId === task.category_id 
+	&& task.completed === false) {
+   tasksSelected.push(task);
+ }
+})
+```
+In the above code, the main block starts with (this.props.tasks.length > 0) so that the code doesn't execute on the very first render before the tasks are fetched.<br><br>
+Finally, we render the tasks within the return of the render.
+```
+{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+ return (
+  <div className='doer-task-container'>
+   <p className="task-brief">Task: {task.brief}</p>
+   <p className='task-fields'>Description: {task.description}</p>
+   <p className='task-fields'>Location: {task.location}</p>
+   <p className='task-fields'>
+    Need a Vehicle? :{task.vehicle_needed ? "yes" : "no"}
+   </p>
+   <button className="task-accept-button" type="submit">
+    Accept Task
+   </button>
+  </div>
+ )
+})}
+```
+Again we use a gateway at the beginning so that this block doesn't try to execute on the first render before we fetch the Tasks.

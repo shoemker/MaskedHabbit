@@ -7,7 +7,7 @@ class LoggedInDoerForm extends React.Component {
 		constructor(props) {
 		super(props);
 	
-		this.state = {catId: 0}
+		this.state = {categoryId: 0}
 	
 	}
 
@@ -22,8 +22,7 @@ class LoggedInDoerForm extends React.Component {
 		let tasksSelected = [];
 	
 		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
-
-			if (this.state.catId === task.category_id && task.completed === false) {
+			if (this.state.categoryId === task.category_id && task.completed === false) {
 				tasksSelected.push(task);
 			}
 		})
@@ -36,27 +35,27 @@ class LoggedInDoerForm extends React.Component {
 				<div className="logged-in-doer-main">
 					<div className="buttons-all">
 
-						<form onSubmit={() => this.setState({ catId: 1 })}>
+						<form onSubmit={() => this.setState({ categoryId: 1 })}>
 							<button className="category-doer-button" type="submit" >Mounting & Installation</button>
 						</form>
 				
-						<form onSubmit={() => this.setState({ catId: 2 })}>
+						<form onSubmit={() => this.setState({ categoryId: 2 })}>
 							<button className="category-doer-button" type="submit" >Moving & Packing</button>
 						</form>
 				
-						<form onSubmit={() => this.setState({ catId: 3 })}>
+						<form onSubmit={() => this.setState({ categoryId: 3 })}>
 							<button className="category-doer-button" type="submit">Furniture Assembly</button>
 						</form>
 					
-						<form onSubmit={() => this.setState({ catId: 4 })}>
+						<form onSubmit={() => this.setState({ categoryId: 4 })}>
 							<button className="category-doer-button" type="submit">Home Improvement</button>
 						</form>
 
-						<form onSubmit={() => this.setState({ catId: 5 })}>
+						<form onSubmit={() => this.setState({ categoryId: 5 })}>
 							<button className="category-doer-button" type="submit">General Handyman</button>
 						</form>
 
-						<form onSubmit={() => this.setState({ catId: 6 })}>
+						<form onSubmit={() => this.setState({ categoryId: 6 })}>
 							<button className="category-doer-button"type="submit" type="submit">Heavy Lifting</button>
 						</form>
 
@@ -75,7 +74,7 @@ class LoggedInDoerForm extends React.Component {
 								</div>
 							)
 						})}
-							{/* {this.state.catId} */}
+
 					
 
 					</div>

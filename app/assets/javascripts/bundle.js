@@ -564,7 +564,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoggedInDoerForm).call(this, props));
     _this.state = {
-      catId: 0
+      categoryId: 0
     };
     return _this;
   }
@@ -581,7 +581,7 @@ function (_React$Component) {
 
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this2.state.catId === task.category_id && task.completed === false) {
+        if (_this2.state.categoryId === task.category_id && task.completed === false) {
           tasksSelected.push(task);
         }
       });
@@ -592,7 +592,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 1
+            categoryId: 1
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -601,7 +601,7 @@ function (_React$Component) {
       }, "Mounting & Installation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 2
+            categoryId: 2
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -610,7 +610,7 @@ function (_React$Component) {
       }, "Moving & Packing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 3
+            categoryId: 3
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -619,7 +619,7 @@ function (_React$Component) {
       }, "Furniture Assembly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 4
+            categoryId: 4
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -628,7 +628,7 @@ function (_React$Component) {
       }, "Home Improvement")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 5
+            categoryId: 5
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -637,7 +637,7 @@ function (_React$Component) {
       }, "General Handyman")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
           return _this2.setState({
-            catId: 6
+            categoryId: 6
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", _defineProperty({
