@@ -531,6 +531,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -561,7 +563,9 @@ function (_React$Component) {
     _classCallCheck(this, LoggedInDoerForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoggedInDoerForm).call(this, props));
-    _this.catId = 1;
+    _this.state = {
+      catId: 1
+    };
     return _this;
   }
 
@@ -571,47 +575,77 @@ function (_React$Component) {
       this.props.fetchTasks();
     }
   }, {
-    key: "handleCatSubmit",
-    value: function handleCatSubmit(catNum) {
-      this.catId = catNum;
-    }
-  }, {
     key: "render",
     value: function render() {
-      var tasks = this.props.tasks.map(function (task) {
-        return task.brief;
+      var _this2 = this;
+
+      var tasksSelected = [];
+      this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
+        if (_this2.state.catId === task.category_id && task.completed === false) {
+          tasksSelected.push(task);
+        }
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons-all"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(1)
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 1
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
+        className: "category-doer-button",
+        type: "submit"
       }, "Mounting & Installation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(2)
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 2
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
+        className: "category-doer-button",
+        type: "submit"
       }, "Moving & Packing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(3)
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 3
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
+        className: "category-doer-button",
+        type: "submit"
       }, "Furniture Assembly")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(4)
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 4
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
+        className: "category-doer-button",
+        type: "submit"
       }, "Home Improvement")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(5)
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 5
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
+        className: "category-doer-button",
+        type: "submit"
       }, "General Handyman")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleCatSubmit(6)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "category-doer-button"
-      }, "Heavy Lifting"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onSubmit: function onSubmit() {
+          return _this2.setState({
+            catId: 6
+          });
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", _defineProperty({
+        className: "category-doer-button",
+        type: "submit"
+      }, "type", "submit"), "Heavy Lifting"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, tasks))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.catId))));
     }
   }]);
 
@@ -31443,7 +31477,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -6,25 +6,29 @@ import NavbarContainer from '../navbar/navbar_container'
 class LoggedInDoerForm extends React.Component {
 		constructor(props) {
 		super(props);
-
-		this.catId = 1;
+	
+		this.state = {catId: 1}
+	
 	}
+
 
 	componentDidMount() {
 		this.props.fetchTasks();
 	}
 
-	handleCatSubmit(catNum) {
-		this.catId = catNum
 
-	}
 
 	render() {
-		let tasks = this.props.tasks.map( task => {
-			return(
-				task.brief
-			)
+		let tasksSelected = [];
+	
+
+		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
+
+			if (this.state.catId === task.category_id && task.completed === false) {
+				tasksSelected.push(task);
+			}
 		})
+	
 		return (
 			<div >
 				<header>
@@ -33,35 +37,36 @@ class LoggedInDoerForm extends React.Component {
 				<div className="logged-in-doer-main">
 					<div className="buttons-all">
 
-						<form onSubmit={this.handleCatSubmit(1)}>
-							<button className="category-doer-button">Mounting & Installation</button>
+						<form onSubmit={() => this.setState({catId: 1})}>
+							<button className="category-doer-button" type="submit" >Mounting & Installation</button>
 						</form>
 				
-						<form onSubmit={this.handleCatSubmit(2)}>
-							<button className="category-doer-button">Moving & Packing</button>
+						<form onSubmit={() => this.setState({ catId: 2 })}>
+							<button className="category-doer-button" type="submit" >Moving & Packing</button>
 						</form>
 				
-						<form onSubmit={this.handleCatSubmit(3)}>
-							<button className="category-doer-button">Furniture Assembly</button>
+						<form onSubmit={() => this.setState({ catId: 3 })}>
+							<button className="category-doer-button" type="submit">Furniture Assembly</button>
 						</form>
 					
-						<form onSubmit={this.handleCatSubmit(4)}>
-							<button className="category-doer-button">Home Improvement</button>
+						<form onSubmit={() => this.setState({ catId: 4 })}>
+							<button className="category-doer-button" type="submit">Home Improvement</button>
 						</form>
 
-						<form onSubmit={this.handleCatSubmit(5)}>
-							<button className="category-doer-button">General Handyman</button>
+						<form onSubmit={() => this.setState({ catId: 5 })}>
+							<button className="category-doer-button" type="submit">General Handyman</button>
 						</form>
 
-						<form onSubmit={this.handleCatSubmit(6)}>
-							<button className="category-doer-button">Heavy Lifting</button>
+						<form onSubmit={() => this.setState({ catId: 6 })}>
+							<button className="category-doer-button"type="submit" type="submit">Heavy Lifting</button>
 						</form>
 
 					</div>
 
 					<div className="logged-in-doer-right">
 						<ul>
-							{tasks}
+							
+							{this.state.catId}
 						</ul>
 
 					</div>
