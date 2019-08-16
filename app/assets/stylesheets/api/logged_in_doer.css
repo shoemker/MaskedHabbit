@@ -1,9 +1,8 @@
 .logged-in-doer-main {
-	height: 1000px;
-	width: 100%;  
-	background-size: 1100px 750px;
-	background-position: left top; 
 	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 1000px;
+	width: 100%;
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/mounting.jpg');
 	flex-direction: row;
 

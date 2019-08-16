@@ -1,9 +1,8 @@
 .tasks-by-cat-background {
+	background-repeat: no-repeat;
+	background-size: 100%;
 	height: 1000px;
 	width: 100%;
-	background-size: 1100px 750px;
-	background-position: left top; 
-	background-repeat: no-repeat;
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/painting.jpg');
 }
 
