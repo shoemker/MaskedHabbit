@@ -12,7 +12,7 @@ class LoggedInMakerForm extends React.Component {
 			brief: '',
 			description: '',
 			location: '',
-			category_id: 0,
+			category_id: 1,
 			completed: false
 		};
 	
@@ -25,7 +25,7 @@ class LoggedInMakerForm extends React.Component {
 		debugger
 		// const user = Object.assign({}, this.state);
 		// this.props.processForm(user).then(() => this.props.history.push("/doer"));
-
+		this.props.createTask(this.state);
 	}
 
 	update(field) {

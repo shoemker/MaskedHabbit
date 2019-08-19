@@ -722,7 +722,7 @@ function (_React$Component) {
       brief: '',
       description: '',
       location: '',
-      category_id: 0,
+      category_id: 1,
       completed: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -735,6 +735,8 @@ function (_React$Component) {
       e.preventDefault();
       debugger; // const user = Object.assign({}, this.state);
       // this.props.processForm(user).then(() => this.props.history.push("/doer"));
+
+      this.props.createTask(this.state);
     }
   }, {
     key: "update",
