@@ -490,8 +490,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
 /* harmony import */ var _logged_in_doer_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logged_in_doer_form */ "./frontend/components/session_form/logged_in_doer_form.jsx");
-/* harmony import */ var _store_selectors_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/selectors.js */ "./frontend/store/selectors.js");
-
 
 
 
@@ -509,6 +507,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchTasks: function fetchTasks() {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"])());
+    },
+    updateTask: function updateTask(task) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["updateTask"])(task));
     }
   };
 };
@@ -541,9 +542,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -566,10 +567,26 @@ function (_React$Component) {
     _this.state = {
       categoryId: 0
     };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(LoggedInDoerForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var task;
+
+      for (var i = 0; i < this.props.tasks.length; i++) {
+        if (this.props.tasks[i].id === parseInt(e.target.id, 10)) {
+          task = this.props.tasks[i];
+        }
+      }
+
+      task.task_doer_id = this.props.currentUser.id;
+      this.props.updateTask(task);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchTasks();
@@ -581,9 +598,10 @@ function (_React$Component) {
 
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this2.state.categoryId === task.category_id && task.completed === false) {
-          tasksSelected.push(task);
-        }
+        if (_this2.state.categoryId === task.category_id && task.completed === false) // && task.task_doer_id === null) 
+          {
+            tasksSelected.push(task);
+          }
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-main"
@@ -646,8 +664,10 @@ function (_React$Component) {
       }, "type", "submit"), "Heavy Lifting"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-right"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "doer-task-container"
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: _this2.handleSubmit,
+          className: "doer-task-container",
+          id: task.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
         }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -656,7 +676,9 @@ function (_React$Component) {
           className: "task-fields"
         }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Task Doer : ", task.task_doer_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "task-accept-button",
           type: "submit"
         }, "Accept Task"));
@@ -732,8 +754,7 @@ function (_React$Component) {
   _createClass(LoggedInMakerForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      debugger; // const user = Object.assign({}, this.state);
+      e.preventDefault(); // const user = Object.assign({}, this.state);
       // this.props.processForm(user).then(() => this.props.history.push("/doer"));
 
       this.props.createTask(this.state);
@@ -2181,6 +2202,7 @@ var createTask = function createTask(task) {
   });
 };
 var updateTask = function updateTask(task) {
+  debugger;
   return $.ajax({
     method: 'PATCH',
     url: "api/tasks/".concat(task.id),

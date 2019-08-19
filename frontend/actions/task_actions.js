@@ -31,9 +31,10 @@ export const deleteTask = (id) => (dispatch) => (
 	TaskApiUtil.deleteTask(id).then(task => dispatch(removeTask(task)))
 )
 
-export const updateTask = (task) => (dispatch) => (
-	TaskApiUtil.updateTask(task).then(task => dispatch(receiveTask(task)))
-)
+export const updateTask = (task) => (dispatch) => {
+	
+	return TaskApiUtil.updateTask(task).then(task => dispatch(receiveTask(task)))
+}
 
 export const createTask = (task) => (dispatch) => (
 	TaskApiUtil.createTask(task).then(task => dispatch(receiveTask(task)))

@@ -1,10 +1,9 @@
 
 import { connect } from 'react-redux';
 
-import { fetchTasks } from '../../actions/task_actions';
+import { updateTask, fetchTasks } from '../../actions/task_actions';
 import LoggedInDoerForm from './logged_in_doer_form';
 
-import { filterTasksByCategoryId } from '../../store/selectors.js';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -24,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return ({
 		fetchTasks: () => dispatch(fetchTasks()),
+		updateTask: (task) => dispatch(updateTask(task))
 	})
 }
 

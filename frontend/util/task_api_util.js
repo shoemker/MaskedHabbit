@@ -31,6 +31,7 @@ export const createTask = (task) => {
 }
 
 export const updateTask = (task) => {
+	debugger
 	return (
 		$.ajax({
 			method: 'PATCH',

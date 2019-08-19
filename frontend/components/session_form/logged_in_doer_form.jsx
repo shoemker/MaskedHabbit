@@ -7,10 +7,25 @@ class LoggedInDoerForm extends React.Component {
 		constructor(props) {
 		super(props);
 	
-		this.state = {categoryId: 0}
-	
+		this.state = {
+			categoryId: 0
+		}
+
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	handleSubmit(e) {
+		e.preventDefault();
+		let task;
+		for (let i = 0; i < this.props.tasks.length; i++) {
+			if (this.props.tasks[i].id === parseInt(e.target.id,10)){
+				task = this.props.tasks[i];
+			}			
+		}
+
+		task.task_doer_id = this.props.currentUser.id;
+		this.props.updateTask(task);
+	}
 
 	componentDidMount() {
 		this.props.fetchTasks();
@@ -18,11 +33,14 @@ class LoggedInDoerForm extends React.Component {
 
 
 
+
 	render() {
 		let tasksSelected = [];
 		
 		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
-			if (this.state.categoryId === task.category_id && task.completed === false) {
+			
+			if (this.state.categoryId === task.category_id && task.completed === false)// && task.task_doer_id === null) 
+			{
 				tasksSelected.push(task);
 			}
 		})
@@ -64,14 +82,14 @@ class LoggedInDoerForm extends React.Component {
 					<div className="logged-in-doer-right">
 						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 							return (
-								<div className='doer-task-container'>
-
-									<p className="task-brief">Task: {task.brief}</p>
-									<p className='task-fields'>Description: {task.description}	</p>
-									<p className='task-fields'>Location: {task.location}</p>
-									<p className='task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+								<form onSubmit={this.handleSubmit} className='doer-task-container' id = {task.id}>
+										<p className="task-brief">Task: {task.brief}</p>
+										<p className='task-fields'>Description: {task.description}	</p>
+										<p className='task-fields'>Location: {task.location}</p>
+										<p className='task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+										<p className='task-fields'>Task Doer : {task.task_doer_id}</p>										
 									<button className="task-accept-button" type="submit">Accept Task</button>
-								</div>
+								</form>
 							)
 						})}
 

@@ -10,7 +10,6 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 const App = () => (
 	<div>
-
 		<Switch>
 			<Route path="/maker" component={LoggedInMakerContainer} />
 			<Route path="/doer" component={LoggedInDoerContainer}/>

@@ -23,7 +23,7 @@ class Api::TasksController < ApplicationController
 
 
 	def update
-		@task = current_user.tasks_made.find(params[:id])
+		@task = Task.find(params[:id])
 		if @task.update_attributes(task_params)
 			render json: @task
 		else
