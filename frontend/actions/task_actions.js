@@ -10,7 +10,7 @@ const receiveTasks = (tasks) => ({
 });
 
 const receiveTask = (task) => ({
-	type: RECEIVE_BENCH,
+	type: RECEIVE_TASK,
 	task: task
 });
 
