@@ -192,3 +192,94 @@ Task.create(brief: "Install wall television",
 						task_maker_id: 6,
 						category_id: 1
 						)
+
+Task.create(brief: "Unplug toilet.",
+						description: "It's a doosey",
+						location: "800 Fell",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 10,
+						category_id: 5
+						)
+
+
+Task.create(brief: "Sweep chimney.",
+						description: "With cockney accent",
+						location: "532 Fulton",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 6,
+						category_id: 5
+						)
+
+Task.create(brief: "Carry stuff upstairs.",
+						description: "hundreds of magazines",
+						location: "532 Fulton",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 6,
+						category_id: 6
+						)
+
+Task.create(brief: "Pack Kitchen",
+						description: "The whole thing",
+						location: "825 Battery St",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 9,
+						category_id: 2
+						)
+
+Task.create(brief: "Redo Bathroom",
+						description: "Huge budget",
+						location: "201 Valencia",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 8,
+						category_id: 4
+						)
+
+Task.create(brief: "Install Washer & Dryer",
+						description: "Both",
+						location: "800 Fell st",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 10,
+						category_id: 1
+						)
+
+Task.create(brief: "Hang pictures",
+						description: "Pictures of grandchildren",
+						location: "201 Valencia",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 8,
+						category_id: 5
+						)
+
+Task.create(brief: "Put bed together",
+						description: "queen-sized",
+						location: "201 Valencia",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 8,
+						category_id: 3
+						)
+
+Task.create(brief: "Drive me to airport",
+						description: "Wednesday, 8am, Sept.",
+						location: "800 Fell st",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 10,
+						category_id: 2
+						)
+
+Task.create(brief: "Fix garage door",
+						description: "It breaks frequently",
+						location: "800 Fell st",
+						vehicle_needed: false,
+						completed: false,
+						task_maker_id: 10,
+						category_id: 5
+						)
