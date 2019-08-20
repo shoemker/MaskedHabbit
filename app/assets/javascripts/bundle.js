@@ -689,7 +689,7 @@ function (_React$Component) {
           className: "task-fields-4"
         }, "Task Doer : ", _this2.props.currentUser.username));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tasks-cat-greeting-doer"
+        className: "tasks-cat-greeting-doer2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
       }, "Here are more available tasks.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
