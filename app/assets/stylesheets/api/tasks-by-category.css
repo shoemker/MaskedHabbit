@@ -6,13 +6,11 @@
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/painting.jpg');
 }
 
-#tasks-cat-greeting-con {
+.tasks-cat-greeting-con {
 	background-color: #61a14b;
-	width: 500px;
+	width: 800px;
 	height: 38px;
-	position:absolute;
-	left:50%;
-	margin-left: -250px;
+	margin-right: auto; margin-left: auto;
 	margin-top: 50px;
 	border-radius: 7px;
 }

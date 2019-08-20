@@ -6,11 +6,13 @@ import { fetchTasks } from '../../actions/task_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
+	let tasks = Object.values(state.entities.tasks)
 
 	let currentUser = state.entities.users[state.session.id];
 
 	return ({
-		currentUser: currentUser
+		currentUser: currentUser,
+		tasks: tasks
 	})
 }
 

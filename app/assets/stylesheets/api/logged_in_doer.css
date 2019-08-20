@@ -37,12 +37,12 @@
 }
 
 .logged-in-doer-right{
-	width:70%;
+	width:700px;
 	height:500px;
 
-	position:absolute;
-	right: 0px;
-	margin-top: 80px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .doer-task-container{

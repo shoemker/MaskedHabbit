@@ -15,7 +15,7 @@ class TasksByCat extends React.Component {
 
 		if (!this.props.currentUser) {
 			return (
-				<div id="tasks-cat-greeting-con">
+				<div className="tasks-cat-greeting-con">
 					<Link to="/login" style={{ textDecoration: 'none' }} >
 						<h2 className = "task-cat-greeting">Please Log In to do these tasks</h2>
 					</Link>

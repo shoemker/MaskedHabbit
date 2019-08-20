@@ -1,3 +1,12 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
 
 .maker-form-container {
 	display: block;
@@ -16,6 +25,7 @@
   padding-bottom: 24px;
   padding-left: 32px;
 	border-radius: 5px;
+	z-index: 15;
 }
 
 .maker-form-title {
@@ -31,3 +41,4 @@
 	letter-spacing: normal;
 	font-weight: normal;
 }
+

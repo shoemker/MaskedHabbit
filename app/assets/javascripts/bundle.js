@@ -428,7 +428,7 @@ var Navbar = function Navbar(_ref) {
       src: window.logoURL
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "loggedin-name"
-    }, "Account: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    }, "Dashboard: ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "navbar-logout-button navbar-button",
@@ -743,9 +743,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var tasks = Object.values(state.entities.tasks);
   var currentUser = state.entities.users[state.session.id];
   return {
-    currentUser: currentUser
+    currentUser: currentUser,
+    tasks: tasks
   };
 };
 
@@ -812,19 +814,53 @@ function (_React$Component) {
   }
 
   _createClass(LoggedInMaker, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchTasks();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
 
+      var tasksSelected = [];
+      this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
+        if (_this.props.currentUser.id === task.task_maker_id && task.completed === false) // && task.task_doer_id === null) 
+          {
+            tasksSelected.push(task);
+          }
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks-cat-greeting-con"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "task-cat-greeting"
+      }, "Welcome Task-Maker. Here are the tasks you've created")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "login-signup"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "new-task-button",
         onClick: function onClick() {
           return _this.props.openModal();
         }
-      }, "New Task")));
+      }, "Create New Task")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "logged-in-doer-right"
+      }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "doer-task-container",
+          id: task.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-brief"
+        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "task-fields"
+        }, "Task Maker : ", task.task_maker_id));
+      })));
     }
   }]);
 
@@ -1339,6 +1375,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
@@ -1389,7 +1427,7 @@ function (_React$Component) {
         className: "signup-submit",
         type: "submit",
         value: "Create New Task"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
     }
   }]);
 
@@ -1826,7 +1864,7 @@ function (_React$Component) {
     value: function greeting() {
       if (!this.props.currentUser) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "tasks-cat-greeting-con"
+          className: "tasks-cat-greeting-con"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login",
           style: {
@@ -31813,7 +31851,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
