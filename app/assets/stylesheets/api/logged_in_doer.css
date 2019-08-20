@@ -1,20 +1,47 @@
 .logged-in-doer-main {
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 1000px;
+	height: 3000px;
 	width: 100%;
+	background-color: #9C9D98;
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/mounting.jpg');
 	flex-direction: row;
 
 }
 
+.after-main {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.tasks-cat-greeting-doer {
+	background-color: #61a14b;
+	width: 800px;
+	height: 38px;
+	margin-top: 50px;
+	position: relative;
+		left: 50%;
+	transform: translateX(-50%);
+	border-radius: 7px;
+}
+
+.parent-task-doer-container {
+	display: flex ;
+	flex-flow: row wrap;
+	justify-content: center;
+	position:relative;
+	width: 100%;
+	margin-top: 40px;
+}
 
 .buttons-all {
 	width: 25%;
 	display: flex ;
 	flex-direction: column;
-	position:absolute;
-	margin-top: 100px;
+	position:relative;
+	margin-top: 50px;
 }
  
 .category-doer-button {
@@ -40,7 +67,7 @@
 	width:700px;
 	height:500px;
 
-	position: absolute;
+	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -49,6 +76,15 @@
 	background-color:white;
 	width:500px;
 	height: 200px;
+	margin: 20px;
+	
+	border-radius: 10px;
+}
+
+.doer-task-container2{
+	background-color:white;
+	width:500px;
+	height: 250px;
 	margin: 20px;
 	
 	border-radius: 10px;
@@ -68,4 +104,9 @@
 	background-color: white;
 	color: #7dd161;
 
+}
+
+.available-tasks {
+	display: flex ;
+	flex-direction: row;
 }

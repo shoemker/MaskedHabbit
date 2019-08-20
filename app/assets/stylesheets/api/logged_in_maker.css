@@ -15,11 +15,11 @@
 	font-size: 36px;
 	background-color:  #61a14b;
 	box-sizing: content-box;
-	width: 400px;
+	width: 300px;
 	height: 50px;
 	left:50%;
 		position:absolute;
-	margin-left:-200px;
+	margin-left:-150px;
 	margin-top: 50px;
 }
 
@@ -39,13 +39,14 @@
 	position:absolute;
 	width: 100%;
 	margin-top: 50px;
+
 }
 
 .logged-in-maker-task{
 	width:500px;
 	height:500px;
 	margin:100px;
-
+	background-color: #D3D3D3;
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);

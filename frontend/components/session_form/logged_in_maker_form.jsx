@@ -44,7 +44,7 @@ class LoggedInMaker extends React.Component {
 								<p className='task-fields-1'>Description: {task.description}	</p>
 								<p className='task-fields-2'>Location: {task.location}</p>
 								<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-								<p className='task-fields-4'>Task Maker : {task.task_maker_id}</p>
+								<p className='task-fields-4'>Task Maker : {this.props.currentUser.username}</p>
 								
 							</form>
 						)
