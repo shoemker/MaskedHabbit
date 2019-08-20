@@ -8,15 +8,73 @@
 }
 
 
-.new-task-button {
+.new-task-maker-button {
 
 	border-radius: 5px;
 	color: white;
-	font-size: 20px;
+	font-size: 36px;
 	background-color:  #61a14b;
-	display: block;
 	box-sizing: content-box;
 	width: 400px;
-	max-width: 100%;
 	height: 50px;
+	left:50%;
+		position:absolute;
+	margin-left:-200px;
+	margin-top: 50px;
+}
+
+.tasks-cat-greeting-maker {
+	background-color: #61a14b;
+	width: 800px;
+	height: 38px;
+	margin-right: auto; margin-left: auto;
+	margin-top: 150px;
+	border-radius: 7px;
+}
+
+.parent-task-maker-container {
+	display: flex ;
+	flex-flow: row wrap;
+	justify-content: center;
+	position:absolute;
+	width: 100%;
+	margin-top: 50px;
+}
+
+.logged-in-maker-task{
+	width:500px;
+	height:500px;
+	margin:100px;
+
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.task-fields-1{
+	font-family:  Arial, Helvetica, sans-serif;
+	color: #606060;
+	font-size: 24px;
+	margin: 10px;
+}
+
+.task-fields-2{
+	font-family:  Arial, Helvetica, sans-serif;
+	color: #606060;
+	font-size: 24px;
+	margin: 10px;
+}
+
+.task-fields-3{
+	font-family:  Arial, Helvetica, sans-serif;
+	color: #909090;
+	font-size: 20px;
+	margin: 10px;
+}
+
+.task-fields-4{
+	font-family:  Arial, Helvetica, sans-serif;
+	color: #909090;
+	font-size: 20px;
+	margin: 10px;
 }

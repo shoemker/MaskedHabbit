@@ -22,18 +22,41 @@ const Navbar = ({ currentUser, logout }) => {
 				</Link>
       </nav>
     );
-    const loggedInNavBar = () => (
-			<nav className="header-group navbar-container">
-				<Link to="/">
-					<img className='nav-logo' src={window.logoURL} />
-				</Link>
-            
-				<div className="loggedin-name">Dashboard: {currentUser.username}</div>
-				<Link to="/">			
-        <button className="navbar-logout-button navbar-button" onClick={logout}>Log out</button>
-				</Link>
-      </nav>
-    );
+    const loggedInNavBar = () => {
+			if (currentUser.is_tasker) {
+				return (
+				<nav className="header-group navbar-container">
+					<Link to="/">
+						<img className='nav-logo' src={window.logoURL} />
+					</Link>
+
+					<Link to="/doer">			
+						<div className="loggedin-name">Dashboard: {currentUser.username}</div>
+					</Link>
+
+					<Link to="/">			
+						<button className="navbar-logout-button navbar-button" onClick={logout}>Log out</button>
+					</Link>
+				</nav>
+			)}
+			else {
+				return (
+					<nav className="header-group navbar-container">
+						<Link to="/">
+							<img className='nav-logo' src={window.logoURL} />
+						</Link>
+
+						<Link to="/maker">
+							<div className="loggedin-name">Dashboard: {currentUser.username}</div>
+						</Link>
+
+						<Link to="/">
+							<button className="navbar-logout-button navbar-button" onClick={logout}>Log out</button>
+						</Link>
+					</nav>
+				)
+			};
+		} 
 
 	return currentUser ? loggedInNavBar() : loggedOutNavBar();
 };

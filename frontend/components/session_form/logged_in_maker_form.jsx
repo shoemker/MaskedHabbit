@@ -25,23 +25,26 @@ class LoggedInMaker extends React.Component {
 				<header>
 					<NavbarContainer />
 				</header>
-				<div className="tasks-cat-greeting-con">
+
+				<nav className="new-task">
+					<button className="new-task-maker-button" onClick={() => this.props.openModal()}>Create New Task</button>
+				</nav>
+
+				<div className="tasks-cat-greeting-maker">
 					<h2 className = "task-cat-greeting">Welcome Task-Maker. Here are the tasks you've created</h2>
 				</div>
-				<nav className="login-signup">
-					<button className = "new-task-button" onClick={() => this.props.openModal()}>Create New Task</button>
-				</nav>
+
 			
 
-				<div className="logged-in-doer-right">
+				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 						return (
 							<form  className='doer-task-container' id={task.id}>
 								<p className="task-brief">Task: {task.brief}</p>
-								<p className='task-fields'>Description: {task.description}	</p>
-								<p className='task-fields'>Location: {task.location}</p>
-								<p className='task-fields'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-								<p className='task-fields'>Task Maker : {task.task_maker_id}</p>
+								<p className='task-fields-1'>Description: {task.description}	</p>
+								<p className='task-fields-2'>Location: {task.location}</p>
+								<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+								<p className='task-fields-4'>Task Maker : {task.task_maker_id}</p>
 								
 							</form>
 						)

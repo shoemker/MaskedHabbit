@@ -15,6 +15,7 @@ class MakeNewTaskForm extends React.Component {
 		};
 	
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 
@@ -25,6 +26,12 @@ class MakeNewTaskForm extends React.Component {
 		this.props.createTask(this.state);
 		this.props.closeModal();
 	}
+
+	handleClick(e) {
+		
+		this.props.closeModal();
+	}
+
 
 	update(field) {
 		return e => this.setState({
@@ -37,6 +44,7 @@ class MakeNewTaskForm extends React.Component {
 
 			<div className = "modal-background">
 				<div className= "maker-form-container">
+					<div className = "closing-x" onClick = {this.handleClick}>X</div>
 					<form onSubmit={this.handleSubmit} className="signup-form-box">
 
 						<div className="signup-form">
