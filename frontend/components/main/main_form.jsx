@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../navbar/navbar_container'
 import { Link } from 'react-router-dom';
 
@@ -26,7 +25,8 @@ class MainForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.receiveSearch(this.state.search.trim());
+		this.props.receiveSearch(this.state.search.trim().toLowerCase());
+		this.props.history.push("/tasks");
 	}
 
 

@@ -3,6 +3,7 @@ import SignupFormContainer from './login_and_signup/signup_form_container';
 import LoginFormContainer from './login_and_signup/login_form_container';
 import MainFormContainer from './main/main_form_container';
 import TasksByCatContainer from './tasks/tasks_by_category_container';
+import TasksBySearchContainer from './tasks/tasks_by_search_container';
 import LoggedInDoerContainer from './logged_in/logged_in_doer_container'
 import LoggedInMakerForm from './logged_in/logged_in_maker_container'
 import Modal from './modal/modal'
@@ -16,6 +17,7 @@ const App = () => (
 			<Route path="/maker" component={LoggedInMakerForm} />
 			<Route path="/doer" component={LoggedInDoerContainer}/>
 			<Route path="/tasks/:categoryId" component={TasksByCatContainer}/>
+			<Route path="/tasks" component={TasksBySearchContainer} />
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignupFormContainer} />
 			<Route exact path="/" component={MainFormContainer} />	
