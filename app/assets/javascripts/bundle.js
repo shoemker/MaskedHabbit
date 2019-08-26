@@ -1313,7 +1313,8 @@ function (_React$Component) {
         id: "main-page-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         id: "mag",
-        src: window.magURL
+        src: window.magURL,
+        onClick: this.handleSubmit
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "how-it-works"
       }, "How It Works"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
