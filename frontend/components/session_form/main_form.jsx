@@ -4,15 +4,34 @@ import NavbarContainer from '../navbar/navbar_container'
 import { Link } from 'react-router-dom';
 
 class MainForm extends React.Component {
+	constructor(props) {
+		super(props);
 
+		this.state = {
+			search: ""
+		};
 
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	update(field) {
+		return e => this.setState({
+			[field]: e.currentTarget.value
+		});
+	}
 
 	moveCaret(e) {
 		e.target.value = "      "
 	}
 
+	handleSubmit(e) {
+		e.preventDefault();
+		this.props.receiveSearch(this.state.search.trim());
+	}
+
 
 	render() {
+		
 		return (
 			<div className="splash-background">
 				<header>
@@ -62,11 +81,13 @@ class MainForm extends React.Component {
 						</Link>
 					</div>
 					<div className="magnifying-parent">
-						<form>
+						<form onSubmit={this.handleSubmit}>
 							<input type="text"
 								placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Need something different?"
 								onFocus = {this.moveCaret}
-								// onChange={this.update('username')}
+								value={this.state.search}
+						
+								onChange={this.update('search')}
 								id="main-page-search"/>
 							<span>
 								<img id='mag' src={window.magURL} />
