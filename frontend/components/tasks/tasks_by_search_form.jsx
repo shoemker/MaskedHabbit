@@ -49,7 +49,9 @@ class TasksBySearch extends React.Component {
 						<NavbarContainer />
 					</header>
 					{this.greeting()}
-					<h2>Sorry no result for {searchWords}</h2>
+					<div>
+						<h2>Sorry, no result for {searchWords}</h2>
+					</div>
 				</div>
 			)
 		} else {
