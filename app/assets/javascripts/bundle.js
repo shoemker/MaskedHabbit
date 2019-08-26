@@ -1319,8 +1319,11 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.receiveSearch(this.state.search.trim().toLowerCase());
-      this.props.history.push("/tasks");
+
+      if (this.state.search.trim().length > 0) {
+        this.props.receiveSearch(this.state.search.trim().toLowerCase());
+        this.props.history.push("/tasks");
+      }
     }
   }, {
     key: "render",
@@ -2144,26 +2147,26 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var searchWords;
-      debugger;
       if (this.props.searchTerm.search.length > 0) searchWords = this.props.searchTerm.search.split(" ");
       var ignore = ["the", "a", "an", "for"];
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
         for (var i = 0; i < searchWords.length; i++) {
           if (!ignore.includes(searchWords[i]) && (task.brief.toLowerCase().includes(searchWords[i]) || task.description.toLowerCase().includes(searchWords[i]))) tasksSelected.push(task);
-        } // if () 
-        // {
-        // 	tasksSelected.push(task);
-        // }
-
+        }
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tasks-by-cat-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "parent-task-container"
-      }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
-        return (// <h2>{this.props.searchTerm.search}</h2>
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+
+      if (this.props.tasks.length > 0 && tasksSelected.length === 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "tasks-by-cat-background"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sorry no result for ", searchWords));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "tasks-by-cat-background"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "parent-task-container"
+        }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "task-container"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "task-brief"
@@ -2173,9 +2176,9 @@ function (_React$Component) {
             className: "task-fields-2"
           }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "task-fields-3"
-          }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"))
-        );
-      })));
+          }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"));
+        })));
+      }
     }
   }]);
 

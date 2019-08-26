@@ -25,8 +25,10 @@ class MainForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.receiveSearch(this.state.search.trim().toLowerCase());
-		this.props.history.push("/tasks");
+		if (this.state.search.trim().length > 0) {
+			this.props.receiveSearch(this.state.search.trim().toLowerCase());
+			this.props.history.push("/tasks");
+		}
 	}
 
 

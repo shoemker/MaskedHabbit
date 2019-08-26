@@ -26,7 +26,7 @@ class TasksBySearch extends React.Component {
 
 	render() {
 		let searchWords;
-		debugger
+		
 		if (this.props.searchTerm.search.length > 0) searchWords = this.props.searchTerm.search.split(" ");
 
 		const ignore = ["the", "a", "an", "for"]
@@ -40,36 +40,43 @@ class TasksBySearch extends React.Component {
 							task.description.toLowerCase().includes(searchWords[i])))
 					tasksSelected.push(task);					
 			}
-			// if () 
-			// {
-			// 	tasksSelected.push(task);
-			// }
+
 		})
-
-		return (
-			<div className="tasks-by-cat-background">
-				<header>
-					<NavbarContainer />
-				</header>
-				{this.greeting()}
-				<div className='parent-task-container'>
-					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
-						return (
-							// <h2>{this.props.searchTerm.search}</h2>
-							<div className='task-container'>
-
-								<p className="task-brief"> {task.brief}</p>
-								<p className='task-fields-1'>Description: {task.description}	</p>
-								<p className='task-fields-2'>Location: {task.location}</p>
-								<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-
-							</div>
-						)
-					})}
+		if (this.props.tasks.length > 0 && tasksSelected.length === 0) {
+			return(
+				<div className="tasks-by-cat-background">
+					<header>
+						<NavbarContainer />
+					</header>
+					{this.greeting()}
+					<h2>Sorry no result for {searchWords}</h2>
 				</div>
+			)
+		} else {
+			return (
+				<div className="tasks-by-cat-background">
+					<header>
+						<NavbarContainer />
+					</header>
+					{this.greeting()}
+					<div className='parent-task-container'>
+						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+							return (
+								<div className='task-container'>
 
-			</div>
-		)
+									<p className="task-brief"> {task.brief}</p>
+									<p className='task-fields-1'>Description: {task.description}	</p>
+									<p className='task-fields-2'>Location: {task.location}</p>
+									<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+
+								</div>
+							)
+						})}
+					</div>
+
+				</div>
+			)
+		}
 	}
 }
 
