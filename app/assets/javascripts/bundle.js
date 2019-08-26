@@ -325,17 +325,15 @@ var createTask = function createTask(task) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _session_form_main_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/main_form_container */ "./frontend/components/session_form/main_form_container.jsx");
-/* harmony import */ var _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/tasks_by_category_container */ "./frontend/components/session_form/tasks_by_category_container.jsx");
-/* harmony import */ var _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/logged_in_doer_container */ "./frontend/components/session_form/logged_in_doer_container.jsx");
-/* harmony import */ var _session_form_logged_in_maker_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./session_form/logged_in_maker_container */ "./frontend/components/session_form/logged_in_maker_container.jsx");
-/* harmony import */ var _session_form_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./session_form/modal */ "./frontend/components/session_form/modal.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _session_form_main_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/main_form_container */ "./frontend/components/session_form/main_form_container.jsx");
+/* harmony import */ var _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/tasks_by_category_container */ "./frontend/components/session_form/tasks_by_category_container.jsx");
+/* harmony import */ var _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/logged_in_doer_container */ "./frontend/components/session_form/logged_in_doer_container.jsx");
+/* harmony import */ var _session_form_logged_in_maker_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/logged_in_maker_container */ "./frontend/components/session_form/logged_in_maker_container.jsx");
+/* harmony import */ var _session_form_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./session_form/modal */ "./frontend/components/session_form/modal.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
 
 
@@ -348,27 +346,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_modal__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_modal__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     path: "/maker",
-    component: _session_form_logged_in_maker_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+    component: _session_form_logged_in_maker_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     path: "/doer",
-    component: _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+    component: _session_form_logged_in_doer_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     path: "/tasks/:categoryId",
-    component: _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
+    component: _session_form_tasks_by_category_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_10__["AuthRoute"], {
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     exact: true,
     path: "/",
-    component: _session_form_main_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _session_form_main_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   })));
 };
 
@@ -1202,6 +1200,11 @@ function (_React$Component) {
   }
 
   _createClass(MainForm, [{
+    key: "moveCaret",
+    value: function moveCaret(e) {
+      e.target.value = "      ";
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1254,15 +1257,16 @@ function (_React$Component) {
         className: "category-button"
       }, "Heavy Lifting")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "magnifying-parent"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        value: "\xA0\xA0\xA0\xA0\xA0\xA0Need something different?" // onChange={this.update('username')}
+        placeholder: "\xA0\xA0\xA0\xA0\xA0\xA0Need something different?",
+        onFocus: this.moveCaret // onChange={this.update('username')}
         ,
         id: "main-page-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         id: "mag",
         src: window.magURL
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "how-it-works"
       }, "How It Works"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "second-part"

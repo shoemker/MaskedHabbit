@@ -7,6 +7,11 @@ class MainForm extends React.Component {
 
 
 
+	moveCaret(e) {
+		e.target.value = "      "
+	}
+
+
 	render() {
 		return (
 			<div className="splash-background">
@@ -57,15 +62,16 @@ class MainForm extends React.Component {
 						</Link>
 					</div>
 					<div className="magnifying-parent">
-
-						<input type="text"
-							value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Need something different?"
-							// onChange={this.update('username')}
-							id="main-page-search"
-						/>
-						<span>
-							<img id='mag' src={window.magURL} />
-						</span>
+						<form>
+							<input type="text"
+								placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Need something different?"
+								onFocus = {this.moveCaret}
+								// onChange={this.update('username')}
+								id="main-page-search"/>
+							<span>
+								<img id='mag' src={window.magURL} />
+							</span>
+						</form>
 					</div>
 
 				</div>
