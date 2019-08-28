@@ -39,7 +39,7 @@ class LoggedInDoerForm extends React.Component {
 		let tasksSelected = [];
 		
 		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
-			if (this.state.categoryId === task.category_id && task.completed === false)// && task.task_doer_id === null) 
+			if (this.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) 
 			{
 				tasksSelected.push(task);
 			}

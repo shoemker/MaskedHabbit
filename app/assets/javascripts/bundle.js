@@ -521,10 +521,9 @@ function (_React$Component) {
       var tasksToDo = [];
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this2.state.categoryId === task.category_id && task.completed === false) // && task.task_doer_id === null) 
-          {
-            tasksSelected.push(task);
-          }
+        if (_this2.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) {
+          tasksSelected.push(task);
+        }
 
         if (_this2.props.currentUser.id === task.task_doer_id) {
           tasksToDo.push(task);
@@ -1085,11 +1084,6 @@ function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      // if (field === 'price_per_hour') {
-      // 	return e => this.setState({
-      // 		[field]: parseFloat(e.currentTarget.value)
-      // 	});
-      // }
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };

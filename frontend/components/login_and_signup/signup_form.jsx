@@ -18,11 +18,7 @@ class SignupForm extends React.Component {
 	}
 
 	update(field) {
-		// if (field === 'price_per_hour') {
-		// 	return e => this.setState({
-		// 		[field]: parseFloat(e.currentTarget.value)
-		// 	});
-		// }
+
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
