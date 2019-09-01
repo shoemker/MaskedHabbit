@@ -42,44 +42,40 @@ class TasksBySearch extends React.Component {
 			}
 
 		})
-		if (this.props.tasks.length > 0 && tasksSelected.length === 0) {
+
+		let result = (this.props.tasks.length > 0 && tasksSelected.length === 0)
+		
 			return(
 				<div className="tasks-by-cat-background">
 					<header>
 						<NavbarContainer />
 					</header>
 					{this.greeting()}
+					{/* trinary operator for if search was successful */}
+					{result ? ( 
 					<div>
 						<h2>Sorry, no result for {searchWords}</h2>
-					</div>
-				</div>
-			)
-		} else {
-			return (
-				<div className="tasks-by-cat-background">
-					<header>
-						<NavbarContainer />
-					</header>
-					{this.greeting()}
+					</div> ) : (
 					<div className='parent-task-container'>
-						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
-							return (
-								<div className='task-container'>
+							{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+								return (
+									<div className='task-container'>
 
-									<p className="task-brief"> {task.brief}</p>
-									<p className='task-fields-1'>Description: {task.description}	</p>
-									<p className='task-fields-2'>Location: {task.location}</p>
-									<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+										<p className="task-brief"> {task.brief}</p>
+										<p className='task-fields-1'>Description: {task.description}	</p>
+										<p className='task-fields-2'>Location: {task.location}</p>
+										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
 
-								</div>
-							)
-						})}
-					</div>
+									</div>
+								)
+							})}
+						</div>
 
+					) }
 				</div>
 			)
-		}
 	}
+
 }
 
 export default TasksBySearch;
