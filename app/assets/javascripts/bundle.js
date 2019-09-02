@@ -2178,18 +2178,18 @@ function (_React$Component) {
     value: function render() {
       console.log(this.state.newSearch); // debugger
 
-      var searchWords = ""; // session storage makes sure info persists after refresh
+      var searchWords = ""; // in case search term had been replaced
 
       if (this.state.newSearch != "") {
         searchWords = this.state.newSearch.split(" ");
         sessionStorage.setItem('search', JSON.stringify({
           search: this.state.newSearch
-        }));
+        })); // in case the the search term comes from main form
       } else if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
         searchWords = this.props.searchTerm.search.split(" ");
         sessionStorage.setItem('search', JSON.stringify({
           search: this.props.searchTerm.search
-        }));
+        })); // in caseof refresh
       } else {
         if (sessionStorage.getItem('search') != null) searchWords = JSON.parse(sessionStorage.getItem('search')).search.split(" ");
       }
