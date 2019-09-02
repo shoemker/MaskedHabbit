@@ -2140,8 +2140,17 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var searchWords;
-      if (this.props.searchTerm.search.length > 0) searchWords = this.props.searchTerm.search.split(" ");
+      var searchWords = ""; // session storage makes sure info persists after refresh
+
+      if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
+        searchWords = this.props.searchTerm.search.split(" ");
+        sessionStorage.setItem('search', JSON.stringify({
+          search: this.props.searchTerm.search
+        }));
+      } else {
+        if (sessionStorage.getItem('search') != null) searchWords = JSON.parse(sessionStorage.getItem('search')).search.split(" ");
+      }
+
       var ignore = ["the", "a", "an", "for"];
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {

@@ -9,7 +9,6 @@ class TasksBySearch extends React.Component {
 		
 	}
 
-
 	greeting() {
 
 		if (!this.props.currentUser) {
@@ -25,9 +24,18 @@ class TasksBySearch extends React.Component {
 
 
 	render() {
-		let searchWords;
+		let searchWords = "";
 		
-		if (this.props.searchTerm.search.length > 0) searchWords = this.props.searchTerm.search.split(" ");
+		// session storage makes sure info persists after refresh
+		if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
+			searchWords = this.props.searchTerm.search.split(" ");
+			sessionStorage.setItem('search', JSON.stringify( { 
+				search: this.props.searchTerm.search
+			}));
+		} else {
+			if (sessionStorage.getItem('search') != null)
+				searchWords = JSON.parse(sessionStorage.getItem('search')).search.split(" ");
+		}
 
 		const ignore = ["the", "a", "an", "for"]
 
