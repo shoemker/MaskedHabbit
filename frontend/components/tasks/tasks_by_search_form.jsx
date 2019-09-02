@@ -7,7 +7,8 @@ class TasksBySearch extends React.Component {
 		super(props);
 
 		this.state = {
-			search: ""
+			search: "",
+			newSearch: ""
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,11 +25,12 @@ class TasksBySearch extends React.Component {
 	}
 
 	handleSubmit(e) {
-		if (this.state.search.trim().length > 0) {
-			 e => this.setState({ 
-				search: this.state.search.trim().toLowerCase()
-			});
-		}
+		console.log("hi")
+		e.preventDefault();
+		// this.setState({newSearch: this.state.search.trim().toLowerCase()});
+		this.setState((state, props) => {
+			return { newSearch: state.search.trim().toLowerCase() };
+		});
 	}
 
 	componentDidMount() {
@@ -37,7 +39,7 @@ class TasksBySearch extends React.Component {
 	}
 
 	greeting() {
-
+		
 		if (!this.props.currentUser) {
 			return (
 				<div className="tasks-cat-greeting-con">
@@ -51,12 +53,17 @@ class TasksBySearch extends React.Component {
 
 
 	render() {
-	
+		console.log(this.state.newSearch)
+		// debugger
 		let searchWords = "";
 		
 		// session storage makes sure info persists after refresh
-		// if (this.state.search)
-		if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
+		if (this.state.newSearch != "") {
+			searchWords = this.state.newSearch.split(" ");
+			sessionStorage.setItem('search', JSON.stringify({
+				search: this.state.newSearch
+			}));
+		} else if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
 			searchWords = this.props.searchTerm.search.split(" ");
 			sessionStorage.setItem('search', JSON.stringify( { 
 				search: this.props.searchTerm.search

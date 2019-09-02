@@ -2119,7 +2119,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TasksBySearch).call(this, props));
     _this.state = {
-      search: ""
+      search: "",
+      newSearch: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -2142,15 +2143,14 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      console.log("hi");
+      e.preventDefault(); // this.setState({newSearch: this.state.search.trim().toLowerCase()});
 
-      if (this.state.search.trim().length > 0) {
-        (function (e) {
-          return _this3.setState({
-            search: _this3.state.search.trim().toLowerCase()
-          });
-        });
-      }
+      this.setState(function (state, props) {
+        return {
+          newSearch: state.search.trim().toLowerCase()
+        };
+      });
     }
   }, {
     key: "componentDidMount",
@@ -2176,10 +2176,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var searchWords = ""; // session storage makes sure info persists after refresh
-      // if (this.state.search)
+      console.log(this.state.newSearch); // debugger
 
-      if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
+      var searchWords = ""; // session storage makes sure info persists after refresh
+
+      if (this.state.newSearch != "") {
+        searchWords = this.state.newSearch.split(" ");
+        sessionStorage.setItem('search', JSON.stringify({
+          search: this.state.newSearch
+        }));
+      } else if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
         searchWords = this.props.searchTerm.search.split(" ");
         sessionStorage.setItem('search', JSON.stringify({
           search: this.props.searchTerm.search
