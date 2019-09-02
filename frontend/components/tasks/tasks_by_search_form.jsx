@@ -3,6 +3,33 @@ import NavbarContainer from '../navbar/navbar_container'
 import { Link } from 'react-router-dom';
 
 class TasksBySearch extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			search: ""
+		};
+
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	update(field) {
+		return e => this.setState({
+			[field]: e.currentTarget.value
+		});
+	}
+
+	moveCaret(e) {
+		e.target.value = "      "
+	}
+
+	handleSubmit(e) {
+		if (this.state.search.trim().length > 0) {
+			 e => this.setState({ 
+				search: this.state.search.trim().toLowerCase()
+			});
+		}
+	}
 
 	componentDidMount() {
 		this.props.fetchTasks();
@@ -24,9 +51,11 @@ class TasksBySearch extends React.Component {
 
 
 	render() {
+	
 		let searchWords = "";
 		
 		// session storage makes sure info persists after refresh
+		// if (this.state.search)
 		if (this.props.searchTerm.search && this.props.searchTerm.search.length > 0) {
 			searchWords = this.props.searchTerm.search.split(" ");
 			sessionStorage.setItem('search', JSON.stringify( { 
@@ -48,7 +77,6 @@ class TasksBySearch extends React.Component {
 							task.description.toLowerCase().includes(searchWords[i])))
 					tasksSelected.push(task);					
 			}
-
 		})
 
 		let result = (this.props.tasks.length > 0 && tasksSelected.length === 0)
@@ -59,6 +87,24 @@ class TasksBySearch extends React.Component {
 						<NavbarContainer />
 					</header>
 					{this.greeting()}
+
+					{/* search bar */}
+					<div className="magnifying-parent2">
+						<form onSubmit={this.handleSubmit}>
+							<input type="text"
+								placeholder={"      " + searchWords.join(" ")}
+								onFocus={this.moveCaret}
+								value={this.state.search}
+
+								onChange={this.update('search')}
+								className="main-page-search" />
+							<span>
+								<img id='mag' src={window.magURL} onClick={this.handleSubmit} />
+							</span>
+						</form>
+					</div>
+
+
 					{/* trinary operator for if search was successful */}
 					{result ? ( 
 					<div>

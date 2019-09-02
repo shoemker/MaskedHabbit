@@ -90,7 +90,7 @@ class MainForm extends React.Component {
 								value={this.state.search}
 						
 								onChange={this.update('search')}
-								id="main-page-search"/>
+								className="main-page-search"/>
 							<span>
 								<img id='mag' src={window.magURL} onClick={this.handleSubmit}/>
 							</span>

@@ -2,6 +2,7 @@
 .navbar-container {
 	background:none;
 	background-color: white;
+	 background-repeat: repeat-y;
 	display: flex ;
 	flex-direction: row;
 	height: 60px;

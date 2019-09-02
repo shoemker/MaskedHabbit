@@ -5,6 +5,7 @@
 	width: 100%;
 	background-color: #9C9D98;
 	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/mounting.jpg');
+ 	background-repeat: repeat-y;
 	flex-direction: row;
 
 }
