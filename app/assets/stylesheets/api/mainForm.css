@@ -7,7 +7,7 @@
 }
 
 .splash-background {
-	background-image: url('https://masked-habbit-dev.s3-us-west-1.amazonaws.com/fullstack/splash.jpg');
+	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/splash.jpg');
 	background-repeat: no-repeat;
 	background-size: 100% 800px;
 	height: 750px;

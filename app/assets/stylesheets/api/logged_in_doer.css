@@ -4,7 +4,7 @@
 	height: 3000px;
 	width: 100%;
 	background-color: #9C9D98;
-	background-image: url('https://masked-habbit-dev.s3-us-west-1.amazonaws.com/fullstack/mounting.jpg');
+	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg');
  	background-repeat: repeat-y;
 	flex-direction: row;
 
