@@ -3,7 +3,7 @@
 	background-size: 100%;
 	height: 1000px;
 	width: 100%;
-	background-image: url('https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/painting.jpg');
+	background-image: url('https://masked-habbit-dev.s3-us-west-1.amazonaws.com/fullstack/painting.jpg');
   background-repeat: repeat-y;
 
 }
