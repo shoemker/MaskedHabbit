@@ -2057,6 +2057,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-container"
       }, this.props.tasks.length > 0 && this.props.tasks.map(function (task) {
+        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "task-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2067,7 +2068,9 @@ function (_React$Component) {
           className: "task-fields-2"
         }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"));
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl
+        }));
       })));
     }
   }]);

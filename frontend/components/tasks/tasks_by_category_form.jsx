@@ -35,6 +35,7 @@ class TasksByCat extends React.Component {
 				{this.greeting()}
 				<div className = 'parent-task-container'> 
 					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
+						debugger
 						return (
 							<div className='task-container'>
 				
@@ -42,7 +43,7 @@ class TasksByCat extends React.Component {
 								<p className = 'task-fields-1'>Description: {task.description}	</p>
 								<p className = 'task-fields-2'>Location: {task.location}</p>
 								<p className = 'task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-	
+								<img src={task.photoUrl}></img>
 							</div>
 							)
 					})}

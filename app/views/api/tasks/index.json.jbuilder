@@ -1,6 +1,5 @@
-@tasks.each do |task|
-	json.set! task.id do
-		json.extract! task,  	:id,            
+json.array! @tasks do |task|
+	json.extract! task,  	:id,            
  											:brief,          
  											:description,    
  											:location,       
@@ -9,5 +8,5 @@
  											:task_maker_id, 
  											:category_id,    
  											:task_doer_id
-	end
-end		
+	json.photoUrl url_for(task.photo)
+end
