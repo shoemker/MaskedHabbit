@@ -4,7 +4,7 @@
 	height: 1000px;
 	width: 100%;
 	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/login.jpg');
-	background-repeat: repeat-y;
+	/* background-repeat: repeat-y; */
 }
 
 
