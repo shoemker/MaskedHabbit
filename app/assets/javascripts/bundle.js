@@ -1533,20 +1533,43 @@ function (_React$Component) {
       description: '',
       location: '',
       category_id: 1,
-      completed: false
+      completed: false,
+      photoFile: null,
+      photoUrl: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // handleSubmit(e) {
+  // 	e.preventDefault();
+  // 	this.props.createTask(this.state);
+  // 	this.props.closeModal();
+  // }
+
 
   _createClass(MakeNewTaskForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // const user = Object.assign({}, this.state);
-      // this.props.processForm(user).then(() => this.props.history.push("/doer"));
-
-      this.props.createTask(this.state);
+      e.preventDefault();
+      var formData = new FormData();
+      formData.append('task[task_maker_id]', this.state.task_maker_id);
+      formData.append('task[brief]', this.state.brief);
+      formData.append('task[description]', this.state.description);
+      formData.append('task[location]', this.state.location);
+      formData.append('task[category_id]', this.state.category_id);
+      formData.append('task[completed]', this.state.completed);
+      if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
+      $.ajax({
+        url: '/api/tasks',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      }).then(function (response) {
+        return console.log(response.message);
+      }, function (response) {
+        console.log(response.responseJSON);
+      });
       this.props.closeModal();
     }
   }, {
@@ -1555,12 +1578,31 @@ function (_React$Component) {
       this.props.closeModal();
     }
   }, {
-    key: "update",
-    value: function update(field) {
+    key: "handleFile",
+    value: function handleFile(e) {
       var _this2 = this;
 
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this2.setState({
+          photoFile: file,
+          photoUrl: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this3 = this;
+
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -1599,7 +1641,7 @@ function (_React$Component) {
         name: "Category",
         id: "cat_selector",
         onChange: this.update('category_id')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "Mounting & Installation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
@@ -1618,7 +1660,13 @@ function (_React$Component) {
         className: "tasker-checkbox",
         value: "true",
         onChange: this.check
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pic-upload-label"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        className: "custom-file-input",
+        onChange: this.handleFile.bind(this)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit",
         type: "submit",
         value: "Create New Task"
@@ -32230,7 +32278,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

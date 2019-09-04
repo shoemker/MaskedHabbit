@@ -12,6 +12,7 @@ class LoggedInMaker extends React.Component {
 
 	render() {
 		let tasksSelected = [];
+	
 
 		(this.props.tasks.length > 0) && this.props.tasks.forEach((task) => {
 			if (this.props.currentUser.id === task.task_maker_id && task.completed === false)// && task.task_doer_id === null) 
@@ -19,7 +20,6 @@ class LoggedInMaker extends React.Component {
 				tasksSelected.push(task);
 			}
 		})
-		
 		return(
 			<div className = "maker-background">
 				<header>
@@ -50,8 +50,8 @@ class LoggedInMaker extends React.Component {
 						)
 					})}
 				</div>
-
-
+				
+		
 			</div>
 		)}
 	

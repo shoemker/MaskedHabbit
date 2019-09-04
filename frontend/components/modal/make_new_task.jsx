@@ -11,7 +11,9 @@ class MakeNewTaskForm extends React.Component {
 			description: '',
 			location: '',
 			category_id: 1,
-			completed: false
+			completed: false,
+			photoFile: null,
+			photoUrl: null
 		};
 	
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,11 +21,38 @@ class MakeNewTaskForm extends React.Component {
 	}
 
 
+	// handleSubmit(e) {
+	// 	e.preventDefault();
+
+	// 	this.props.createTask(this.state);
+	// 	this.props.closeModal();
+	// }
+
 	handleSubmit(e) {
 		e.preventDefault();
-		// const user = Object.assign({}, this.state);
-		// this.props.processForm(user).then(() => this.props.history.push("/doer"));
-		this.props.createTask(this.state);
+		const formData = new FormData();
+		formData.append('task[task_maker_id]', this.state.task_maker_id);
+		formData.append('task[brief]', this.state.brief);
+		formData.append('task[description]', this.state.description);
+		formData.append('task[location]', this.state.location);
+		formData.append('task[category_id]', this.state.category_id);
+		formData.append('task[completed]', this.state.completed);
+		
+		if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
+		
+		$.ajax({
+			url: '/api/tasks',
+			method: 'POST',
+			data: formData,
+			contentType: false,
+			processData: false
+		}).then(
+			(response) => console.log(response.message),
+			(response) => {
+				console.log(response.responseJSON)
+			}
+		);
+
 		this.props.closeModal();
 	}
 
@@ -32,6 +61,16 @@ class MakeNewTaskForm extends React.Component {
 		this.props.closeModal();
 	}
 
+	handleFile(e) {
+		const file = e.currentTarget.files[0];
+		const fileReader = new FileReader();
+		fileReader.onloadend = () => {
+			this.setState({ photoFile: file, photoUrl: fileReader.result });
+		};
+		if (file) {
+			fileReader.readAsDataURL(file);
+		}
+	}
 
 	update(field) {
 		return e => this.setState({
@@ -84,6 +123,7 @@ class MakeNewTaskForm extends React.Component {
 							<br />
 							<label>
 								<select name="Category" id="cat_selector" onChange={this.update('category_id')}>
+									<option>Category</option>
 									<option value="1">Mounting & Installation</option>
 									<option value="2">Moving & Packing</option>
 									<option value="3">Furniture Assembly</option>
@@ -99,6 +139,12 @@ class MakeNewTaskForm extends React.Component {
 								className="tasker-checkbox" 
 								value="true"
 								onChange={this.check}></input>
+							<div className = "pic-upload-label">
+								<input type="file"
+									className = "custom-file-input"
+									onChange={this.handleFile.bind(this)} />
+									
+							</div>
 							<input className="signup-submit" type="submit" value="Create New Task" />
 						
 							<br></br>
