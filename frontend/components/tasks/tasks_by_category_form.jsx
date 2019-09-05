@@ -35,7 +35,6 @@ class TasksByCat extends React.Component {
 				{this.greeting()}
 				<div className = 'parent-task-container'> 
 					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
-						debugger
 						return (
 							<div className='task-container'>
 				

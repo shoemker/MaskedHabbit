@@ -2057,7 +2057,6 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-container"
       }, this.props.tasks.length > 0 && this.props.tasks.map(function (task) {
-        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "task-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -32281,7 +32280,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
