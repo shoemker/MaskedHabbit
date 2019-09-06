@@ -37,12 +37,16 @@ class TasksByCat extends React.Component {
 					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
 						return (
 							<div className='task-container'>
-				
-								<p className = "task-brief"> {task.brief}</p> 
-								<p className = 'task-fields-1'>Description: {task.description}	</p>
-								<p className = 'task-fields-2'>Location: {task.location}</p>
-								<p className = 'task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-								<img src={task.photoUrl}></img>
+								<div>
+									<img src={task.photoUrl}></img>
+
+								</div>
+								<div>
+									<p className = "task-brief"> {task.brief}</p> 
+									<p className = 'task-fields-1'>Description: {task.description}	</p>
+									<p className = 'task-fields-2'>Location: {task.location}</p>
+									<p className = 'task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+								</div>
 							</div>
 							)
 					})}
