@@ -8,6 +8,11 @@
 
 }
 
+.center{
+	width:100%;
+	text-align: center;
+}
+
 .tasks-cat-greeting-con {
 	background-color: #61a14b;
 	width: 800px;
@@ -39,12 +44,26 @@
 	font-size: 16px;
 	border: 1px solid #7dd161;
 	border-radius: 4px;
-	width: 300px;
+	width: 560px;
 	height: 200px;
 	margin-left: 40px;
 	margin-right: 40px;
 	margin-top: 30px;
+	display: flex ;
+	flex-flow: row wrap;
 	
+}
+
+.after-brief {
+	display: flex ;
+	flex-flow: row wrap;
+}
+
+.taskPhoto {
+	width: 180px;
+	height: 120px;
+	/* margin-top: 20%; */
+	margin-left:20px;
 }
 
 

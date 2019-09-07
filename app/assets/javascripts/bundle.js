@@ -2057,20 +2057,24 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-container"
       }, this.props.tasks.length > 0 && this.props.tasks.map(function (task) {
-        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "task-container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: task.photoUrl
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, " ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "after-brief"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl,
+          className: "taskPhoto"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Desc: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
-        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no")));
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"))));
       })));
     }
   }]);
@@ -2275,15 +2279,22 @@ function (_React$Component) {
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "task-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, " ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "after-brief"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl,
+          className: "taskPhoto"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Desc: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
-        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"));
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"))));
       })));
     }
   }]);
