@@ -20,6 +20,7 @@ class LoggedInMaker extends React.Component {
 				tasksSelected.push(task);
 			}
 		})
+
 		return(
 			<div className = "maker-background">
 				<header>
@@ -39,15 +40,23 @@ class LoggedInMaker extends React.Component {
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 						return (
-							<form  className='doer-task-container' id={task.id}>
-								<p className="task-brief">Task: {task.brief}</p>
-								<p className='task-fields-1'>Description: {task.description}	</p>
-								<p className='task-fields-2'>Location: {task.location}</p>
-								<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-								<p className='task-fields-4'>Task Maker : {this.props.currentUser.username}</p>
-								
-							</form>
-						)
+							<div className='task-container'>
+								<div className="center"><p className="task-brief"> {task.brief}</p> </div>
+								<div className="after-brief">
+									<div>
+										<img src={task.photoUrl} className="taskPhoto"></img>
+
+									</div>
+									<div>
+										<p className='task-fields-1'>Descr: {task.description}	</p>
+										<p className='task-fields-2'>At: {task.location}</p>
+										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
+										< p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
+									</div>
+								</div>
+							</div>
+						)	
+
 					})}
 				</div>
 				

@@ -537,23 +537,29 @@ function (_React$Component) {
         className: "tasks-cat-greeting-doer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Welcome Task-Doer. You've agreed to do these tasks.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Welcome Task-Doer. You've agreed to do these tasks:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-doer-container"
       }, this.props.tasks.length > 0 && tasksToDo.map(function (task) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          className: "doer-task-container",
-          id: task.id
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "task-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "after-brief"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl,
+          className: "taskPhoto"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Descr: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
-        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, "Task Doer : ", _this2.props.currentUser.username));
+        }, " Task Maker: ", _this2.props.currentUser.username))));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-doer2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -623,20 +629,25 @@ function (_React$Component) {
           onSubmit: _this2.handleSubmit,
           className: "doer-task-container2",
           id: task.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "after-brief"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl,
+          className: "taskPhoto"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Descr: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
-        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "task-fields-4"
-        }, "Task Doer : ", task.task_doer_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "task-accept-button",
           type: "submit"
-        }, "Accept Task"));
+        }, " Accept Task"));
       }))))));
     }
   }]);
@@ -770,20 +781,26 @@ function (_React$Component) {
       }, "Welcome Task-Maker. Here are the tasks you've created")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          className: "doer-task-container",
-          id: task.id
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "task-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
-        }, "Task: ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, " ", task.brief), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "after-brief"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl,
+          className: "taskPhoto"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Description: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Descr: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
-        }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, "Task Maker : ", _this.props.currentUser.username));
+        }, " Task Maker: ", _this.props.currentUser.username))));
       })));
     }
   }]);
@@ -2290,7 +2307,7 @@ function (_React$Component) {
           className: "taskPhoto"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
-        }, "Desc: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Descr: ", task.description, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-2"
         }, "At: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"

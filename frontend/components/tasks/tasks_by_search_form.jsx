@@ -130,14 +130,14 @@ class TasksBySearch extends React.Component {
 
 											</div>
 											<div>
-												<p className='task-fields-1'>Desc: {task.description}	</p>
+												<p className='task-fields-1'>Descr: {task.description}	</p>
 												<p className='task-fields-2'>At: {task.location}</p>
 												<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
 											</div>
 										</div>
 									</div>
-								)							})}
-						</div>
+								)})}
+					</div>
 
 					) }
 				</div>
