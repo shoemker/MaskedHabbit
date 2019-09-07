@@ -83,7 +83,7 @@ class LoggedInDoerForm extends React.Component {
 							})}
 						</div>
 						<div className="tasks-cat-greeting-doer2">
-							<h2 className="task-cat-greeting">Here are more available tasks.</h2>
+							<h2 className="task-cat-greeting">Click on category for more available tasks.</h2>
 						</div>
 						
 						<div className = "available-tasks">

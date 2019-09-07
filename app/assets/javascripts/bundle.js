@@ -564,7 +564,7 @@ function (_React$Component) {
         className: "tasks-cat-greeting-doer2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Here are more available tasks.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Click on category for more available tasks.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "available-tasks"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons-all"
@@ -32309,7 +32309,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
