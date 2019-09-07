@@ -2057,9 +2057,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-container"
       }, this.props.tasks.length > 0 && this.props.tasks.map(function (task) {
+        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "task-container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: task.photoUrl
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-brief"
         }, " ", task.brief), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-1"
@@ -2067,9 +2070,7 @@ function (_React$Component) {
           className: "task-fields-2"
         }, "Location: ", task.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-3"
-        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: task.photoUrl
-        }));
+        }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no")));
       })));
     }
   }]);
@@ -32280,7 +32281,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
