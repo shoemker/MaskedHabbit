@@ -23,7 +23,7 @@
 	height: 38px;
 	margin-top: 50px;
 	position: relative;
-		left: 50%;
+	left: 50%;
 	transform: translateX(-50%);
 	border-radius: 7px;
 }
@@ -35,7 +35,7 @@
 	margin-top: 150px;
 	margin-bottom: 50px;
 	position: relative;
-		left: 50%;
+	left: 50%;
 	transform: translateX(-50%);
 	border-radius: 7px;
 }
