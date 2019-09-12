@@ -90,7 +90,6 @@
 	width:500px;
 	height: 200px;
 	margin: 20px;
-	
 	border-radius: 10px;
 }
 
@@ -99,7 +98,6 @@
 	width:600px;
 	height: 230px;
 	margin: 20px;
-	
 	border-radius: 10px;
 }
 
@@ -120,7 +118,6 @@
 .task-accept-button:hover{
 	background-color: white;
 	color: #7dd161;
-
 }
 
 .available-tasks {
