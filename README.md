@@ -1,6 +1,6 @@
 
 
-<a href="http://masked-habbit.herokuapp.com/?#"><img src="https://maskedhabbit-prod.s3-us-west-1.amazonaws.com/Logo1.jpg" alt="logo"></a>
+<a href="http://masked-habbit.herokuapp.com/?#"><img src="./app/assets/images/Logo1.jpg" alt="logo"></a>
 
 <br>
 <h1><a href="http://masked-habbit.herokuapp.com/?#">Masked-Habbit</a> is a clone of <a href="https://www.taskrabbit.com/">TaskRabbit.</a></h1>
