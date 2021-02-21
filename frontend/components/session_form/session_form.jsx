@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
 				</form>
 			</div>
 		);
-	}
-}
+	};
+};
 
 export default withRouter(SessionForm);
