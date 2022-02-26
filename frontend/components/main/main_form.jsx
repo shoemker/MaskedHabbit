@@ -105,7 +105,7 @@ class MainForm extends React.Component {
 					<div className="steps">
 						<img className='steps-img' src={window.describeURL} />
 				
-						<p className="task-text">&#9312; Describe Your Mask</p>
+						<p className="task-text">&#9312; Describe Your Task</p>
 						<p className="task-lower-text">Tell us what you need done, when and where it works for you. </p>
 					</div>
 					<div className="steps">
