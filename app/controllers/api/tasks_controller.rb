@@ -31,8 +31,9 @@ class Api::TasksController < ApplicationController
 		end
 	end
 
-	def destroy
 
+	def destroy
+	
 	end
 
 
