@@ -3,10 +3,23 @@ import NavbarContainer from '../navbar/navbar_container'
 
 
 class LoggedInMaker extends React.Component {
+	constructor(props){
+		super(props);
 
+		this.state = {tasks: this.props.tasks}
+		
+		this.delete = this.delete.bind(this);
+	}
 
 	componentDidMount() {
 		this.props.fetchTasks();
+	}
+
+	delete(e){
+		e.preventDefault();
+		this.props.deleteTask(e.target.id);
+		Window.location.reload();
+		//this.setState({tasks: this.props.tasks});
 	}
 
 
@@ -20,6 +33,7 @@ class LoggedInMaker extends React.Component {
 				tasksSelected.push(task);
 			}
 		})
+
 
 		return(
 			<div className = "maker-background">
@@ -39,6 +53,7 @@ class LoggedInMaker extends React.Component {
 
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+						
 						return (
 							<div className='task-container'>
 								<div className="center"><p className="task-brief"> {task.brief}</p> </div>
@@ -51,7 +66,8 @@ class LoggedInMaker extends React.Component {
 										<p className='task-fields-1'>Descr: {task.description}	</p>
 										<p className='task-fields-2'>At: {task.location}</p>
 										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-										< p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
+										<p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
+										<button onClick={this.delete} id={task.id}>delete</button>
 									</div>
 								</div>
 							</div>

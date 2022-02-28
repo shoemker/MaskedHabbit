@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import LoggedInMakerForm from './logged_in_maker_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { fetchTasks } from '../../actions/task_actions';
+import { fetchTasks, deleteTask } from '../../actions/task_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		fetchTasks: () => dispatch(fetchTasks()),
-
+		deleteTask: (id) => dispatch(deleteTask(id)),
 		openModal: () => dispatch(openModal('newTask')),
 		closeModal: () => dispatch(closeModal())
 	};

@@ -695,6 +695,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchTasks: function fetchTasks() {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_3__["fetchTasks"])());
     },
+    deleteTask: function deleteTask(id) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_3__["deleteTask"])(id));
+    },
     openModal: function openModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])('newTask'));
     },
@@ -750,10 +753,17 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(LoggedInMaker);
 
-  function LoggedInMaker() {
+  function LoggedInMaker(props) {
+    var _this;
+
     _classCallCheck(this, LoggedInMaker);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      tasks: _this.props.tasks
+    };
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(LoggedInMaker, [{
@@ -762,13 +772,20 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       this.props.fetchTasks();
     }
   }, {
+    key: "delete",
+    value: function _delete(e) {
+      e.preventDefault();
+      this.props.deleteTask(e.target.id);
+      Window.location.reload(); //this.setState({tasks: this.props.tasks});
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this.props.currentUser.id === task.task_maker_id && task.completed === false) // && task.task_doer_id === null) 
+        if (_this2.props.currentUser.id === task.task_maker_id && task.completed === false) // && task.task_doer_id === null) 
           {
             tasksSelected.push(task);
           }
@@ -780,7 +797,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "new-task-maker-button",
         onClick: function onClick() {
-          return _this.props.openModal();
+          return _this2.props.openModal();
         }
       }, "Create New Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-maker"
@@ -808,7 +825,10 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, " Task Maker: ", _this.props.currentUser.username))));
+        }, " Task Maker: ", _this2.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: _this2["delete"],
+          id: task.id
+        }, "delete"))));
       })));
     }
   }]);
@@ -902,7 +922,9 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        return _this3.props.history.push("/doer");
+        debugger;
+
+        _this3.props.history.push("/doer");
       });
     }
   }, {
@@ -1433,7 +1455,7 @@ var MainForm = /*#__PURE__*/function (_React$Component) {
         src: window.describeURL
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-text"
-      }, "\u2460 Describe Your Mask"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "\u2460 Describe Your Task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-lower-text"
       }, "Tell us what you need done, when and where it works for you. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
