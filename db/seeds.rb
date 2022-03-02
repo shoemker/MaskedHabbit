@@ -309,7 +309,7 @@ task.photo.attach(io: file, filename: 'redo_bathroom.jpeg')
 
 
 
-task = Task.create(brief: "Install Washer & Dryer",
+task = Task.create(brief: "Install Washer-Dryer",
 						description: "Both",
 						location: "800 Fell st",
 						vehicle_needed: false,
@@ -323,7 +323,7 @@ task.photo.attach(io: file, filename: 'washer_dryer.jpeg')
 
 
 task = Task.create(brief: "Hang pictures",
-						description: "Pictures of grandchildren",
+						description: "Pictures of grandkids",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,

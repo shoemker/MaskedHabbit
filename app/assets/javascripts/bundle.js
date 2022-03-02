@@ -774,22 +774,27 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "delete",
     value: function _delete(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      this.props.deleteTask(e.target.id);
-      Window.location.reload(); //this.setState({tasks: this.props.tasks});
+      this.props.deleteTask(e.target.id).then(function () {
+        return _this2.props.fetchTasks();
+      }); // Window.location.reload();
+      //this.setState({tasks: this.props.tasks});
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this2.props.currentUser.id === task.task_maker_id && task.completed === false) // && task.task_doer_id === null) 
+        if (_this3.props.currentUser.id === task.task_maker_id && task.completed === false) // && task.task_doer_id === null) 
           {
             tasksSelected.push(task);
           }
-      });
+      }); // if (this.props.tasks.length > 0 ) debugger;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -797,7 +802,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "new-task-maker-button",
         onClick: function onClick() {
-          return _this2.props.openModal();
+          return _this3.props.openModal();
         }
       }, "Create New Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-maker"
@@ -825,10 +830,10 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, " Task Maker: ", _this2.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: _this2["delete"],
+        }, " Task Maker: ", _this3.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: _this3["delete"],
           id: task.id
-        }, "delete"))));
+        }, task.id))));
       })));
     }
   }]);

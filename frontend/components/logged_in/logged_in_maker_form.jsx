@@ -17,8 +17,9 @@ class LoggedInMaker extends React.Component {
 
 	delete(e){
 		e.preventDefault();
-		this.props.deleteTask(e.target.id);
-		Window.location.reload();
+		this.props.deleteTask(e.target.id).then(() => this.props.fetchTasks());
+
+		// Window.location.reload();
 		//this.setState({tasks: this.props.tasks});
 	}
 
@@ -34,7 +35,7 @@ class LoggedInMaker extends React.Component {
 			}
 		})
 
-
+		// if (this.props.tasks.length > 0 ) debugger;
 		return(
 			<div className = "maker-background">
 				<header>
@@ -53,7 +54,6 @@ class LoggedInMaker extends React.Component {
 
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
-						
 						return (
 							<div className='task-container'>
 								<div className="center"><p className="task-brief"> {task.brief}</p> </div>
@@ -67,7 +67,7 @@ class LoggedInMaker extends React.Component {
 										<p className='task-fields-2'>At: {task.location}</p>
 										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
 										<p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
-										<button onClick={this.delete} id={task.id}>delete</button>
+										<button onClick={this.delete} id={task.id}>{task.id}</button>
 									</div>
 								</div>
 							</div>
