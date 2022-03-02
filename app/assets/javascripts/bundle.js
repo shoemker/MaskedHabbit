@@ -828,7 +828,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
         }, " Task Maker: ", _this3.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "delete-button",
           onClick: function onClick() {
-            if (window.confirm('Are you sure you wish to delete this item?')) _this3["delete"](task.id);
+            if (window.confirm('Are you sure you wish to delete this task?')) _this3["delete"](task.id);
           }
         }, "del"))));
       })));
