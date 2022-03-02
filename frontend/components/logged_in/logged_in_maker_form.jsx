@@ -28,6 +28,9 @@ class LoggedInMaker extends React.Component {
 			}
 		})
 
+		const welcome = "Welcome " + this.props.currentUser.username + ".Here are the tasks you've created.";
+
+
 		// if (this.props.tasks.length > 0 ) debugger;
 		return(
 			<div className = "maker-background">
@@ -39,8 +42,8 @@ class LoggedInMaker extends React.Component {
 					<button className="new-task-maker-button" onClick={() => this.props.openModal()}>Create New Task</button>
 				</nav>
 
-				<div className="tasks-cat-greeting-maker">
-					<h2 className = "task-cat-greeting">Welcome {this.props.currentUser.username}. Here are the tasks you've created</h2>
+				<div className="tasks-cat-greeting-maker" style ={{width: welcome.length*13 +"px"}}>
+					<h2 className = "task-cat-greeting">{welcome}</h2>
 				</div>
 
 			

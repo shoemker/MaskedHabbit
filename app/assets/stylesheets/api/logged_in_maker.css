@@ -2,7 +2,7 @@
 	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/caulking.jpg');
   background-repeat: repeat-y;
  	background-size: 100%;
-	height: 1000px;
+	height: 1800px;
 	width: 100%;
 	position: relative;
 }
@@ -24,7 +24,6 @@
 
 .tasks-cat-greeting-maker {
 	background-color: #61a14b;
-	width: 800px;
 	height: 38px;
 	margin-right: auto; margin-left: auto;
 	margin-top: 150px;

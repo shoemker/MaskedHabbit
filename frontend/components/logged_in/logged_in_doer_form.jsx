@@ -24,7 +24,8 @@ class LoggedInDoerForm extends React.Component {
 		}
 
 		task.task_doer_id = this.props.currentUser.id;
-		this.props.updateTask(task);
+		
+		this.props.updateTask(task).then(() => this.props.fetchTasks());
 	}
 
 	componentDidMount() {
@@ -48,6 +49,8 @@ class LoggedInDoerForm extends React.Component {
 				tasksToDo.push(task);
 			}
 		})
+
+		let welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
 	
 		return (
 			<div >
@@ -57,9 +60,9 @@ class LoggedInDoerForm extends React.Component {
 
 				<div className="logged-in-doer-main">
 					<div className = "after-main">
-						<div className="tasks-cat-greeting-doer">
-							<h2 className="task-cat-greeting">Welcome {this.props.currentUser.username}. You've agreed to do these tasks:</h2>
-						</div>
+						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 13 + "px" }}>
+							<h2 className="task-cat-greeting">{welcome}</h2>
+						</div>}
 
 						<div className="parent-task-doer-container">
 							{this.props.tasks.length > 0 && tasksToDo.map((task) => {

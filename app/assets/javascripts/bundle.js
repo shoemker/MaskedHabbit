@@ -500,6 +500,8 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
   _createClass(LoggedInDoerForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var task;
 
@@ -510,7 +512,9 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       }
 
       task.task_doer_id = this.props.currentUser.id;
-      this.props.updateTask(task);
+      this.props.updateTask(task).then(function () {
+        return _this2.props.fetchTasks();
+      });
     }
   }, {
     key: "componentDidMount",
@@ -520,28 +524,32 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var tasksToDo = [];
       var tasksSelected = [];
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
-        if (_this2.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) {
+        if (_this3.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) {
           tasksSelected.push(task);
         }
 
-        if (_this2.props.currentUser.id === task.task_doer_id) {
+        if (_this3.props.currentUser.id === task.task_doer_id) {
           tasksToDo.push(task);
         }
       });
+      var welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "after-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tasks-cat-greeting-doer"
+        className: "tasks-cat-greeting-doer",
+        style: {
+          width: welcome.length * 13 + "px"
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Welcome ", this.props.currentUser.username, ". You've agreed to do these tasks:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, welcome)), "}", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-doer-container"
       }, this.props.tasks.length > 0 && tasksToDo.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -563,7 +571,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, " Task Maker: ", _this2.props.currentUser.username))));
+        }, " Task Maker: ", _this3.props.currentUser.username))));
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-doer2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -574,7 +582,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         className: "buttons-all"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 1
           });
         }
@@ -583,7 +591,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "Mounting & Installation")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 2
           });
         }
@@ -592,7 +600,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "Moving & Packing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 3
           });
         }
@@ -601,7 +609,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "Furniture Assembly")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 4
           });
         }
@@ -610,7 +618,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "Home Improvement")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 5
           });
         }
@@ -619,7 +627,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "General Handyman")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit() {
-          return _this2.setState({
+          return _this3.setState({
             categoryId: 6
           });
         }
@@ -630,7 +638,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         className: "logged-in-doer-right"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          onSubmit: _this2.handleSubmit,
+          onSubmit: _this3.handleSubmit,
           className: "doer-task-container2",
           id: task.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -788,7 +796,8 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
           {
             tasksSelected.push(task);
           }
-      }); // if (this.props.tasks.length > 0 ) debugger;
+      });
+      var welcome = "Welcome " + this.props.currentUser.username + ".Here are the tasks you've created."; // if (this.props.tasks.length > 0 ) debugger;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
@@ -800,10 +809,13 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
           return _this3.props.openModal();
         }
       }, "Create New Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tasks-cat-greeting-maker"
+        className: "tasks-cat-greeting-maker",
+        style: {
+          width: welcome.length * 13 + "px"
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Welcome ", this.props.currentUser.username, ". Here are the tasks you've created")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, welcome)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2989,7 +3001,6 @@ var createTask = function createTask(task) {
   });
 };
 var updateTask = function updateTask(task) {
-  debugger;
   return $.ajax({
     method: 'PATCH',
     url: "api/tasks/".concat(task.id),
