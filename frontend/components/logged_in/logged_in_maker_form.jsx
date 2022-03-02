@@ -15,18 +15,15 @@ class LoggedInMaker extends React.Component {
 		this.props.fetchTasks();
 	}
 
-	delete(e){
-		e.preventDefault();
-		this.props.deleteTask(e.target.id).then(() => this.props.fetchTasks());
-
-		// Window.location.reload();
-		//this.setState({tasks: this.props.tasks});
+	delete(id){
+		// debugger
+		// e.preventDefault();
+		this.props.deleteTask(id).then(() => this.props.fetchTasks());
 	}
 
 
 	render() {
 		let tasksSelected = [];
-	
 
 		(this.props.tasks.length > 0) && this.props.tasks.forEach((task) => {
 			if (this.props.currentUser.id === task.task_maker_id && task.completed === false)// && task.task_doer_id === null) 
@@ -67,7 +64,8 @@ class LoggedInMaker extends React.Component {
 										<p className='task-fields-2'>At: {task.location}</p>
 										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
 										<p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
-										<button onClick={this.delete} id={task.id}>{task.id}</button>
+										<div className='delete-button' onClick={() => 
+											{ if (window.confirm('Are you sure you wish to delete this item?')) this.delete(task.id) }}>del</div>
 									</div>
 								</div>
 							</div>

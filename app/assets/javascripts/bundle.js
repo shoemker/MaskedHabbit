@@ -773,14 +773,14 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "delete",
-    value: function _delete(e) {
+    value: function _delete(id) {
       var _this2 = this;
 
-      e.preventDefault();
-      this.props.deleteTask(e.target.id).then(function () {
+      // debugger
+      // e.preventDefault();
+      this.props.deleteTask(id).then(function () {
         return _this2.props.fetchTasks();
-      }); // Window.location.reload();
-      //this.setState({tasks: this.props.tasks});
+      });
     }
   }, {
     key: "render",
@@ -830,10 +830,12 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
           className: "task-fields-3"
         }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "task-fields-4"
-        }, " Task Maker: ", _this3.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: _this3["delete"],
-          id: task.id
-        }, task.id))));
+        }, " Task Maker: ", _this3.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "delete-button",
+          onClick: function onClick() {
+            if (window.confirm('Are you sure you wish to delete this item?')) _this3["delete"](task.id);
+          }
+        }, "del"))));
       })));
     }
   }]);
