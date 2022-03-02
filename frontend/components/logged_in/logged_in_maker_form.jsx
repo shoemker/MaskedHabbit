@@ -61,7 +61,8 @@ class LoggedInMaker extends React.Component {
 										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
 										<p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
 										<div className='delete-button' onClick={() => 
-											{ if (window.confirm('Are you sure you wish to delete this task?')) this.delete(task.id) }}>del</div>
+											{ if (window.confirm('Are you sure you wish to delete this task?')) 
+												this.delete(task.id) }}>del</div>
 									</div>
 								</div>
 							</div>

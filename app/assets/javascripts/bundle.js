@@ -1459,16 +1459,16 @@ var MainForm = /*#__PURE__*/function (_React$Component) {
         className: "task-text"
       }, "\u2460 Describe Your Task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-lower-text"
-      }, "Tell us what you need done, when and where it works for you. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "As a Task-Creater, tell us what you need done, when and where it works for you. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "steps-img",
         src: window.chooseURL
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-text"
-      }, "\u2461 Choose Your Masker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "\u2461 Choose Your Task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-lower-text"
-      }, "Browse trusted Maskers by skills, reviews, and price. Select the right person for the job and chat to confirm details.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "A Task-Doer will select the job based on the information.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "steps"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "steps-img",
@@ -1477,7 +1477,7 @@ var MainForm = /*#__PURE__*/function (_React$Component) {
         className: "task-text"
       }, "\u2462 Get It Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "task-lower-text"
-      }, "Your Masker arrives and gets the job done. Pay securely and leave a review, all through MaskedHabbit."))));
+      }, "Your Task-Doer arrives and gets the job done. Pay securely and leave a review, all through MaskedHabbit."))));
     }
   }]);
 
