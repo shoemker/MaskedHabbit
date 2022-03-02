@@ -759,9 +759,6 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, LoggedInMaker);
 
     _this = _super.call(this, props);
-    _this.state = {
-      tasks: _this.props.tasks
-    };
     _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -776,8 +773,6 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
     value: function _delete(id) {
       var _this2 = this;
 
-      // debugger
-      // e.preventDefault();
       this.props.deleteTask(id).then(function () {
         return _this2.props.fetchTasks();
       });
@@ -808,7 +803,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
         className: "tasks-cat-greeting-maker"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Welcome Task-Maker. Here are the tasks you've created")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Welcome ", this.props.currentUser.username, ". Here are the tasks you've created")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

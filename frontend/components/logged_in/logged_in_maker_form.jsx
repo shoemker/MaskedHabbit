@@ -5,8 +5,6 @@ import NavbarContainer from '../navbar/navbar_container'
 class LoggedInMaker extends React.Component {
 	constructor(props){
 		super(props);
-
-		this.state = {tasks: this.props.tasks}
 		
 		this.delete = this.delete.bind(this);
 	}
@@ -16,8 +14,6 @@ class LoggedInMaker extends React.Component {
 	}
 
 	delete(id){
-		// debugger
-		// e.preventDefault();
 		this.props.deleteTask(id).then(() => this.props.fetchTasks());
 	}
 
@@ -44,7 +40,7 @@ class LoggedInMaker extends React.Component {
 				</nav>
 
 				<div className="tasks-cat-greeting-maker">
-					<h2 className = "task-cat-greeting">Welcome Task-Maker. Here are the tasks you've created</h2>
+					<h2 className = "task-cat-greeting">Welcome {this.props.currentUser.username}. Here are the tasks you've created</h2>
 				</div>
 
 			
