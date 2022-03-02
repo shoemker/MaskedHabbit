@@ -541,7 +541,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         className: "tasks-cat-greeting-doer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, "Welcome Task-Doer. You've agreed to do these tasks:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Welcome ", this.props.currentUser.username, ". You've agreed to do these tasks:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-doer-container"
       }, this.props.tasks.length > 0 && tasksToDo.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

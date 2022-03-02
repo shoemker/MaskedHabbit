@@ -58,7 +58,7 @@ class LoggedInDoerForm extends React.Component {
 				<div className="logged-in-doer-main">
 					<div className = "after-main">
 						<div className="tasks-cat-greeting-doer">
-							<h2 className="task-cat-greeting">Welcome Task-Doer. You've agreed to do these tasks:</h2>
+							<h2 className="task-cat-greeting">Welcome {this.props.currentUser.username}. You've agreed to do these tasks:</h2>
 						</div>
 
 						<div className="parent-task-doer-container">
