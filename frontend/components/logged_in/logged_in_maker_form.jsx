@@ -28,7 +28,7 @@ class LoggedInMaker extends React.Component {
 			}
 		})
 
-		const welcome = "Welcome " + this.props.currentUser.username + ".Here are the tasks you've created.";
+		const welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created.";
 
 
 		// if (this.props.tasks.length > 0 ) debugger;

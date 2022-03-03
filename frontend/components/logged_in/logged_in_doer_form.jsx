@@ -62,7 +62,7 @@ class LoggedInDoerForm extends React.Component {
 					<div className = "after-main">
 						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 13 + "px" }}>
 							<h2 className="task-cat-greeting">{welcome}</h2>
-						</div>}
+						</div>
 
 						<div className="parent-task-doer-container">
 							{this.props.tasks.length > 0 && tasksToDo.map((task) => {

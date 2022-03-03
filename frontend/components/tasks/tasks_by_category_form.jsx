@@ -12,12 +12,13 @@ class TasksByCat extends React.Component {
 
 
 	greeting() {
+		const welcome = "Please Log In to do these tasks.";
 
 		if (!this.props.currentUser) {
 			return (
-				<div className="tasks-cat-greeting-con">
+				<div className="tasks-cat-greeting-con" style={{ width: welcome.length * 13 + "px" }}>
 					<Link to="/login" style={{ textDecoration: 'none' }} >
-						<h2 className = "task-cat-greeting">Please Log In to do these tasks</h2>
+						<h2 className = "task-cat-greeting">{welcome}</h2>
 					</Link>
 				</div>
 				)

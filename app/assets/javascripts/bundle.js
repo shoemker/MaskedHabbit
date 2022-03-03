@@ -549,7 +549,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
-      }, welcome)), "}", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, welcome)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-doer-container"
       }, this.props.tasks.length > 0 && tasksToDo.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -797,7 +797,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
             tasksSelected.push(task);
           }
       });
-      var welcome = "Welcome " + this.props.currentUser.username + ".Here are the tasks you've created."; // if (this.props.tasks.length > 0 ) debugger;
+      var welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created."; // if (this.props.tasks.length > 0 ) debugger;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
@@ -2117,9 +2117,14 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "greeting",
     value: function greeting() {
+      var welcome = "Please Log In to do these tasks.";
+
       if (!this.props.currentUser) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "tasks-cat-greeting-con"
+          className: "tasks-cat-greeting-con",
+          style: {
+            width: welcome.length * 13 + "px"
+          }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login",
           style: {
@@ -2127,7 +2132,7 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "task-cat-greeting"
-        }, "Please Log In to do these tasks")));
+        }, welcome)));
       }
     }
   }, {
@@ -2300,9 +2305,14 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "greeting",
     value: function greeting() {
+      var welcome = "Please Log In to do these tasks.";
+
       if (!this.props.currentUser) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "tasks-cat-greeting-con"
+          className: "tasks-cat-greeting-con",
+          style: {
+            width: welcome.length * 13 + "px"
+          }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login",
           style: {
@@ -2310,7 +2320,7 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "task-cat-greeting"
-        }, "Please Log In to do these tasks")));
+        }, welcome)));
       }
     }
   }, {
