@@ -21,13 +21,6 @@ class MakeNewTaskForm extends React.Component {
 	}
 
 
-	// handleSubmit(e) {
-	// 	e.preventDefault();
-
-	// 	this.props.createTask(this.state);
-	// 	this.props.closeModal();
-	// }
-
 	handleSubmit(e) {
 		e.preventDefault();
 		const formData = new FormData();

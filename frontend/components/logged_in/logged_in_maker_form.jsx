@@ -39,14 +39,13 @@ class LoggedInMaker extends React.Component {
 				</header>
 
 				<nav className="new-task">
-					<button className="new-task-maker-button" onClick={() => this.props.openModal()}>Create New Task</button>
+					<div className="new-task-maker-button" onClick={() => this.props.openModal()}>Create New Task</div>
 				</nav>
 
 				<div className="tasks-cat-greeting-maker" style ={{width: welcome.length*13 +"px"}}>
 					<h2 className = "task-cat-greeting">{welcome}</h2>
 				</div>
 
-			
 
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
@@ -73,8 +72,7 @@ class LoggedInMaker extends React.Component {
 
 					})}
 				</div>
-				
-		
+						
 			</div>
 		)}
 	

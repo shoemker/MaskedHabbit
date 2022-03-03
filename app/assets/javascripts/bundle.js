@@ -803,7 +803,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
         className: "maker-background"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "new-task"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "new-task-maker-button",
         onClick: function onClick() {
           return _this3.props.openModal();
@@ -1617,12 +1617,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
-  } // handleSubmit(e) {
-  // 	e.preventDefault();
-  // 	this.props.createTask(this.state);
-  // 	this.props.closeModal();
-  // }
-
+  }
 
   _createClass(MakeNewTaskForm, [{
     key: "handleSubmit",

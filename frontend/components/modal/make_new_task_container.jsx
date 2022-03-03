@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => {
 	return ({
 		createTask: (task) => dispatch(createTask(task)),
 		closeModal: () => dispatch(closeModal())
+		
 	})
 }
 
