@@ -43,7 +43,7 @@ class TasksBySearch extends React.Component {
 
 		if (!this.props.currentUser) {
 			return (
-				<div className="tasks-cat-greeting-con" style={{ width: welcome.length * 13 + "px" }}>
+				<div className="tasks-cat-greeting-con" style={{ width: welcome.length * 12.7 + "px" }}>
 					<Link to="/login" style={{ textDecoration: 'none' }} >
 						<h2 className="task-cat-greeting">{welcome}</h2>
 					</Link>

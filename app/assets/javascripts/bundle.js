@@ -545,7 +545,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-doer",
         style: {
-          width: welcome.length * 13 + "px"
+          width: welcome.length * 12.7 + "px"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
@@ -797,7 +797,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
             tasksSelected.push(task);
           }
       });
-      var welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created."; // if (this.props.tasks.length > 0 ) debugger;
+      var welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:"; // if (this.props.tasks.length > 0 ) debugger;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
@@ -811,7 +811,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, "Create New Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-maker",
         style: {
-          width: welcome.length * 13 + "px"
+          width: welcome.length * 12.7 + "px"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
@@ -2118,7 +2118,7 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "tasks-cat-greeting-con",
           style: {
-            width: welcome.length * 13 + "px"
+            width: welcome.length * 12.7 + "px"
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login",
@@ -2306,7 +2306,7 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "tasks-cat-greeting-con",
           style: {
-            width: welcome.length * 13 + "px"
+            width: welcome.length * 12.7 + "px"
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login",

@@ -60,7 +60,7 @@ class LoggedInDoerForm extends React.Component {
 
 				<div className="logged-in-doer-main">
 					<div className = "after-main">
-						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 13 + "px" }}>
+						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 12.7 + "px" }}>
 							<h2 className="task-cat-greeting">{welcome}</h2>
 						</div>
 
