@@ -1620,9 +1620,6 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MakeNewTaskForm, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       var _this2 = this;
@@ -1643,9 +1640,8 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         contentType: false,
         processData: false
       }).then(function (response) {
-        console.log(response.message);
-        console.log(response.responseJSON);
-
+        // console.log(response.message);
+        // console.log(response.responseJSON);
         _this2.props.fetchTasks();
       });
       this.props.closeModal();
@@ -2121,10 +2117,14 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "greeting",
     value: function greeting() {
-      var welcome = "Please Log In to do these tasks.";
+      var welcome = "Please Log In to do these tasks:";
 
       if (!this.props.currentUser) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          style: {
+            height: "50px"
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "tasks-cat-greeting-con",
           style: {
             width: welcome.length * 12.7 + "px"
@@ -2136,7 +2136,7 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "task-cat-greeting"
-        }, welcome)));
+        }, welcome))));
       }
     }
   }, {

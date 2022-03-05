@@ -1,11 +1,10 @@
 .logged-in-doer-main {
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 3000px;
+	height: 800px;
 	width: 100%;
 	background-color: #9C9D98;
 	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg');
- 	background-repeat: repeat-y;
 	flex-direction: row;
 
 }

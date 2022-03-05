@@ -1,16 +1,26 @@
-.tasks-by-cat-background {
-	background-repeat: no-repeat;
-	background-size: 100%;
+.parent-task-container {
+	display: flex ;
+	flex-flow: row wrap;
+	justify-content: center;
+	position:absolute;
+	width: 100%;
+		background-size: 100%;
 	height: 1000px;
 	width: 100%;
 	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/painting.jpg');
-  background-repeat: repeat-y;
+	background-color: #9C9D98;
+}
 
+.tasks-by-cat-background {
+
+	background-color: #9C9D98;
+	background-size: 100%;
 }
 
 .center{
 	width:100%;
 	text-align: center;
+	
 }
 
 .tasks-cat-greeting-con {
@@ -18,8 +28,10 @@
 	width: 800px;
 	height: 38px;
 	margin-right: auto; margin-left: auto;
-	margin-top: 50px;
+	margin-top: 14px;
 	border-radius: 7px;
+
+	
 }
 
 .task-cat-greeting {
@@ -35,7 +47,7 @@
 	justify-content: center;
 	position:absolute;
 	width: 100%;
-	margin-top: 80px;
+
 }
 
 .task-container {
