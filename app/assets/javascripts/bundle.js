@@ -1620,8 +1620,13 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MakeNewTaskForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var formData = new FormData();
       formData.append('task[task_maker_id]', this.state.task_maker_id);
@@ -1638,9 +1643,10 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         contentType: false,
         processData: false
       }).then(function (response) {
-        return console.log(response.message);
-      }, function (response) {
+        console.log(response.message);
         console.log(response.responseJSON);
+
+        _this2.props.fetchTasks();
       });
       this.props.closeModal();
     }
@@ -1652,13 +1658,13 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       var file = e.currentTarget.files[0];
       var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
-        _this2.setState({
+        _this3.setState({
           photoFile: file,
           photoUrl: fileReader.result
         });
@@ -1671,10 +1677,10 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "update",
     value: function update(field) {
-      var _this3 = this;
+      var _this4 = this;
 
       return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this4.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -1785,6 +1791,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
+    },
+    fetchTasks: function fetchTasks() {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"])());
     }
   };
 };

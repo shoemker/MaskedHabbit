@@ -20,6 +20,8 @@ class MakeNewTaskForm extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
+	componentWillUnmount() {
+	}
 
 
 	handleSubmit(e) {
@@ -41,13 +43,13 @@ class MakeNewTaskForm extends React.Component {
 			contentType: false,
 			processData: false
 		}).then(
-			(response) => console.log(response.message),
-			(response) => {
-				console.log(response.responseJSON)
-			}
-		);
+			(response) =>  { 
+				console.log(response.message);
+				console.log(response.responseJSON);
+				this.props.fetchTasks()
+		});
 
-		this.props.closeModal();
+		this.props.closeModal()
 	}
 
 	handleClick(e) {

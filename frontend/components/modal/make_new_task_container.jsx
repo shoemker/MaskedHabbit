@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 
-import { createTask } from '../../actions/task_actions';
+import { createTask, fetchTasks } from '../../actions/task_actions';
 import { closeModal } from '../../actions/modal_actions';
 import MakeNewTaskForm from './make_new_task';
 
@@ -21,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return ({
 		createTask: (task) => dispatch(createTask(task)),
-		closeModal: () => dispatch(closeModal())
+		closeModal: () => dispatch(closeModal()),
+		fetchTasks: () => dispatch(fetchTasks()),
 	})
 }
 
