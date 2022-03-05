@@ -42,7 +42,7 @@ class LoggedInMaker extends React.Component {
 					<div className="new-task-maker-button" onClick={() => this.props.openModal()}>Create New Task</div>
 				</nav>
 
-				<div className="tasks-cat-greeting-maker" style ={{width: welcome.length*12.7 +"px"}}>
+				<div className="tasks-cat-greeting-maker" style ={{width: welcome.length*13 +"px"}}>
 					<h2 className = "task-cat-greeting">{welcome}</h2>
 				</div>
 

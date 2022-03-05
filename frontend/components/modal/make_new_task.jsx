@@ -21,6 +21,7 @@ class MakeNewTaskForm extends React.Component {
 	}
 
 
+
 	handleSubmit(e) {
 		e.preventDefault();
 		const formData = new FormData();

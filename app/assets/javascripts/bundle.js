@@ -811,7 +811,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, "Create New Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-maker",
         style: {
-          width: welcome.length * 12.7 + "px"
+          width: welcome.length * 13 + "px"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
