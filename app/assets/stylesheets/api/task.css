@@ -1,0 +1,45 @@
+
+.task-container {
+	background-color: white;
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	border: 1px solid #7dd161;
+	border-radius: 4px;
+	width: 560px;
+	height: 230px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 30px;
+	display: flex ;
+	flex-flow: row wrap;
+	
+}
+
+
+
+
+.after-brief {
+	display: flex ;
+}
+
+.taskPhoto {
+	width: 180px;
+	height: 120px;
+	/* margin-top: 20%; */
+	margin-left:20px;
+}
+
+
+.task-brief{
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 10px;
+	color: #61a14b;
+}
+
+.task-fields{
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	margin: 10px;
+}

@@ -501,17 +501,8 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
 
   _createClass(LoggedInDoerForm, [{
     key: "handleSubmit",
-    value: function handleSubmit(e) {
+    value: function handleSubmit(task) {
       var _this2 = this;
-
-      e.preventDefault();
-      var task;
-
-      for (var i = 0; i < this.props.tasks.length; i++) {
-        if (this.props.tasks[i].id === parseInt(e.target.id, 10)) {
-          task = this.props.tasks[i];
-        }
-      }
 
       task.task_doer_id = this.props.currentUser.id;
       this.props.updateTask(task).then(function () {
@@ -628,7 +619,9 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         className: "logged-in-doer-right"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          onSubmit: _this3.handleSubmit,
+          onSubmit: function onSubmit() {
+            if (window.confirm('Agree to do this task?')) _this3.handleSubmit(task);
+          },
           className: "doer-task-container2",
           id: task.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tasks_task__WEBPACK_IMPORTED_MODULE_1__["default"], {

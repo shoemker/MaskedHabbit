@@ -15,14 +15,7 @@ class LoggedInDoerForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleSubmit(e) {
-		e.preventDefault();
-		let task;
-		for (let i = 0; i < this.props.tasks.length; i++) {
-			if (this.props.tasks[i].id === parseInt(e.target.id,10)){
-				task = this.props.tasks[i];
-			}			
-		}
+	handleSubmit(task) {
 
 		task.task_doer_id = this.props.currentUser.id;
 		
@@ -112,7 +105,9 @@ class LoggedInDoerForm extends React.Component {
 							<div className="logged-in-doer-right">
 								{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 									return (
-										<form onSubmit={this.handleSubmit} className='doer-task-container2' id = {task.id}>
+										<form onSubmit=	{() => {
+											if (window.confirm('Agree to do this task?')) 
+												this.handleSubmit(task)}} className='doer-task-container2' id = {task.id}>
 											<Task task={task} />
 
 											< button className="task-accept-button" type="submit" > Accept Task</button>

@@ -91,7 +91,7 @@
 
 .doer-task-container{
 	background-color:white;
-	height: 200px;
+	height: 230px;
 	margin: 20px;
 	border-radius: 10px;
 }
@@ -99,7 +99,8 @@
 .doer-task-container2{
 
 	height: 230px;
-	margin: 20px;
+	margin-top:20px;
+	margin-bottom: 55px;
 }
 
 .task-accept-button{
