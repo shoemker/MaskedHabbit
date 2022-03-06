@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container'
+import Task from '../tasks/task';
 import { Link } from 'react-router-dom';
 
 class TasksByCat extends React.Component {
@@ -39,20 +40,8 @@ class TasksByCat extends React.Component {
 				<div className = 'parent-task-container'> 
 					{this.props.tasks.length > 0 && this.props.tasks.map( (task) => {
 						return (
-							<div className='task-container'>
-								<div className="center"><p className="task-brief"> {task.brief}</p> </div>
-								<div className="after-brief">
-									<div>
-										<img src={task.photoUrl} className = "taskPhoto"></img>
+							<Task task={task} />
 
-									</div>
-									<div>
-										<p className = 'task-fields-1'>Desc: {task.description}	</p>
-										<p className = 'task-fields-2'>At: {task.location}</p>
-										<p className = 'task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-									</div>
-								</div>
-							</div>
 							)
 					})}
 				</div>

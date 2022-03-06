@@ -1,19 +1,23 @@
-.logged-in-doer-main {
-	background-repeat: no-repeat;
-	background-size: 100%;
-	height: 800px;
-	width: 100%;
-	background-color: #9C9D98;
-	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg');
-	flex-direction: row;
-
-}
-
 .after-main {
+
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
+
+.logged-in-doer-main {
+	background-repeat: repeat-y;
+	background-size: 100%;
+	height: 1600px;
+	width: 100%;
+	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg');
+	background-color: #9C9D98;
+
+	flex-direction: row;
+
+}
+
+
 
 
 .tasks-cat-greeting-doer {
@@ -86,18 +90,15 @@
 
 .doer-task-container{
 	background-color:white;
-	width:500px;
 	height: 200px;
 	margin: 20px;
 	border-radius: 10px;
 }
 
 .doer-task-container2{
-	background-color:white;
-	width:600px;
+
 	height: 230px;
 	margin: 20px;
-	border-radius: 10px;
 }
 
 .task-accept-button{

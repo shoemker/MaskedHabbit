@@ -1,6 +1,6 @@
 import React from 'react';
-import NavbarContainer from '../navbar/navbar_container'
-
+import NavbarContainer from '../navbar/navbar_container';
+import Task from '../tasks/task';
 
 class LoggedInMaker extends React.Component {
 	constructor(props){
@@ -50,22 +50,11 @@ class LoggedInMaker extends React.Component {
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 						return (
-							<div className='task-container'>
-								<div className="center"><p className="task-brief"> {task.brief}</p> </div>
-								<div className="after-brief">
-									<div>
-										<img src={task.photoUrl} className="taskPhoto"></img>
-
-									</div>
-									<div>
-										<p className='task-fields-1'>Descr: {task.description}	</p>
-										<p className='task-fields-2'>At: {task.location}</p>
-										<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-										<p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
-										<div className='delete-button' onClick={() => 
-											{ if (window.confirm('Are you sure you wish to delete this task?')) 
-												this.delete(task.id) }}>del</div>
-									</div>
+							<div>
+								<Task task={task}/>
+								<div className='delete-button' onClick={() => {
+									if (window.confirm('Are you sure you wish to delete this task?')) 
+									this.delete(task.id)}}>del
 								</div>
 							</div>
 						)	

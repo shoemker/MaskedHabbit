@@ -1,4 +1,5 @@
 import React from 'react';
+import Task from '../tasks/task';
 
 import NavbarContainer from '../navbar/navbar_container'
 
@@ -50,8 +51,12 @@ class LoggedInDoerForm extends React.Component {
 			}
 		})
 
-		let welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
-	
+		let welcome
+
+		if (tasksToDo.length === 0) welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do no tasks so far."
+		else welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
+		
+		let instructions = "Click on category for more available tasks.";
 		return (
 			<div >
 				<header>
@@ -67,26 +72,12 @@ class LoggedInDoerForm extends React.Component {
 						<div className="parent-task-doer-container">
 							{this.props.tasks.length > 0 && tasksToDo.map((task) => {
 								return (
-									<div className='task-container'>
-										<div className="center"><p className="task-brief"> {task.brief}</p> </div>
-										<div className="after-brief">
-											<div>
-												<img src={task.photoUrl} className="taskPhoto"></img>
-
-											</div>
-											<div>
-												<p className='task-fields-1'>Descr: {task.description}	</p>
-												<p className='task-fields-2'>At: {task.location}</p>
-												<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-												< p className='task-fields-4' > Task Maker: {this.props.currentUser.username}</p>
-											</div>
-										</div>
-									</div>
+									<Task task={task} />
 								)	
 							})}
 						</div>
-						<div className="tasks-cat-greeting-doer2">
-							<h2 className="task-cat-greeting">Click on category for more available tasks.</h2>
+						<div className="tasks-cat-greeting-doer2" style={{ width: instructions.length * 12.7 + "px" }}>
+							<h2 className="task-cat-greeting">{instructions}</h2>
 						</div>
 						
 						<div className = "available-tasks">
@@ -122,18 +113,8 @@ class LoggedInDoerForm extends React.Component {
 								{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 									return (
 										<form onSubmit={this.handleSubmit} className='doer-task-container2' id = {task.id}>
-											<div className="center"><p className="task-brief"> {task.brief}</p> </div>
-											<div className="after-brief">
-												<div>
-													<img src={task.photoUrl} className="taskPhoto"></img>
+											<Task task={task} />
 
-												</div>
-												<div>
-													<p className='task-fields-1'>Descr: {task.description}	</p>
-													<p className='task-fields-2'>At: {task.location}</p>
-													<p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
-												</div>
-											</div>									
 											< button className="task-accept-button" type="submit" > Accept Task</button>
 
 										</form>
