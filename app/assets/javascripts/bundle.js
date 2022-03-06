@@ -797,14 +797,18 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, welcome)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, this.props.tasks.length > 0 && tasksSelected.map(function (task) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tasks_task__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          task: task
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "delete-button",
-          onClick: function onClick() {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: function onSubmit() {
             if (window.confirm('Are you sure you wish to delete this task?')) _this3["delete"](task.id);
-          }
-        }, "del"));
+          },
+          className: "doer-task-container2",
+          id: task.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tasks_task__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          task: task
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "task-accept-button",
+          type: "submit"
+        }, "Delete Task"));
       })));
     }
   }]);

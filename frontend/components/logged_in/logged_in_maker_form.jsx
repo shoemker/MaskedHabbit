@@ -50,13 +50,15 @@ class LoggedInMaker extends React.Component {
 				<div className="parent-task-maker-container">
 					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 						return (
-							<div>
-								<Task task={task}/>
-								<div className='delete-button' onClick={() => {
+			
+								<form onSubmit={() => {
 									if (window.confirm('Are you sure you wish to delete this task?')) 
-									this.delete(task.id)}}>del
-								</div>
-							</div>
+									this.delete(task.id)}} className='doer-task-container2' id = {task.id}>
+											<Task task={task} />
+
+											< button className="task-accept-button" type="submit" >Delete Task</button>
+
+								</form>
 						)	
 
 					})}
