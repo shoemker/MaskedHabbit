@@ -1570,6 +1570,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       description: '',
       location: '',
       category_id: 1,
+      vehicle_needed: false,
       completed: false,
       photoFile: null,
       photoUrl: null
@@ -1592,6 +1593,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       formData.append('task[location]', this.state.location);
       formData.append('task[category_id]', this.state.category_id);
       formData.append('task[completed]', this.state.completed);
+      formData.append('task[vehicle_needed]', this.state.vehicle_needed);
       if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
       $.ajax({
         url: '/api/tasks',
@@ -1673,7 +1675,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-input"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Category",
-        id: "cat_selector",
+        "class": "cat_selector",
         onChange: this.update('category_id')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1687,14 +1689,16 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         value: "5"
       }, "General Handyman"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "6"
-      }, "Heavy Lifting"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "tasker-txt"
-      }, "Vehicle Needed?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        className: "tasker-checkbox",
-        value: "true",
-        onChange: this.check
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Heavy Lifting"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "Vehicle Needed?",
+        "class": "cat_selector",
+        id: "vehicle_selector",
+        onChange: this.update('vehicle_needed')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Vehicle Needed?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Yes, vehicle is necessary."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "No, vehicle is not necessary."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pic-upload-label"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",

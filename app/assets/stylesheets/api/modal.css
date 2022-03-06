@@ -19,7 +19,7 @@
 	margin-left:-280px;
 	background-color:#e8ebef;
 	width: 500px;
-	height: 410px;
+	height: 470px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -62,7 +62,7 @@ https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-inp
 .custom-file-input::before {
 	font-family: Arial, Helvetica, sans-serif;
 
-  content: 'Add picture';
+  content: 'Picture';
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -75,11 +75,25 @@ https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-inp
   text-shadow: 1px 1px #fff;
   font-weight: 700;
   font-size: 10pt;
+	background-color: white;
+	margin-bottom: 10px;
 }
 .custom-file-input:hover::before {
   border-color: black;
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+
+.cat_selector {
+	width: 505px;
+	height: 35px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+#vehicle_selector{
+	margin-top: 10px;
 }
 

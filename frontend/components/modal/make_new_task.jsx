@@ -11,9 +11,10 @@ class MakeNewTaskForm extends React.Component {
 			description: '',
 			location: '',
 			category_id: 1,
+			vehicle_needed: false,
 			completed: false,
 			photoFile: null,
-			photoUrl: null
+			photoUrl: null,
 		};
 	
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,7 @@ class MakeNewTaskForm extends React.Component {
 		formData.append('task[location]', this.state.location);
 		formData.append('task[category_id]', this.state.category_id);
 		formData.append('task[completed]', this.state.completed);
+		formData.append('task[vehicle_needed]', this.state.vehicle_needed);
 		
 		if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
 		
@@ -114,8 +116,9 @@ class MakeNewTaskForm extends React.Component {
 							</label>
 							{/* {this.renderErrors('Brief')} */}
 							<br />
-							<label>
-								<select name="Category" id="cat_selector" onChange={this.update('category_id')}>
+							
+							<label >
+								<select name="Category" class="cat_selector"  onChange={this.update('category_id')}>
 									<option>Category</option>
 									<option value="1">Mounting & Installation</option>
 									<option value="2">Moving & Packing</option>
@@ -126,18 +129,25 @@ class MakeNewTaskForm extends React.Component {
 								</select>
 
 							</label>
-							<br></br>
-							<span className='tasker-txt'>Vehicle Needed?</span>
-							<input type="checkbox"
-								className="tasker-checkbox" 
-								value="true"
-								onChange={this.check}></input>
+
+							<label >
+								<select name="Vehicle Needed?" class="cat_selector" id="vehicle_selector" onChange={this.update('vehicle_needed')}>
+									<option>Vehicle Needed?</option>
+									<option value="true">Yes, vehicle is necessary.</option>
+									<option value="false">No, vehicle is not necessary.</option>
+								</select>
+
+							</label>
+
+
+
 							<div className = "pic-upload-label">
 								<input type="file"
 									className = "custom-file-input"
 									onChange={this.handleFile.bind(this)} />
 									
 							</div>
+
 							<input className="signup-submit" type="submit" value="Create New Task" />
 						
 							<br></br>
