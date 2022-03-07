@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../map/map'
+// import Map from '../map/map'
 
 const Task = ({task}) => {
 
