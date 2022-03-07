@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import Task from '../tasks/task';
+import Map from '../map/map'
 
 class LoggedInMaker extends React.Component {
 	constructor(props){
@@ -27,6 +28,12 @@ class LoggedInMaker extends React.Component {
 				tasksSelected.push(task);
 			}
 		})
+
+		// const location = {
+		// 	address: '898 Fell St, San Francisco, California.',
+		// 	lat: 37.7749247,
+		// 	lng: -122.4347393,
+		// }
 
 		const welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:";
 
@@ -63,6 +70,7 @@ class LoggedInMaker extends React.Component {
 
 					})}
 				</div>
+				{/* <Map location={location} zoomLevel={17} /> */}
 						
 			</div>
 		)}
