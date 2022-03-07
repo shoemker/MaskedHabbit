@@ -32,6 +32,8 @@ class LoggedInDoerForm extends React.Component {
 	render() {
 		let tasksToDo = [];
 		let tasksSelected = [];
+
+		// sends makers to maker dashboard page
 		if (this.props.tasks.length > 0 && !this.props.currentUser.is_tasker)
 			this.props.history.push("/maker");
 		

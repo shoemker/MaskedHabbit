@@ -520,7 +520,8 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var tasksToDo = [];
-      var tasksSelected = [];
+      var tasksSelected = []; // sends makers to maker dashboard page
+
       if (this.props.tasks.length > 0 && !this.props.currentUser.is_tasker) this.props.history.push("/maker");
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
         if (_this3.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) {
@@ -1527,6 +1528,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _make_task_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./make_task_error */ "./frontend/components/modal/make_task_error.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1553,6 +1555,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   _inherits(MakeNewTaskForm, _React$Component);
 
@@ -1573,10 +1576,17 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       vehicle_needed: false,
       completed: false,
       photoFile: null,
-      photoUrl: null
+      photoUrl: null,
+      // errorDescription: "Description can't be blank",
+      // errorBrief: "Brief can't be blank",
+      errorDescription: null,
+      errorBrief: null,
+      errorPic: null,
+      errorLocation: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.errorCheck = _this.errorCheck.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1586,27 +1596,55 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('task[task_maker_id]', this.state.task_maker_id);
-      formData.append('task[brief]', this.state.brief);
-      formData.append('task[description]', this.state.description);
-      formData.append('task[location]', this.state.location);
-      formData.append('task[category_id]', this.state.category_id);
-      formData.append('task[completed]', this.state.completed);
-      formData.append('task[vehicle_needed]', this.state.vehicle_needed);
-      if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
-      $.ajax({
-        url: '/api/tasks',
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false
-      }).then(function (response) {
-        // console.log(response.message);
-        // console.log(response.responseJSON);
-        _this2.props.fetchTasks();
+
+      if (this.errorCheck()) {
+        var formData = new FormData();
+        formData.append('task[task_maker_id]', this.state.task_maker_id);
+        formData.append('task[brief]', this.state.brief);
+        formData.append('task[description]', this.state.description);
+        formData.append('task[location]', this.state.location);
+        formData.append('task[category_id]', this.state.category_id);
+        formData.append('task[completed]', this.state.completed);
+        formData.append('task[vehicle_needed]', this.state.vehicle_needed);
+        if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
+        $.ajax({
+          url: '/api/tasks',
+          method: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false
+        }).then(function (response) {
+          // console.log(response.message);
+          // console.log(response.responseJSON);
+          _this2.props.fetchTasks();
+        });
+        this.props.closeModal();
+      }
+    }
+  }, {
+    key: "errorCheck",
+    value: function errorCheck() {
+      if (!this.state.brief) this.setState({
+        errorBrief: "Brief can't be blank"
+      });else this.setState({
+        errorBrief: null
       });
-      this.props.closeModal();
+      if (!this.state.description) this.setState({
+        errorDescription: "Description can't be blank"
+      });else this.setState({
+        errorDescription: null
+      });
+      if (!this.state.location) this.setState({
+        errorLocation: "Location can't be blank"
+      });else this.setState({
+        errorLocation: null
+      });
+      if (!this.state.photoFile) this.setState({
+        errorPic: "Picture required"
+      });else this.setState({
+        errorPic: null
+      });
+      if (this.state.brief && this.state.description && this.state.location && this.state.photoFile) return true;else return false;
     }
   }, {
     key: "handleClick",
@@ -1662,20 +1700,26 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "  Brief Description",
         onChange: this.update('brief'),
-        className: "signup-input"
+        className: "new_task_input"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_make_task_error__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        error: this.state.errorBrief
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "  Longer Description",
         onChange: this.update('description'),
-        className: "signup-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "new_task_input"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_make_task_error__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        error: this.state.errorDescription
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "Location",
         placeholder: "  Street Address in San Francisco",
         onChange: this.update('location'),
-        className: "signup-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "new_task_input"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_make_task_error__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        error: this.state.errorLocation
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Category",
-        "class": "cat_selector",
+        className: "cat_selector",
         onChange: this.update('category_id')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
@@ -1691,7 +1735,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         value: "6"
       }, "Heavy Lifting"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Vehicle Needed?",
-        "class": "cat_selector",
+        className: "cat_selector",
         id: "vehicle_selector",
         onChange: this.update('vehicle_needed')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Vehicle Needed?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1704,8 +1748,11 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         type: "file",
         className: "custom-file-input",
         onChange: this.handleFile.bind(this)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_make_task_error__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        error: this.state.errorPic
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit",
+        id: "new_task_button",
         type: "submit",
         value: "Create New Task"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
@@ -1759,6 +1806,29 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_make_new_task__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/modal/make_task_error.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/modal/make_task_error.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MakeTaskError = function MakeTaskError(error) {
+  if (error.error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "make_task_error"
+  }, error.error);else return null;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MakeTaskError);
 
 /***/ }),
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MakeTaskError from "./make_task_error"
 
 class MakeNewTaskForm extends React.Component {
 	constructor(props) {
@@ -15,40 +15,71 @@ class MakeNewTaskForm extends React.Component {
 			completed: false,
 			photoFile: null,
 			photoUrl: null,
+			// errorDescription: "Description can't be blank",
+			// errorBrief: "Brief can't be blank",
+			errorDescription: null,
+			errorBrief: null,
+			errorPic:null,
+			errorLocation:null
 		};
 	
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.errorCheck = this.errorCheck.bind(this);
 	}
 
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const formData = new FormData();
-		formData.append('task[task_maker_id]', this.state.task_maker_id);
-		formData.append('task[brief]', this.state.brief);
-		formData.append('task[description]', this.state.description);
-		formData.append('task[location]', this.state.location);
-		formData.append('task[category_id]', this.state.category_id);
-		formData.append('task[completed]', this.state.completed);
-		formData.append('task[vehicle_needed]', this.state.vehicle_needed);
-		
-		if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
-		
-		$.ajax({
-			url: '/api/tasks',
-			method: 'POST',
-			data: formData,
-			contentType: false,
-			processData: false
-		}).then(
-			(response) =>  { 
-				// console.log(response.message);
-				// console.log(response.responseJSON);
-				this.props.fetchTasks();
-		});
 
-		this.props.closeModal()
+		if (this.errorCheck()) {
+			const formData = new FormData();
+			formData.append('task[task_maker_id]', this.state.task_maker_id);
+			formData.append('task[brief]', this.state.brief);
+			formData.append('task[description]', this.state.description);
+			formData.append('task[location]', this.state.location);
+			formData.append('task[category_id]', this.state.category_id);
+			formData.append('task[completed]', this.state.completed);
+			formData.append('task[vehicle_needed]', this.state.vehicle_needed);
+			
+			if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
+			
+			$.ajax({
+				url: '/api/tasks',
+				method: 'POST',
+				data: formData,
+				contentType: false,
+				processData: false
+			}).then(
+				(response) =>  { 
+					// console.log(response.message);
+					// console.log(response.responseJSON);
+					this.props.fetchTasks();
+			});
+
+			this.props.closeModal()
+		}
+	}
+
+
+	errorCheck() {
+		if (!this.state.brief) this.setState({ errorBrief: "Brief can't be blank"});
+		else this.setState({errorBrief: null});
+
+		if (!this.state.description) this.setState({ errorDescription: "Description can't be blank" });
+		else this.setState({ errorDescription: null });
+
+		if (!this.state.location) this.setState({ errorLocation: "Location can't be blank" });
+		else this.setState({ errorLocation: null });
+
+		if (!this.state.photoFile) this.setState({ errorPic: "Picture required" });
+		else this.setState({ errorPic: null });
+
+
+		if (this.state.brief && this.state.description && this.state.location && this.state.photoFile)
+			return true;
+		else return false;
+
 	}
 
 	handleClick(e) {
@@ -89,10 +120,11 @@ class MakeNewTaskForm extends React.Component {
 									placeholder="  Brief Description"
 						
 									onChange={this.update('brief')}
-									className="signup-input"
+									className="new_task_input"
 								/>
+								<MakeTaskError error={this.state.errorBrief} />
+
 							</label>
-							{/* {this.renderErrors('Brief')} */}
 							<br />
 
 							<label>
@@ -100,24 +132,28 @@ class MakeNewTaskForm extends React.Component {
 									placeholder="  Longer Description"
 
 									onChange={this.update('description')}
-									className="signup-input"
+									className="new_task_input"
 								/>
 							</label>
 							{/* {this.renderErrors('Brief')} */}
+							<MakeTaskError error={this.state.errorDescription} />
+
 							<br />
 
 							<label>
 								<input type="Location"
 									placeholder="  Street Address in San Francisco"
 									onChange={this.update('location')}
-									className="signup-input"
+									className="new_task_input"
 								/>
 							</label>
 							{/* {this.renderErrors('Brief')} */}
+							<MakeTaskError error={this.state.errorLocation} />
+
 							<br />
 							
 							<label >
-								<select name="Category" class="cat_selector"  onChange={this.update('category_id')}>
+								<select name="Category" className="cat_selector"  onChange={this.update('category_id')}>
 									<option>Category</option>
 									<option value="1">Mounting & Installation</option>
 									<option value="2">Moving & Packing</option>
@@ -130,7 +166,7 @@ class MakeNewTaskForm extends React.Component {
 							</label>
 
 							<label >
-								<select name="Vehicle Needed?" class="cat_selector" id="vehicle_selector" onChange={this.update('vehicle_needed')}>
+								<select name="Vehicle Needed?" className="cat_selector" id="vehicle_selector" onChange={this.update('vehicle_needed')}>
 									<option>Vehicle Needed?</option>
 									<option value="true">Yes, vehicle is necessary.</option>
 									<option value="false">No, vehicle is not necessary.</option>
@@ -146,8 +182,10 @@ class MakeNewTaskForm extends React.Component {
 									onChange={this.handleFile.bind(this)} />
 									
 							</div>
+							<MakeTaskError error={this.state.errorPic} />
 
-							<input className="signup-submit" type="submit" value="Create New Task" />
+
+							<input className="signup-submit" id = "new_task_button" type="submit" value="Create New Task" />
 						
 							<br></br>
 						</div>
