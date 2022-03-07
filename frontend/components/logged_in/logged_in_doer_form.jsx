@@ -32,6 +32,8 @@ class LoggedInDoerForm extends React.Component {
 	render() {
 		let tasksToDo = [];
 		let tasksSelected = [];
+		if (this.props.tasks.length > 0 && !this.props.currentUser.is_tasker)
+			this.props.history.push("/maker");
 		
 		(this.props.tasks.length > 0) && this.props.tasks.forEach( (task) => {
 			if (this.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) 

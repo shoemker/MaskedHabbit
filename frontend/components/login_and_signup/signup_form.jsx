@@ -27,10 +27,22 @@ class SignupForm extends React.Component {
 
 	handleSubmit(e) {
 
-
 		e.preventDefault();
 		const user = Object.assign({}, this.state);
-		this.props.processForm(user);
+
+		this.props.processForm(user).then(() => {
+			
+			if (user.is_tasker) this.props.history.push("/doer");
+			else this.props.history.push("/maker");							// doesn't work
+		
+		});
+
+		// if (user.is_tasker) {
+		// 	this.props.processForm(user).then(() => this.props.history.push("/doer"));
+		// }
+		// else {
+		// 	this.props.processForm(user).then(() => this.props.history.push("/maker"));
+		// }
 	}
 
 
@@ -118,7 +130,7 @@ class SignupForm extends React.Component {
 							{this.renderErrors('Price')}
 							<br />
 								<label >
-									<select name="Role?" class="role_selector" onChange={this.update('is_tasker')}>
+									<select name="Role?" className="role_selector" onChange={this.update('is_tasker')}>
 										<option>Role?</option>
 										<option value="false">Task-Maker</option>
 										<option value="true">Task-Doer</option>

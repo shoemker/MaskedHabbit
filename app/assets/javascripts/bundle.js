@@ -521,6 +521,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
 
       var tasksToDo = [];
       var tasksSelected = [];
+      if (this.props.tasks.length > 0 && !this.props.currentUser.is_tasker) this.props.history.push("/maker");
       this.props.tasks.length > 0 && this.props.tasks.forEach(function (task) {
         if (_this3.state.categoryId === task.category_id && task.completed === false && task.task_doer_id === null) {
           tasksSelected.push(task);
@@ -895,8 +896,6 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        debugger;
-
         _this3.props.history.push("/doer");
       });
     }
@@ -1118,9 +1117,18 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.processForm(user).then(function () {
+        if (user.is_tasker) _this3.props.history.push("/doer");else _this3.props.history.push("/maker"); // doesn't work
+      }); // if (user.is_tasker) {
+      // 	this.props.processForm(user).then(() => this.props.history.push("/doer"));
+      // }
+      // else {
+      // 	this.props.processForm(user).then(() => this.props.history.push("/maker"));
+      // }
     }
   }, {
     key: "renderErrors",
@@ -1190,7 +1198,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-input"
       })), this.renderErrors('Price'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "Role?",
-        "class": "role_selector",
+        className: "role_selector",
         onChange: this.update('is_tasker')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Role?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "false"
