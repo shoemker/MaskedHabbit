@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleDemoMakerSubmit = this.handleDemoMakerSubmit.bind(this);
 		this.handleDemoDoerSubmit = this.handleDemoDoerSubmit.bind(this);
-		// this.props.errors=[];
+
 	}
 
 	update(field) {

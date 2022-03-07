@@ -874,8 +874,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleDemoMakerSubmit = _this.handleDemoMakerSubmit.bind(_assertThisInitialized(_this));
-    _this.handleDemoDoerSubmit = _this.handleDemoDoerSubmit.bind(_assertThisInitialized(_this)); // this.props.errors=[];
-
+    _this.handleDemoDoerSubmit = _this.handleDemoDoerSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1104,7 +1103,6 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       is_tasker: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.check = _this.check.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1116,13 +1114,6 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-    }
-  }, {
-    key: "check",
-    value: function check() {
-      this.setState({
-        is_tasker: !this.state.is_tasker
-      });
     }
   }, {
     key: "handleSubmit",
@@ -1197,14 +1188,15 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.price_per_hour,
         onChange: this.update('price_per_hour'),
         className: "signup-input"
-      })), this.renderErrors('Price'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "tasker-txt"
-      }, "Masker? (Are you a task doer?)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        className: "tasker-checkbox",
-        value: "true",
-        onChange: this.check
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), this.renderErrors('Price'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "Role?",
+        "class": "role_selector",
+        onChange: this.update('is_tasker')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Role?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "false"
+      }, "Task-Maker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "true"
+      }, "Task-Doer"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit",
         type: "submit",
         value: "Registration"
@@ -1670,7 +1662,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-input"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "Location",
-        placeholder: "  Location",
+        placeholder: "  Street Address in San Francisco",
         onChange: this.update('location'),
         className: "signup-input"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {

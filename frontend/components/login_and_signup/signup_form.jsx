@@ -13,8 +13,8 @@ class SignupForm extends React.Component {
 			price_per_hour: '',
 			is_tasker: false
 		};
+
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.check = this.check.bind(this);
 	}
 
 	update(field) {
@@ -24,12 +24,6 @@ class SignupForm extends React.Component {
 		});
 	}
 
-
-	check() {
-		this.setState({
-			is_tasker: !this.state.is_tasker
-		});		
-	}
 
 	handleSubmit(e) {
 
@@ -123,11 +117,15 @@ class SignupForm extends React.Component {
 							</label>
 							{this.renderErrors('Price')}
 							<br />
-							<span className='tasker-txt'>Masker? (Are you a task doer?)</span>
-							<input type="checkbox"
-									className="tasker-checkbox"  
-									value="true"
-									onChange={this.check}></input>									
+								<label >
+									<select name="Role?" class="role_selector" onChange={this.update('is_tasker')}>
+										<option>Role?</option>
+										<option value="false">Task-Maker</option>
+										<option value="true">Task-Doer</option>
+									</select>
+
+								</label>
+
 								<br></br>
 							<input className="signup-submit" type="submit" value="Registration" />
 								<br></br><div id='account-question'>Already have an account?</div>

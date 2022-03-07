@@ -108,8 +108,7 @@ class MakeNewTaskForm extends React.Component {
 
 							<label>
 								<input type="Location"
-									placeholder="  Location"
-
+									placeholder="  Street Address in San Francisco"
 									onChange={this.update('location')}
 									className="signup-input"
 								/>

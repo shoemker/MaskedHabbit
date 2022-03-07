@@ -56,7 +56,7 @@
 	margin-left:-200px;
 	background-color:#e8ebef;
 	width: 325px;
-	height: 445px;
+	height: 455px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -162,4 +162,12 @@
 
 #link-dark:hover {
 	color:rgb(68, 134, 51);
+}
+
+.role_selector{
+	width: 328px;
+	height:30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+
 }
