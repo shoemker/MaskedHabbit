@@ -20,6 +20,7 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 	<li>AJAX: The frontend uses AJAX to get information from the database.
 	<li>HTML: The page is, of course, rendered in HTML.</li>
 	<li>CSS: The HTML is styled with CSS.
+  <li>Images are stored on AWS</li>
 </ol>
 <br>
 <h2>Features</h2>
@@ -27,7 +28,9 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 	<li>User Auth: Frontend to backend user authentication using BCrypt for passwords, giving the ability to securely signup, login and logut. </li>
 	<li>Tasks organized into categories</li>
 	<li>Ability to create tasks</li>
+  <li>Ability to delete tasks</li>
 	<li>Ability to accept tasks</li>
+  <li>Errors shown for login, signup, and task creation</li>
 </ol>
 <br>
 

@@ -19,7 +19,7 @@
 	margin-left:-280px;
 	background-color:#e8ebef;
 	width: 500px;
-	height: 470px;
+	height: 460px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -31,7 +31,7 @@
 .maker-form-title {
 	display: block;
 	box-sizing: border-box;
-	margin: 0 auto;
+	margin-bottom: 15px;
 	padding: 0px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 40px;
@@ -90,7 +90,7 @@ https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-inp
 .cat_selector {
 	width: 505px;
 	height: 35px;
-	margin-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 5px;
 }
 
@@ -110,7 +110,7 @@ https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-inp
 .new_task_input {
 	width: 100%;
 	height: 30px;
-	margin-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 0px;
 	color: rgb(176,176,176);
 	border-radius: 3px;

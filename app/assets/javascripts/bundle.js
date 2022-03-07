@@ -1825,7 +1825,9 @@ __webpack_require__.r(__webpack_exports__);
 var MakeTaskError = function MakeTaskError(error) {
   if (error.error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "make_task_error"
-  }, error.error);else return null;
+  }, error.error);else return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "make_task_error"
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MakeTaskError);
