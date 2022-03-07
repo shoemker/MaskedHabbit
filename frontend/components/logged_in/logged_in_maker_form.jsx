@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import Task from '../tasks/task';
-import Map from '../map/map'
+// import Map from '../map/map'
 
 class LoggedInMaker extends React.Component {
 	constructor(props){

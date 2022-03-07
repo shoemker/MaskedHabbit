@@ -704,7 +704,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 /* harmony import */ var _tasks_task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tasks/task */ "./frontend/components/tasks/task.jsx");
-/* harmony import */ var _map_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../map/map */ "./frontend/components/map/map.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -729,8 +728,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
-
+ // import Map from '../map/map'
 
 var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
   _inherits(LoggedInMaker, _React$Component);
@@ -1521,17 +1519,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_main_form__WEBPACK_IMPORTED_MODULE_5__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/map/map.jsx":
-/*!*****************************************!*\
-  !*** ./frontend/components/map/map.jsx ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/jay/Desktop/projects/maskedHabbit/maskedHabbit/frontend/components/map/map.jsx'");
 
 /***/ }),
 
