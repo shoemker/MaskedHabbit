@@ -500,7 +500,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
     };
     var apiKey = window.googleAPIKey;
     react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.setApiKey(apiKey);
-    react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress("898 fell st san francisco").then(function (response) {
+    react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress("698 Lombard St san francisco").then(function (response) {
       var _response$results$0$g = response.results[0].geometry.location,
           lat = _response$results$0$g.lat,
           lng = _response$results$0$g.lng;
@@ -1554,6 +1554,7 @@ var LocationPin = function LocationPin(_ref) {
     className: "pin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_iconify_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
     icon: "mdi:map-marker",
+    vFlip: "true",
     className: "pin-icon"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "pin-text"
@@ -2153,9 +2154,9 @@ __webpack_require__.r(__webpack_exports__);
 var Task = function Task(_ref) {
   var task = _ref.task;
   var location = {
-    address: '898 Fell St, San Francisco, California.',
-    lat: 37.7749247,
-    lng: -122.4325506
+    address: task.location + " San Francisco California (approx)",
+    lat: Number(task.latitude),
+    lng: Number(task.longitude)
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "task-container",
@@ -2179,7 +2180,7 @@ var Task = function Task(_ref) {
     className: "task-fields-3"
   }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     location: location,
-    zoomLevel: 17
+    zoomLevel: 18
   }))));
 };
 
@@ -2295,7 +2296,6 @@ var TasksByCat = /*#__PURE__*/function (_React$Component) {
     key: "greeting",
     value: function greeting() {
       var welcome;
-      debugger;
 
       if (!this.props.currentUser) {
         welcome = "Please Log In to do these tasks:";
@@ -2515,8 +2515,7 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.newSearch); // debugger
-
+      console.log(this.state.newSearch);
       var searchWords = ""; // in case search term had been replaced
 
       if (this.state.newSearch != "") {

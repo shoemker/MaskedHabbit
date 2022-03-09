@@ -2,12 +2,12 @@ import React from 'react';
 import Map from '../map/map'
 
 const Task = ({task}) => {
-
   const location = {
-    address: '898 Fell St, San Francisco, California.',
-    lat: 37.7749247,
-    lng: -122.4325506,
+    address: task.location + " San Francisco California (approx)",
+    lat: Number(task.latitude),
+    lng: Number(task.longitude),
   }
+
 
   return (
     <div className='task-container' key = {task.id}>
@@ -27,7 +27,7 @@ const Task = ({task}) => {
         </div>
 
         <div>
-          <Map location={location} zoomLevel={17} />
+          <Map location={location} zoomLevel={18} />
         </div>
 
       </div>

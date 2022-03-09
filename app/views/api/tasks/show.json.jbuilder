@@ -11,7 +11,9 @@ json.task do
  											:completed,      
  											:task_maker_id, 
  											:category_id,    
- 											:task_doer_id	json.photoUrl url_for(task.photo)
+ 											:task_doer_id,
+											:latitude,
+											:longitude
 
 		json.photoUrl url_for(task.photo)
 

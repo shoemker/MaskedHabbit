@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2019_09_02_210350) do
     t.integer "task_maker_id", null: false
     t.integer "category_id", null: false
     t.integer "task_doer_id"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["task_doer_id"], name: "index_tasks_on_task_doer_id"
     t.index ["task_maker_id"], name: "index_tasks_on_task_maker_id"

@@ -57,7 +57,7 @@ class TasksBySearch extends React.Component {
 
 	render() {
 		console.log(this.state.newSearch)
-		// debugger
+
 		let searchWords = "";
 		
 		// in case search term had been replaced

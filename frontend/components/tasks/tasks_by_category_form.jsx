@@ -14,7 +14,6 @@ class TasksByCat extends React.Component {
 
 	greeting() {
 		let welcome;
-		debugger
 		if (!this.props.currentUser) {
 			welcome = "Please Log In to do these tasks:";
 			return (

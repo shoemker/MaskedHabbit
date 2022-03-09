@@ -15,7 +15,7 @@ class LoggedInDoerForm extends React.Component {
 			const apiKey = window.googleAPIKey;
 
 			Geocode.setApiKey(apiKey);
-			Geocode.fromAddress("898 fell st san francisco").then(
+			Geocode.fromAddress("698 Lombard St san francisco").then(
 				(response) => {
 					const { lat, lng } = response.results[0].geometry.location;
 					console.log(lat, lng);
