@@ -13,9 +13,10 @@ class TasksByCat extends React.Component {
 
 
 	greeting() {
-		const welcome = "Please Log In to do these tasks:";
-
+		let welcome;
+		debugger
 		if (!this.props.currentUser) {
+			welcome = "Please Log In to do these tasks:";
 			return (
 				<div style={{ height: "50px" }}>
 					<div className="tasks-cat-greeting-con" style={{ width: welcome.length * 12.7 + "px" }}>
@@ -25,7 +26,19 @@ class TasksByCat extends React.Component {
 					</div>
 				</div>
 				)
-		}	
+		} else if (this.props.currentUser.is_tasker) {
+			welcome = "Please click here to go to Dashboard to do these tasks:";
+			return (
+				<div style={{ height: "50px" }}>
+					<div className="tasks-cat-greeting-con" style={{ width: welcome.length * 12.7 + "px" }}>
+						<Link to="/doer" style={{ textDecoration: 'none' }} >
+							<h2 className="task-cat-greeting">{welcome}</h2>
+						</Link>
+					</div>
+				</div>
+
+			)
+		}
 	}
 
 

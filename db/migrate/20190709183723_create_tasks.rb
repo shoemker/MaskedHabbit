@@ -9,6 +9,8 @@ class CreateTasks < ActiveRecord::Migration[5.2]
 			t.integer :task_maker_id, null:false
 			t.integer :category_id, null:false
 			t.integer :task_doer_id
+			t.decimal :latitude
+			t.decimal :longitude
 		end
 		
 		add_index :tasks, :task_maker_id	

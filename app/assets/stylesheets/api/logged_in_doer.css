@@ -8,9 +8,9 @@
 .logged-in-doer-main {
 	background-repeat: repeat-y;
 	background-size: 100%;
-	height: 1600px;
+	height: 2600px;
 	width: 100%;
-	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg');
+	/* background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg'); */
 	background-color: #9C9D98;
 
 	flex-direction: row;
@@ -41,6 +41,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	border-radius: 7px;
+
 }
 
 .parent-task-doer-container {
@@ -59,6 +60,7 @@
 	flex-direction: column;
 	position:relative;
 	margin-top: 20px;
+	margin-right: 30px;
 }
  
 .category-doer-button {
@@ -85,8 +87,10 @@
 	height:500px;
 
 	position: relative;
-	left: 40%;
+	left: 350px;
 	transform: translateX(-50%);
+	
+
 }
 
 .doer-task-container{
@@ -100,20 +104,19 @@
 
 	height: 230px;
 	margin-top:20px;
-	margin-bottom: 55px;
+	margin-bottom: 140px;
+	margin-left:20px
 }
 
 .task-accept-button{
 	background-color: #2e661b;
 	color: white;
 	width:100px;
-	height:45px;
-	margin-left:190px;
-	
+	height:45px;	
 	font-family:  Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	left:50%;
-	margin-left: 260px;
+	margin-left: 350px;
+	margin-bottom: 10px;
 }
 
 .task-accept-button:hover{
@@ -125,3 +128,6 @@
 	display: flex ;
 	flex-direction: row;
 }
+
+
+

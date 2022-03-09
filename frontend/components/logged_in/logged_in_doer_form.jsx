@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from '../tasks/task';
-
-import NavbarContainer from '../navbar/navbar_container'
+import Geocode from "react-geocode";
+import NavbarContainer from '../navbar/navbar_container';
 
 
 class LoggedInDoerForm extends React.Component {
@@ -11,6 +11,19 @@ class LoggedInDoerForm extends React.Component {
 		this.state = {
 			categoryId: 0
 		}
+
+			const apiKey = window.googleAPIKey;
+
+			Geocode.setApiKey(apiKey);
+			Geocode.fromAddress("898 fell st san francisco").then(
+				(response) => {
+					const { lat, lng } = response.results[0].geometry.location;
+					console.log(lat, lng);
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -25,7 +38,6 @@ class LoggedInDoerForm extends React.Component {
 	componentDidMount() {
 		this.props.fetchTasks();
 	}
-
 
 
 
@@ -48,8 +60,8 @@ class LoggedInDoerForm extends React.Component {
 			}
 		})
 
-		let welcome
 
+		let welcome;
 		if (tasksToDo.length === 0) welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do no tasks so far."
 		else welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
 		
@@ -109,13 +121,14 @@ class LoggedInDoerForm extends React.Component {
 							<div className="logged-in-doer-right">
 								{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 									return (
-										<form onSubmit=	{() => {
+										<form key = {task.id} onSubmit=	{() => {
 											if (window.confirm('Agree to do this task?')) 
 												this.handleSubmit(task)}} className='doer-task-container2' id = {task.id}>
-											<Task task={task} />
+											<div className= "outside-task-cont-with-button">
+												<Task task={task} />
 
-											< button className="task-accept-button" type="submit" > Accept Task</button>
-
+												< button className="task-accept-button" type="submit" > Accept Task</button>
+											</div>
 										</form>
 									)
 
@@ -124,6 +137,7 @@ class LoggedInDoerForm extends React.Component {
 						</div>
 					</div>
 				</div>
+
 			</div>
 		)
 	}
