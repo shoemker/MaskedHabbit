@@ -1577,8 +1577,10 @@ var Map = function Map(_ref) {
     className: "map"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "google-map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"] // bootstrapURLKeys={{ key: window.googleAPIKey}}
-  , {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    bootstrapURLKeys: {
+      key: window.googleAPIKey
+    },
     defaultCenter: location,
     defaultZoom: zoomLevel
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_locationPin__WEBPACK_IMPORTED_MODULE_2__["default"], {
