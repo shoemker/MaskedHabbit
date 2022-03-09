@@ -20,9 +20,9 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 	<li>AJAX: The frontend uses AJAX to get information from the database.
 	<li>HTML: The page is, of course, rendered in HTML.</li>
 	<li>CSS: The HTML is styled with CSS.
-  <li>Images are stored on AWS</li>
+  <li>AWS is used to store images</li>
   <li>Google Maps show where the tasks are located</li>
-  <li>Google Geocode to translate address into latitude and longitude for map</li>
+  <li>Google Geocode to translate addresses into latitude and longitude to give new tasks' location on the map</li>
 </ol>
 <br>
 <h2>Features</h2>
@@ -33,7 +33,7 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
   <li>Ability to delete tasks</li>
 	<li>Ability to update tasks by accepting them</li>
   <li>Errors shown for login, signup, and task creation</li>
-  <li>Small Google Map window for each task, showing where the
+  <li>Small Google Map window for each task, showing where the tasks are located</li>
 </ol>
 <br>
 
