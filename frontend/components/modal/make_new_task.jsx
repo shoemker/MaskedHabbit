@@ -1,5 +1,6 @@
 import React from 'react';
 import MakeTaskError from "./make_task_error"
+import Geocode from "react-geocode";
 
 class MakeNewTaskForm extends React.Component {
 	constructor(props) {
@@ -15,8 +16,8 @@ class MakeNewTaskForm extends React.Component {
 			completed: false,
 			photoFile: null,
 			photoUrl: null,
-			// errorDescription: "Description can't be blank",
-			// errorBrief: "Brief can't be blank",
+			latitude: null,
+			longitude: null,
 			errorDescription: null,
 			errorBrief: null,
 			errorPic:null,
@@ -32,37 +33,65 @@ class MakeNewTaskForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		
 		if (this.errorCheck()) {
-			const formData = new FormData();
-			formData.append('task[task_maker_id]', this.state.task_maker_id);
-			formData.append('task[brief]', this.state.brief);
-			formData.append('task[description]', this.state.description);
-			formData.append('task[location]', this.state.location);
-			formData.append('task[category_id]', this.state.category_id);
-			formData.append('task[completed]', this.state.completed);
-			formData.append('task[vehicle_needed]', this.state.vehicle_needed);
-			
-			if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
-			
-			$.ajax({
-				url: '/api/tasks',
-				method: 'POST',
-				data: formData,
-				contentType: false,
-				processData: false
-			}).then(
-				(response) =>  { 
-					// console.log(response.message);
-					// console.log(response.responseJSON);
-					this.props.fetchTasks();
-			});
-
-			this.props.closeModal()
+			this.getLatLng();
 		}
+		
+	}
+
+	getLatLng = () => {
+		const apiKey = window.googleAPIKey;
+
+		Geocode.setApiKey(apiKey);
+		Geocode.fromAddress("898 fell st san francisco").then(
+			(response) => {
+				const { lat, lng } = response.results[0].geometry.location;
+				// console.log(lat, lng);
+				this.addToDB(lat,lng);
+			},
+			(error) => {
+				console.error(error);
+			}
+		);
 	}
 
 
+	addToDB = (lat,lng) => {
+
+		const formData = new FormData();
+		formData.append('task[task_maker_id]', this.state.task_maker_id);
+		formData.append('task[brief]', this.state.brief);
+		formData.append('task[description]', this.state.description);
+		formData.append('task[location]', this.state.location);
+		formData.append('task[category_id]', this.state.category_id);
+		formData.append('task[completed]', this.state.completed);
+		formData.append('task[vehicle_needed]', this.state.vehicle_needed);
+		formData.append('task[longitude]', lng);
+		formData.append('task[latitude]', lat);
+
+
+		if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
+
+		$.ajax({
+			url: '/api/tasks',
+			method: 'POST',
+			data: formData,
+			contentType: false,
+			processData: false
+		}).then(
+			(response) => {
+				// console.log(response.message);
+				// console.log(response.responseJSON);
+				this.props.fetchTasks();
+			});
+		this.props.closeModal();
+	}
+
+
+
 	errorCheck() {
+
 		if (!this.state.brief) this.setState({ errorBrief: "Brief can't be blank"});
 		else this.setState({errorBrief: null});
 
@@ -104,8 +133,7 @@ class MakeNewTaskForm extends React.Component {
 		});
 	}
 
-	render() {
-		return (
+	render() {		return (
 
 			<div className = "modal-background">
 				<div className= "maker-form-container">
@@ -198,4 +226,4 @@ class MakeNewTaskForm extends React.Component {
 }
 
 
-export default MakeNewTaskForm
+export default MakeNewTaskForm;

@@ -44,7 +44,7 @@ class Api::TasksController < ApplicationController
 
 	def task_params
 		params.require(:task).permit(:brief,:description,:location,:vehicle_needed,
-				:completed,:task_maker_id,:task_doer_id, :category_id, :photo, :latidude,
+				:completed,:task_maker_id,:task_doer_id, :category_id, :photo, :latitude,
 				:longitude)
 	end
 end

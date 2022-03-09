@@ -452,9 +452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tasks_task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tasks/task */ "./frontend/components/tasks/task.jsx");
-/* harmony import */ var react_geocode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-geocode */ "./node_modules/react-geocode/lib/index.js");
-/* harmony import */ var react_geocode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_geocode__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
+/* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -483,7 +481,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
   _inherits(LoggedInDoerForm, _React$Component);
 
@@ -498,16 +495,6 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       categoryId: 0
     };
-    var apiKey = window.googleAPIKey;
-    react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.setApiKey(apiKey);
-    react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress("698 Lombard St san francisco").then(function (response) {
-      var _response$results$0$g = response.results[0].geometry.location,
-          lat = _response$results$0$g.lat,
-          lng = _response$results$0$g.lng;
-      console.log(lat, lng);
-    }, function (error) {
-      console.error(error);
-    });
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -548,7 +535,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       var welcome;
       if (tasksToDo.length === 0) welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do no tasks so far.";else welcome = "Welcome " + this.props.currentUser.username + ". You've agreed to do these tasks:";
       var instructions = "Click on category for more available tasks.";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logged-in-doer-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "after-main"
@@ -1617,9 +1604,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _make_task_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./make_task_error */ "./frontend/components/modal/make_task_error.jsx");
+/* harmony import */ var react_geocode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-geocode */ "./node_modules/react-geocode/lib/index.js");
+/* harmony import */ var react_geocode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_geocode__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1641,6 +1628,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -1655,6 +1645,48 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, MakeNewTaskForm);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "getLatLng", function () {
+      var apiKey = window.googleAPIKey;
+      react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.setApiKey(apiKey);
+      react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress("898 fell st san francisco").then(function (response) {
+        var _response$results$0$g = response.results[0].geometry.location,
+            lat = _response$results$0$g.lat,
+            lng = _response$results$0$g.lng; // console.log(lat, lng);
+
+        _this.addToDB(lat, lng);
+      }, function (error) {
+        console.error(error);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addToDB", function (lat, lng) {
+      var formData = new FormData();
+      formData.append('task[task_maker_id]', _this.state.task_maker_id);
+      formData.append('task[brief]', _this.state.brief);
+      formData.append('task[description]', _this.state.description);
+      formData.append('task[location]', _this.state.location);
+      formData.append('task[category_id]', _this.state.category_id);
+      formData.append('task[completed]', _this.state.completed);
+      formData.append('task[vehicle_needed]', _this.state.vehicle_needed);
+      formData.append('task[longitude]', lng);
+      formData.append('task[latitude]', lat);
+      if (_this.state.photoFile) formData.append('task[photo]', _this.state.photoFile);
+      $.ajax({
+        url: '/api/tasks',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      }).then(function (response) {
+        // console.log(response.message);
+        // console.log(response.responseJSON);
+        _this.props.fetchTasks();
+      });
+
+      _this.props.closeModal();
+    });
+
     _this.state = {
       task_maker_id: _this.props.currentUser.id,
       brief: '',
@@ -1665,8 +1697,8 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       completed: false,
       photoFile: null,
       photoUrl: null,
-      // errorDescription: "Description can't be blank",
-      // errorBrief: "Brief can't be blank",
+      latitude: null,
+      longitude: null,
       errorDescription: null,
       errorBrief: null,
       errorPic: null,
@@ -1681,32 +1713,10 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   _createClass(MakeNewTaskForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
-
       e.preventDefault();
 
       if (this.errorCheck()) {
-        var formData = new FormData();
-        formData.append('task[task_maker_id]', this.state.task_maker_id);
-        formData.append('task[brief]', this.state.brief);
-        formData.append('task[description]', this.state.description);
-        formData.append('task[location]', this.state.location);
-        formData.append('task[category_id]', this.state.category_id);
-        formData.append('task[completed]', this.state.completed);
-        formData.append('task[vehicle_needed]', this.state.vehicle_needed);
-        if (this.state.photoFile) formData.append('task[photo]', this.state.photoFile);
-        $.ajax({
-          url: '/api/tasks',
-          method: 'POST',
-          data: formData,
-          contentType: false,
-          processData: false
-        }).then(function (response) {
-          // console.log(response.message);
-          // console.log(response.responseJSON);
-          _this2.props.fetchTasks();
-        });
-        this.props.closeModal();
+        this.getLatLng();
       }
     }
   }, {
@@ -1742,13 +1752,13 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      var _this3 = this;
+      var _this2 = this;
 
       var file = e.currentTarget.files[0];
       var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
-        _this3.setState({
+        _this2.setState({
           photoFile: file,
           photoUrl: fileReader.result
         });
@@ -1761,10 +1771,10 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "update",
     value: function update(field) {
-      var _this4 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this4.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {

@@ -1,6 +1,5 @@
 import React from 'react';
 import Task from '../tasks/task';
-import Geocode from "react-geocode";
 import NavbarContainer from '../navbar/navbar_container';
 
 
@@ -12,18 +11,7 @@ class LoggedInDoerForm extends React.Component {
 			categoryId: 0
 		}
 
-			const apiKey = window.googleAPIKey;
-
-			Geocode.setApiKey(apiKey);
-			Geocode.fromAddress("698 Lombard St san francisco").then(
-				(response) => {
-					const { lat, lng } = response.results[0].geometry.location;
-					console.log(lat, lng);
-				},
-				(error) => {
-					console.error(error);
-				}
-			);
+		
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
