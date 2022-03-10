@@ -11,7 +11,8 @@
 	height: 2600px;
 	width: 100%;
 	/* background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/mounting.jpg'); */
-	background-color: #9C9D98;
+	/* background-color: #9C9D98; */
+	background-color:black;
 
 	flex-direction: row;
 

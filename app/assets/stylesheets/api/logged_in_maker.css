@@ -5,7 +5,8 @@
 	height: 2600px;
 	width: 100%;
 	position: relative;
-		background-color: #9C9D98;
+		/* background-color: #9C9D98; */
+	background-color:black;
 
 }
 
@@ -48,7 +49,8 @@
 	/* position:absolute; */
 	width: 100%;
 	margin-top: 0px;
-		background-color: #9C9D98;
+		/* background-color: #9C9D98; */
+	background-color:black;
 
 }
 

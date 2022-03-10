@@ -8,7 +8,8 @@
 	height: 1000px;
 	width: 100%;
 	background-image: url('https://masked-habbit-background.s3-us-west-1.amazonaws.com/backgrounds/painting.jpg');
-	background-color: #9C9D98;
+	/* background-color: #9C9D98; */
+	background-color: black;
 }
 
 .tasks-by-cat-background {
