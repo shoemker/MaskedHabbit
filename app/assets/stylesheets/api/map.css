@@ -27,6 +27,8 @@
 
 .pin-text {
   font-size: 1.3em;
+  text-align: center;
+
 }
 
 @media screen and (min-width: 799px) {
@@ -47,5 +49,6 @@
     font-size: 10vw;
     color: red;
     transform: translateY(-60%);
+    margin-right: 100px;
   }
 }
