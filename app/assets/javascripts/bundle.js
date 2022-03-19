@@ -1541,7 +1541,6 @@ var LocationPin = function LocationPin(_ref) {
     className: "pin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_iconify_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
     icon: "mdi:map-marker",
-    align: "center",
     vFlip: "true",
     className: "pin-icon"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
