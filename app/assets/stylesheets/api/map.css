@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   width: 180px;
-  color: var(--main-blue);
+  color: red;
 }
 
 .pin-icon {
@@ -45,5 +45,7 @@
 
   .pin-icon {
     font-size: 10vw;
+    color: red;
+    transform: translateY(-60%);
   }
 }
