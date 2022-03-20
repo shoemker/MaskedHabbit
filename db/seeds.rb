@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
-
+require 'faker'
 
 User.create(username: "jacob", 
 						password: "123456", 
@@ -417,3 +417,24 @@ task = Task.create(brief: "Fix garage door",
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garage_door.jpeg')
 task.photo.attach(io: file, filename: 'garage_door.jpeg')
+
+ 
+(1..2).each do |id|
+	Message.create!(
+		subject: Faker::Commerce.product_name,
+		body: Faker::Lorem.paragraph_by_chars(number: rand(50), supplemental: false),
+		read: false,
+		sender_id: rand(1..5),
+		receiver_id: rand(6..10)
+	)
+end
+
+(1..2).each do |id|
+	Message.create!(
+		subject: Faker::Commerce.product_name,
+		body: Faker::Lorem.paragraph_by_chars(number: rand(50), supplemental: false),
+		read: false,
+		sender_id: rand(6..10),
+		receiver_id: rand(1..5)
+	)
+end

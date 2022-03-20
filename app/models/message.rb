@@ -11,5 +11,14 @@
 #  updated_at  :datetime         not null
 #
 class Message < ApplicationRecord
+  validates :subject, :sender_id, :receiver_id, presence:true
+
+	belongs_to :receiver,
+	foreign_key: :receiver_id,
+	class_name: :User
+
+	has_one :sender,
+	foreign_key: :sender_id,
+	class_name: :User
 
 end
