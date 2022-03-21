@@ -1,5 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
+import EmailWindow from './email_window';
+
 import Task from '../tasks/task';
 
 class LoggedInMaker extends React.Component {
@@ -40,33 +42,31 @@ class LoggedInMaker extends React.Component {
 				<header>
 					<NavbarContainer />
 				</header>
+				<div className = "container-email-list-tasks">
+					<EmailWindow />
+					<div className="parent-task-maker-container">
+						<nav className="new-task">
+							<div id="new-task-maker-button" className="category-button" onClick={() => this.props.openModal()}>Create New Task</div>
+						</nav>
+						<div className="tasks-cat-greeting-maker" style={{ width: welcome.length * 13 + "px" }}>
+							<h2 className="task-cat-greeting">{welcome}</h2>
+						</div>
+						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
+							return (
+				
+									<form onSubmit={() => {
+										if (window.confirm('Are you sure you wish to delete this task?')) 
+										this.delete(task.id)}} className='doer-task-container2' id = {task.id}>
+												<Task task={task} />
 
-				<nav className="new-task">
-					<div id="new-task-maker-button" className="category-button" onClick={() => this.props.openModal()}>Create New Task</div>
-				</nav>
+												< button className="task-accept-button" type="submit" >Delete Task</button>
 
-				<div className="tasks-cat-greeting-maker" style ={{width: welcome.length*13 +"px"}}>
-					<h2 className = "task-cat-greeting">{welcome}</h2>
-				</div>
+									</form>
+							)	
 
-
-				<div className="parent-task-maker-container">
-					{this.props.tasks.length > 0 && tasksSelected.map((task) => {
-						return (
-			
-								<form onSubmit={() => {
-									if (window.confirm('Are you sure you wish to delete this task?')) 
-									this.delete(task.id)}} className='doer-task-container2' id = {task.id}>
-											<Task task={task} />
-
-											< button className="task-accept-button" type="submit" >Delete Task</button>
-
-								</form>
-						)	
-
-					})}
-				</div>
-						
+						})}
+					</div>
+				</div>		
 			</div>
 		)}
 	

@@ -418,23 +418,25 @@ task = Task.create(brief: "Fix garage door",
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garage_door.jpeg')
 task.photo.attach(io: file, filename: 'garage_door.jpeg')
 
- 
-(1..2).each do |id|
+
+# nonsense emails
+numMessages = 200
+(1..numMessages).each do |id|
+
+	if id < numMessages/2 +1
+		sender = rand(1..5)
+		receiver = rand(6..10)
+	else
+		sender = rand(6..10)
+		receiver = rand(1..5)
+	end
+
 	Message.create!(
 		subject: Faker::Commerce.product_name,
-		body: Faker::Lorem.paragraph_by_chars(number: rand(50), supplemental: false),
+		body: Faker::Lorem.paragraph_by_chars(number: rand(250), supplemental: false),
 		read: false,
-		sender_id: rand(1..5),
-		receiver_id: rand(6..10)
+		sender_id: sender,
+		receiver_id: receiver,
 	)
 end
 
-(1..2).each do |id|
-	Message.create!(
-		subject: Faker::Commerce.product_name,
-		body: Faker::Lorem.paragraph_by_chars(number: rand(50), supplemental: false),
-		read: false,
-		sender_id: rand(6..10),
-		receiver_id: rand(1..5)
-	)
-end
