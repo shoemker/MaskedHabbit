@@ -1,4 +1,4 @@
-json.task do
+json.message do
 		json.extract! @message, :id,            
  											:subject,          
  											:body,          

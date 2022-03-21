@@ -11,6 +11,7 @@ class LoggedInMaker extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchTasks();
+		this.props.fetchMessages();
 	}
 
 	delete(id){
@@ -32,7 +33,7 @@ class LoggedInMaker extends React.Component {
 
 		const welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:";
 
-
+		// if (this.props.messages.length > 0 ) debugger;
 		// if (this.props.tasks.length > 0 ) debugger;
 		return(
 			<div className = "maker-background">

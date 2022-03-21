@@ -135,6 +135,88 @@ var fetchCategory = function fetchCategory(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/message_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/message_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGES", function() { return RECEIVE_MESSAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessage", function() { return fetchMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMessage", function() { return updateMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+/* harmony import */ var _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/message_api_util.js */ "./frontend/util/message_api_util.js");
+
+var RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
+var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+var REMOVE_MESSAGE = 'REMOVE_MESSAGE';
+
+var receiveMessages = function receiveMessages(messages) {
+  return {
+    type: RECEIVE_MESSAGES,
+    messages: messages
+  };
+};
+
+var receiveMessage = function receiveMessage(message) {
+  return {
+    type: RECEIVE_MESSAGE,
+    message: message
+  };
+};
+
+var removeMessage = function removeMessage(message) {
+  return {
+    type: REMOVE_MESSAGE,
+    messageId: message.id
+  };
+};
+
+var fetchMessages = function fetchMessages() {
+  return function (dispatch) {
+    return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchMessages"]().then(function (messages) {
+      return dispatch(receiveMessages(messages));
+    });
+  };
+};
+var fetchMessage = function fetchMessage(id) {
+  return function (dispatch) {
+    return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchMessage"](id).then(function (message) {
+      return dispatch(receiveMessage(message));
+    });
+  };
+};
+var deleteMessage = function deleteMessage(id) {
+  return function (dispatch) {
+    return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["deleteMessage"](id).then(function (message) {
+      return dispatch(removeMessage(message));
+    });
+  };
+};
+var updateMessage = function updateMessage(message) {
+  return function (dispatch) {
+    return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["updateMessage"](message).then(function (message) {
+      return dispatch(receiveMessage(message));
+    });
+  };
+};
+var createMessage = function createMessage(message) {
+  return function (dispatch) {
+    return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["createMessage"](message).then(function (message) {
+      return dispatch(receiveMessage(message));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
@@ -659,6 +741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logged_in_maker_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logged_in_maker_form */ "./frontend/components/logged_in/logged_in_maker_form.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
+
 
 
 
@@ -666,10 +750,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var tasks = Object.values(state.entities.tasks);
+  var messages = Object.values(state.entities.messages);
   var currentUser = state.entities.users[state.session.id];
   return {
     currentUser: currentUser,
-    tasks: tasks
+    tasks: tasks,
+    messages: messages
   };
 };
 
@@ -680,6 +766,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteTask: function deleteTask(id) {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_3__["deleteTask"])(id));
+    },
+    fetchMessages: function fetchMessages() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_4__["fetchMessages"])());
     },
     openModal: function openModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])('newTask'));
@@ -752,6 +841,7 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchTasks();
+      this.props.fetchMessages();
     }
   }, {
     key: "delete",
@@ -774,7 +864,8 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
             tasksSelected.push(task);
           }
       });
-      var welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:"; // if (this.props.tasks.length > 0 ) debugger;
+      var welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:"; // if (this.props.messages.length > 0 ) debugger;
+      // if (this.props.tasks.length > 0 ) debugger;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-background"
@@ -2485,7 +2576,6 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      console.log("hi");
       e.preventDefault(); // this.setState({newSearch: this.state.search.trim().toLowerCase()});
 
       this.setState(function (state, props) {
@@ -2523,7 +2613,6 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.newSearch);
       var searchWords = ""; // in case search term had been replaced
 
       if (this.state.newSearch != "") {
@@ -2591,23 +2680,22 @@ var TasksBySearch = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions/task_actions */ "./frontend/actions/task_actions.js");
-/* harmony import */ var _actions_category_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions/category_actions */ "./frontend/actions/category_actions.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // frontend/entry.jsx
 //import * as PostApiUtil from './util/session_api_util.js';
 // import * as sessionActions from './actions/session_actions';
-
- // import * as TaskApiUtil from './util/task_api_util.js'
+// import * as taskActions from './actions/task_actions'
+// import * as categoryActions from './actions/category_actions'
+// import * as messageActions from './actions/message_actions'
+// import * as TaskApiUtil from './util/task_api_util.js'
 // import * as CategoryApiUtil from './util/category_api_util.js'
-
 
 
 
@@ -2625,26 +2713,25 @@ document.addEventListener('DOMContentLoaded', function () {
         id: window.currentUser.id
       }
     };
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])(preloadedState);
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
     delete window.currentUser;
   } else {
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
   } // window.fetchTasks = TaskApiUtil.fetchTasks;
   // window.fetchTask = TaskApiUtil.fetchTask;
   // window.fetchCategories = CategoryApiUtil.fetchCategories;
   // window.fetchCategory = CategoryApiUtil.fetchCategory;
-
-
-  window.getState = store.getState; // for testing
-
-  window.dispatch = store.dispatch; // just for testing!  
-
-  window.fetchCategories = _actions_category_actions__WEBPACK_IMPORTED_MODULE_1__["fetchCategories"]; // window.login = sessionActions.login;
+  // window.getState = store.getState; // for testing
+  // window.dispatch = store.dispatch; // just for testing!  
+  // window.fetchCategories = categoryActions.fetchCategories; 
+  // window.fetchMessages = messageActions.fetchMessages;
+  // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
   // window.logout = sessionActions.logout;
 
+
   var root = document.getElementById('root');
-  react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), root);
 });
@@ -2705,6 +2792,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tasks_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks_reducer */ "./frontend/reducers/tasks_reducer.js");
 /* harmony import */ var _categories_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./categories_reducer */ "./frontend/reducers/categories_reducer.js");
 /* harmony import */ var _search_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search_reducer */ "./frontend/reducers/search_reducer.js");
+/* harmony import */ var _messages_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./messages_reducer */ "./frontend/reducers/messages_reducer.js");
+
 
 
 
@@ -2714,7 +2803,8 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   tasks: _tasks_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   categories: _categories_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  search: _search_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  search: _search_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2737,6 +2827,51 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/messages_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/messages_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/message_actions */ "./frontend/actions/message_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var messagesReducer = function messagesReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState;
+
+  switch (action.type) {
+    case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MESSAGES"]:
+      return action.messages;
+
+    case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MESSAGE"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, _defineProperty({}, action.message.id, action.message));
+      return newState;
+
+    case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_MESSAGE"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState);
+      delete newState[action.messageId];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (messagesReducer);
 
 /***/ }),
 
@@ -3059,6 +3194,59 @@ var fetchCategory = function fetchCategory(id) {
   return $.ajax({
     method: 'GET',
     url: "api/categories/".concat(id)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/message_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/message_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchMessages, fetchMessage, createMessage, updateMessage, deleteMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessage", function() { return fetchMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMessage", function() { return updateMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
+var fetchMessages = function fetchMessages() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/messages'
+  });
+};
+var fetchMessage = function fetchMessage(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/messages/".concat(id)
+  });
+};
+var createMessage = function createMessage(message) {
+  return $.ajax({
+    method: 'POST',
+    url: "api/messages",
+    data: {
+      message: message
+    }
+  });
+};
+var updateMessage = function updateMessage(message) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/messages/".concat(message.id),
+    data: {
+      message: message
+    }
+  });
+};
+var deleteMessage = function deleteMessage(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/messages/".concat(id)
   });
 };
 

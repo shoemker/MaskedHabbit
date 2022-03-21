@@ -27,7 +27,6 @@ class TasksBySearch extends React.Component {
 	}
 
 	handleSubmit(e) {
-		console.log("hi")
 		e.preventDefault();
 		// this.setState({newSearch: this.state.search.trim().toLowerCase()});
 		this.setState((state, props) => {
@@ -56,7 +55,6 @@ class TasksBySearch extends React.Component {
 
 
 	render() {
-		console.log(this.state.newSearch)
 
 		let searchWords = "";
 		
