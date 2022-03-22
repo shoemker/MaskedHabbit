@@ -2,9 +2,13 @@ class Api::MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-		@messages = Message.all
+		received = Message.where(receiver_id: current_user.id)
+		sent = Message.where(sender_id: current_user.id) 
+
+		@messages = sent + received
 	end
 
+	
 	def show
 		@message = Message.find(params[:id])
 	end

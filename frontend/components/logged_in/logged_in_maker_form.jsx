@@ -31,8 +31,6 @@ class LoggedInMaker extends React.Component {
 			}
 		})
 
-
-
 		const welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:";
 
 		// if (this.props.messages.length > 0 ) debugger;
@@ -43,7 +41,10 @@ class LoggedInMaker extends React.Component {
 					<NavbarContainer />
 				</header>
 				<div className = "container-email-list-tasks">
-					<EmailWindow />
+					<EmailWindow 
+						messages = {this.props.messages} 
+						currentUser = {this.props.currentUser}
+					/>
 					<div className="parent-task-maker-container">
 						<nav className="new-task">
 							<div id="new-task-maker-button" className="category-button" onClick={() => this.props.openModal()}>Create New Task</div>
@@ -53,15 +54,16 @@ class LoggedInMaker extends React.Component {
 						</div>
 						{this.props.tasks.length > 0 && tasksSelected.map((task) => {
 							return (
-				
+								<div className='doer-task-container2'>
 									<form onSubmit={() => {
 										if (window.confirm('Are you sure you wish to delete this task?')) 
-										this.delete(task.id)}} className='doer-task-container2' id = {task.id}>
+										this.delete(task.id)}} className='maker-task-container2' id = {task.id}>
 												<Task task={task} />
 
 												< button className="task-accept-button" type="submit" >Delete Task</button>
 
 									</form>
+								</div>
 							)	
 
 						})}

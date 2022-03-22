@@ -493,12 +493,29 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _message_subject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message_subject */ "./frontend/components/logged_in/message_subject.jsx");
 
 
-var EmailWindow = function EmailWindow() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+
+var EmailWindow = function EmailWindow(_ref) {
+  var messages = _ref.messages,
+      currentUser = _ref.currentUser;
+  var inMessages = [];
+  var outMessages = [];
+
+  if (messages.length > 0) {
+    messages.forEach(function (message) {
+      if (message.receiver_id === currentUser.id) inMessages.push(message);else outMessages.push(message);
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "email-list"
-  }, "hello");
+  }, messages.length > 0 && inMessages.map(function (message) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_subject__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      subject: message.subject
+    });
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EmailWindow);
@@ -896,7 +913,10 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
         className: "maker-background"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-email-list-tasks"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_email_window__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_email_window__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        messages: this.props.messages,
+        currentUser: this.props.currentUser
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "new-task"
@@ -914,18 +934,20 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "task-cat-greeting"
       }, welcome)), this.props.tasks.length > 0 && tasksSelected.map(function (task) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "doer-task-container2"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: function onSubmit() {
             if (window.confirm('Are you sure you wish to delete this task?')) _this3["delete"](task.id);
           },
-          className: "doer-task-container2",
+          className: "maker-task-container2",
           id: task.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tasks_task__WEBPACK_IMPORTED_MODULE_3__["default"], {
           task: task
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "task-accept-button",
           type: "submit"
-        }, "Delete Task"));
+        }, "Delete Task")));
       }))));
     }
   }]);
@@ -935,6 +957,28 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (LoggedInMaker);
+
+/***/ }),
+
+/***/ "./frontend/components/logged_in/message_subject.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/logged_in/message_subject.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var EmailWindow = function EmailWindow(_ref) {
+  var subject = _ref.subject;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, subject);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EmailWindow);
 
 /***/ }),
 
