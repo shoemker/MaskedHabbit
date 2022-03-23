@@ -3,7 +3,9 @@ json.array! @messages do |message|
 										:subject,          
 										:body,          
 										:sender_id, 
-										:receiver_id,    
+										:receiver_id,
+										:sender_name,
+										:receiver_name,        
 										:read
 end
 

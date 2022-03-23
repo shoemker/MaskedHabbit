@@ -14,8 +14,12 @@ class Api::MessagesController < ApplicationController
 	end
 
 	def create
+
 		@message = Message.new(message_params)
-		@message.sender_id = current_user.id
+
+		@message.sender_name = User.find(params[:sender_id]).username
+		@message.receiver_id = User.find_by(username: params[:receiver_name]).id
+
 
 		if @message.save
 			render json: @message
@@ -47,7 +51,7 @@ class Api::MessagesController < ApplicationController
 
 	def message_params
 		params.require(:message).permit(:subject,:body,:sender_id,:receiver_id,
-				:read)
+				:sender_name, :receiver_name,	:read)
 	end
 
 

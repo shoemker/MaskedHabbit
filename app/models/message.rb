@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class Message < ApplicationRecord
-  validates :subject, :sender_id, :receiver_id, presence:true
+  validates :subject, :sender_id, :receiver_id, :sender_name, :receiver_name, presence:true
 
 	belongs_to :receiver,
 	foreign_key: :receiver_id,

@@ -9,6 +9,7 @@
 require 'open-uri'
 require 'faker'
 
+
 User.create(username: "jacob", 
 						password: "123456", 
 						email: "j12@gmail.com", 
@@ -420,7 +421,9 @@ task.photo.attach(io: file, filename: 'garage_door.jpeg')
 
 
 # nonsense emails
+
 numMessages = 200
+
 (1..numMessages).each do |id|
 
 	if id < numMessages/2 +1
@@ -431,12 +434,14 @@ numMessages = 200
 		receiver = rand(1..5)
 	end
 
-	Message.create!(
+	Message.create(
 		subject: Faker::Commerce.product_name,
 		body: Faker::Lorem.paragraph_by_chars(number: rand(250), supplemental: false),
 		read: false,
 		sender_id: sender,
 		receiver_id: receiver,
+		sender_name: User.find(sender).username,
+		receiver_name: User.find(receiver).username
 	)
 end
 
