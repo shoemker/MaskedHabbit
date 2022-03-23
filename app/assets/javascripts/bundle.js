@@ -1651,7 +1651,7 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "getLatLng", function () {
       var apiKey = window.googleAPIKey;
       react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.setApiKey(apiKey);
-      react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress("898 fell st san francisco").then(function (response) {
+      react_geocode__WEBPACK_IMPORTED_MODULE_2___default.a.fromAddress(_this.state.location + " San Francisco").then(function (response) {
         var _response$results$0$g = response.results[0].geometry.location,
             lat = _response$results$0$g.lat,
             lng = _response$results$0$g.lng; // console.log(lat, lng);

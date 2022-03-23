@@ -42,9 +42,8 @@ class MakeNewTaskForm extends React.Component {
 
 	getLatLng = () => {
 		const apiKey = window.googleAPIKey;
-
 		Geocode.setApiKey(apiKey);
-		Geocode.fromAddress("898 fell st san francisco").then(
+		Geocode.fromAddress(this.state.location + " San Francisco").then(
 			(response) => {
 				const { lat, lng } = response.results[0].geometry.location;
 				// console.log(lat, lng);
