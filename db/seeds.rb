@@ -79,353 +79,378 @@ Category.create(title: "General Handyman")
 Category.create(title: "Heavy Lifting")
 
 
+maker = 10
 task = Task.create(brief: "Install sound system",
 						description: "In my car",
 						location: "800 Fell st",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 1,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/car_sound_system.jpeg')
 task.photo.attach(io: file, filename: 'car_sound_system.jpeg')
 
 
+maker = 10
 task = Task.create(brief: "Put in garbage disposal",
 						description: "In kitchen",
 						location: "800 Fell st",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 1,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garbage_disposal.jpeg')
 task.photo.attach(io: file, filename: 'garbage_disposal.jpeg')
 
 
+maker = 9
 task = Task.create(brief: "Help me move",
 						description: "lots of packing",
 						location: "825 Battery",
 						vehicle_needed: true,
 						completed: false,
-						task_maker_id: 9,
+						task_maker_id: maker,
 						category_id: 2,
 						latitude: 37.7989666, 
-						longitude: -122.4013518
+						longitude: -122.4013518,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/moving.jpeg')
 task.photo.attach(io: file, filename: 'moving.jpeg')
 
 
+maker = 9
 task = Task.create(brief: "Pack some Boxes",
 						description: "pack it up",
 						location: "825 Battery",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 9,
+						task_maker_id: maker,
 						category_id: 2,
 						latitude: 37.7989666, 
-						longitude: -122.4013518
+						longitude: -122.4013518,
+						maker_name: User.find(maker).username,
 						)						
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/pack_boxes.jpeg')
 task.photo.attach(io: file, filename: 'pack_boxes.jpeg')
 
 
-
+maker = 7
 task = Task.create(brief: "Put together bunk beds",
 						description: "at my house",
 						location: "222 Minnesota St",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 7,
+						task_maker_id: maker,
 						category_id: 3,
 						latitude: 37.7573664,
-						longitude: -122.3901793
+						longitude: -122.3901793,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/bunk_beds.jpeg')
 task.photo.attach(io: file, filename: 'bunk_beds.jpeg')
 
 
-
+maker = 6
 task = Task.create(brief: "Build a table",
 						description: "have a kit",
 						location: "532 Fulton",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 6,
+						task_maker_id: maker,
 						category_id: 3,
 						latitude: 37.778547,
-						longitude: -122.4250061
+						longitude: -122.4250061,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/build_table.jpeg')
 task.photo.attach(io: file, filename: 'build_table.jpeg')
 
 
-
+maker = 8
 task = Task.create(brief: "Renovate bathroom",
 						description: "the whole thing",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 8,
+						task_maker_id: maker,
 						category_id: 4,
 						latitude: 37.769735, 
-						longitude: -122.422071
+						longitude: -122.422071,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/renovate_bathroom.jpeg')
 task.photo.attach(io: file, filename: 'renovate_bathroom.jpeg')
 
 
-
+maker = 8
 task = Task.create(brief: "Knock down wall",
 						description: "at my house",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 8,
+						task_maker_id: maker,
 						category_id: 4,
 						latitude: 37.769735, 
-						longitude: -122.422071
+						longitude: -122.422071,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/knock_down_wall.jpeg')
 task.photo.attach(io: file, filename: 'knock_down_wall.jpeg')
 
 
-
+maker = 7
 task = Task.create(brief: "Fix door",
 						description: "at my house",
 						location: "698 Lombard St",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 7,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.8028476,
-						longitude: -122.4130493
+						longitude: -122.4130493,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/fix_door.jpeg')
 task.photo.attach(io: file, filename: 'fix_door.jpeg')
 
 
-
+maker = 7
 task = Task.create(brief: "Change light bulbs",
 						description: "at my house",
 						location: "698 Lombard St",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 7,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.8028476,
-						longitude: -122.4130493
+						longitude: -122.4130493,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/change_light_bulb.jpeg')
 task.photo.attach(io: file, filename: 'change_light_bulb.jpeg')
 
 
-
+maker = 7
 task = Task.create(brief: "Move boxes",
 						description: "they weigh 50lbs",
 						location: "698 Lombard St",
 						vehicle_needed: true,
 						completed: false,
-						task_maker_id: 7,
+						task_maker_id: maker,
 						category_id: 6,
 						latitude: 37.8028476,
-						longitude: -122.4130493
+						longitude: -122.4130493,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/move_boxes.jpeg')
 task.photo.attach(io: file, filename: 'move_boxes.jpeg')
 
 
-
+maker = 7
 task = task = Task.create(brief: "Carry dog to vet",
 						description: "It's a bouvier",
 						location: "698 Lombard St",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 7,
+						task_maker_id: maker,
 						category_id: 6,
 						latitude: 37.8028476,
-						longitude: -122.4130493
+						longitude: -122.4130493,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/bouvier.jpeg')
 task.photo.attach(io: file, filename: 'bouvier.jpeg')
 
 
-
+maker = 6
 task = Task.create(brief: "Install wall television",
 						description: "50 in tv",
 						location: "532 Fulton",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 6,
+						task_maker_id: maker,
 						category_id: 1,
 						latitude: 37.778547,
-						longitude: -122.4250061
+						longitude: -122.4250061,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/install_tv.jpeg')
 task.photo.attach(io: file, filename: 'install_tv.jpeg')
 
 
-
+maker = 10
 task = Task.create(brief: "Unplug toilet.",
 						description: "It's a doosey",
 						location: "800 Fell",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/plunge_toilet.jpeg')
 task.photo.attach(io: file, filename: 'plunge_toilet.jpeg')
 
 
-
+maker = 6
 task = Task.create(brief: "Sweep chimney.",
 						description: "With cockney accent",
 						location: "532 Fulton",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 6,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.778547,
-						longitude: -122.4250061
+						longitude: -122.4250061,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/chimney_sweep.jpeg')
 task.photo.attach(io: file, filename: 'chimney_sweep.jpeg')
 
 
-
+maker = 6
 task = Task.create(brief: "Carry stuff upstairs.",
 						description: "hundreds of magazines",
 						location: "532 Fulton",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 6,
+						task_maker_id: maker,
 						category_id: 6,
 						latitude: 37.778547,
-						longitude: -122.4250061
+						longitude: -122.4250061,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/magazines.jpeg')
 task.photo.attach(io: file, filename: 'magazines.jpeg')
 
 
-
+maker = 9
 task = Task.create(brief: "Pack Kitchen",
 						description: "The whole thing",
 						location: "825 Battery St",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 9,
+						task_maker_id: maker,
 						category_id: 2,
 						latitude: 37.7989666, 
-						longitude: -122.4013518
+						longitude: -122.4013518,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/pack_kitchen.jpeg')
 task.photo.attach(io: file, filename: 'pack_kitchen.jpeg')
 
 
-
+maker = 8
 task = Task.create(brief: "Redo Bathroom",
 						description: "Huge budget",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 8,
+						task_maker_id: maker,
 						category_id: 4,
 						latitude: 37.769735, 
-						longitude: -122.422071
+						longitude: -122.422071,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/redo_bathroom.jpeg')
 task.photo.attach(io: file, filename: 'redo_bathroom.jpeg')
 
 
-
+maker = 10
 task = Task.create(brief: "Install Washer-Dryer",
 						description: "Both",
 						location: "800 Fell st",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 1,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/washer_dryer.jpeg')
 task.photo.attach(io: file, filename: 'washer_dryer.jpeg')
 
 
-
+maker = 8
 task = Task.create(brief: "Hang pictures",
 						description: "Pictures of grandkids",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 8,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.769735, 
-						longitude: -122.422071
+						longitude: -122.422071,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/hang_pictures.jpeg')
 task.photo.attach(io: file, filename: 'hang_pictures.jpeg')
 
 
-
+maker = 8
 task = Task.create(brief: "Put bed together",
 						description: "queen-sized",
 						location: "201 Valencia",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 8,
+						task_maker_id: maker,
 						category_id: 3,
 						latitude: 37.769735, 
-						longitude: -122.422071
+						longitude: -122.422071,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/assemble_bed.jpeg')
 task.photo.attach(io: file, filename: 'assemble_bed.jpeg')
 
 
-
+maker = 10
 task = Task.create(brief: "Drive me to airport",
 						description: "Wednesday, 8am, Sept.",
 						location: "800 Fell st",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 2,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/drive_airport.jpeg')
 task.photo.attach(io: file, filename: 'drive_airport.jpeg')
 
 
-
+maker = 10
 task = Task.create(brief: "Fix garage door",
 						description: "It breaks frequently",
 						location: "800 Fell st",
 						vehicle_needed: false,
 						completed: false,
-						task_maker_id: 10,
+						task_maker_id: maker,
 						category_id: 5,
 						latitude: 37.775025,
-						longitude: -122.4308763
+						longitude: -122.4308763,
+						maker_name: User.find(maker).username,
 						)
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garage_door.jpeg')
 task.photo.attach(io: file, filename: 'garage_door.jpeg')
 
 
 # nonsense emails
-
 numMessages = 200
 
 (1..numMessages).each do |id|
-
 	if id < numMessages/2 +1
 		sender = rand(1..5)
 		receiver = rand(6..10)

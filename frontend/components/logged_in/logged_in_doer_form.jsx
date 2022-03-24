@@ -19,6 +19,7 @@ class LoggedInDoerForm extends React.Component {
 	handleSubmit(task) {
 
 		task.task_doer_id = this.props.currentUser.id;
+		task.doer_name = this.props.currentUser.username;
 		
 		this.props.updateTask(task).then(() => this.props.fetchTasks());
 	}

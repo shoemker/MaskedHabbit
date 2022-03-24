@@ -627,6 +627,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       task.task_doer_id = this.props.currentUser.id;
+      task.doer_name = this.props.currentUser.username;
       this.props.updateTask(task).then(function () {
         return _this2.props.fetchTasks();
       });
@@ -2348,7 +2349,11 @@ var Task = function Task(_ref) {
     className: "task-fields-2"
   }, "At: ", task.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "task-fields-3"
-  }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Need a Vehicle? : ", task.vehicle_needed ? "yes" : "no"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "task-fields-4"
+  }, "Maker : ", task.maker_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "task-fields-4"
+  }, "Doer : ", task.doer_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     location: location,
     zoomLevel: 18
   }))));
