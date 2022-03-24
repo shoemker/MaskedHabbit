@@ -51,11 +51,11 @@ class SignupForm extends React.Component {
 		for(let i = 0; i< this.props.errors.length; i++){
 
 				if (this.props.errors[i].includes(type)) {
-						return (
-							<div className='error-display'>
-								{ this.props.errors[i] }
-							</div>
-						);
+					return (
+						<div className='error-display' >
+							{ this.props.errors[i] }
+						</div>
+					);
 				}
 		} 
 	}
@@ -94,7 +94,9 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{this.renderErrors('Username')}
+							<div className='error-display'>
+								{this.renderErrors('Username')}
+							</div>
 							<br />
 							
 							<label>
@@ -105,7 +107,10 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{this.renderErrors('Password')}
+
+							<div className='error-display'>
+								{this.renderErrors('Password')}
+							</div>
 							<br />
 
 							<label>
@@ -116,7 +121,10 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{this.renderErrors('Email')}
+							<div className='error-display'>
+
+								{this.renderErrors('Email')}
+							</div>
 							<br />
 
 							<label>
@@ -127,7 +135,10 @@ class SignupForm extends React.Component {
 									className="signup-input"
 								/>
 							</label>
-							{this.renderErrors('Price')}
+							<div className='error-display'>
+
+								{this.renderErrors('Price')}
+							</div>
 							<br />
 								<label >
 									<select name="Role?" className="role_selector" onChange={this.update('is_tasker')}>

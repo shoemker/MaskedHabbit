@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MakeTaskError = (error) => {
+const MakeTaskError = ({error}) => {
     
-  if (error.error) return <div className='make_task_error'>{error.error}</div>;
+  if (error) return <div className='make_task_error'>{error}</div>;
   else return <div className='make_task_error'></div>;
   };
   

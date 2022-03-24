@@ -56,7 +56,7 @@
 	margin-left:-200px;
 	background-color:#e8ebef;
 	width: 325px;
-	height: 455px;
+	height: 465px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -83,6 +83,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	color: rgb(83, 80, 80);
+	margin-bottom: 14px;
 }
 
 .tasker-txt{
@@ -92,16 +93,12 @@
 	margin-top: 0px;
 }
 
-.tasker-checkbox{
-	 zoom: 1.8;
-	 margin-top: 7px;
-}
 
 .signup-input{
 	width: 100%;
 	height: 30px;
 	padding: 0px;
-	margin-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 0px;
 	color: rgb(176,176,176);
 	border-radius: 3px;
@@ -120,11 +117,13 @@
 }
 
 .error-display{
+	position: absolute;
+	height: 10px;
+	width: 100%;
+	padding-bottom: 0px;
 	color: rgb(190, 55, 55);
-	font-size: 15px;
+	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
-	margin-top:0px;
-	padding-top:0px;
 }
 
 
@@ -167,7 +166,7 @@
 .role_selector{
 	width: 328px;
 	height:30px;
-	margin-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 15px;
 
 }
