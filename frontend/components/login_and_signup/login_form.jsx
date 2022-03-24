@@ -56,19 +56,27 @@ class LoginForm extends React.Component {
 		this.props.processForm(user).then(() => this.props.history.push("/doer"));
 	}
 
-	renderIndErrors(type) {
+	// renderIndErrors(type) {
+
+	// 	for (let i = 0; i < this.props.errors.length; i++) {
+
+	// 		if (this.props.errors[i].includes(type)) {
+	// 			return (
+	// 				<div className='error-display'>
+	// 					{this.props.errors[i]}
+	// 				</div>
+	// 			);
+	// 		}
+	// 	}
+	// }
+
+	renderErrors(type) {
 
 		for (let i = 0; i < this.props.errors.length; i++) {
-
-			if (this.props.errors[i].includes(type)) {
-				return (
-					<div className='error-display'>
-						{this.props.errors[i]}
-					</div>
-				);
-			}
+			if (this.props.errors[i].includes(type)) return this.props.errors[i];
 		}
 	}
+	
 
 	render() {
 		return (
@@ -90,7 +98,9 @@ class LoginForm extends React.Component {
 									className="login-input"
 									id = "login-username"
 								/>
-								{this.renderIndErrors('username')}
+								<div className='error-display'>
+									{this.renderErrors('username')}
+								</div>
 							</label>
 							<br />
 							<label><span className='login-txt'>Password</span>
@@ -99,7 +109,9 @@ class LoginForm extends React.Component {
 									onChange={this.update('password')}
 									className="login-input"
 								/>
-								{this.renderIndErrors('password')}
+								<div className='error-display'>
+									{this.renderErrors('password')}
+								</div>
 							</label>
 							<br />
 							<input className="login-submit" type="submit" value="Log In" />

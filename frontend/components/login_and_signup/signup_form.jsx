@@ -49,15 +49,8 @@ class SignupForm extends React.Component {
 	renderErrors(type) {
 	
 		for(let i = 0; i< this.props.errors.length; i++){
-
-				if (this.props.errors[i].includes(type)) {
-					return (
-						<div className='error-display' >
-							{ this.props.errors[i] }
-						</div>
-					);
-				}
-		} 
+			if (this.props.errors[i].includes(type)) return this.props.errors[i];		
+		}
 	}
 
 	render() {

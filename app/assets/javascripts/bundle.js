@@ -932,16 +932,23 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       this.props.processForm(user).then(function () {
         return _this5.props.history.push("/doer");
       });
-    }
+    } // renderIndErrors(type) {
+    // 	for (let i = 0; i < this.props.errors.length; i++) {
+    // 		if (this.props.errors[i].includes(type)) {
+    // 			return (
+    // 				<div className='error-display'>
+    // 					{this.props.errors[i]}
+    // 				</div>
+    // 			);
+    // 		}
+    // 	}
+    // }
+
   }, {
-    key: "renderIndErrors",
-    value: function renderIndErrors(type) {
+    key: "renderErrors",
+    value: function renderErrors(type) {
       for (var i = 0; i < this.props.errors.length; i++) {
-        if (this.props.errors[i].includes(type)) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "error-display"
-          }, this.props.errors[i]);
-        }
+        if (this.props.errors[i].includes(type)) return this.props.errors[i];
       }
     }
   }, {
@@ -969,14 +976,18 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('username'),
         className: "login-input",
         id: "login-username"
-      }), this.renderIndErrors('username')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-display"
+      }, this.renderErrors('username'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "login-txt"
       }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
         onChange: this.update('password'),
         className: "login-input"
-      }), this.renderIndErrors('password')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-display"
+      }, this.renderErrors('password'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "login-submit",
         type: "submit",
         value: "Log In"
@@ -1138,11 +1149,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     key: "renderErrors",
     value: function renderErrors(type) {
       for (var i = 0; i < this.props.errors.length; i++) {
-        if (this.props.errors[i].includes(type)) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "error-display"
-          }, this.props.errors[i]);
-        }
+        if (this.props.errors[i].includes(type)) return this.props.errors[i];
       }
     }
   }, {
