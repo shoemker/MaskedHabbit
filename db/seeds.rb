@@ -94,7 +94,7 @@ task = Task.create(brief: "Install sound system",
 file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/car_sound_system.jpeg')
 task.photo.attach(io: file, filename: 'car_sound_system.jpeg')
 
-
+ 
 maker = 10
 task = Task.create(brief: "Put in garbage disposal",
 						description: "In kitchen",
