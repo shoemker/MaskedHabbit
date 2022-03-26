@@ -1,8 +1,8 @@
 import React from 'react';
-import MessageSubject from './message_subject';
+import MessageSubjectContainer from './message_subject_container';
 
 
-const EmailWindow = ({messages, currentUser}) => {
+const MessageListWindow = ({messages, currentUser}) => {
   let inMessages = [];
   let outMessages = [];
   
@@ -17,12 +17,12 @@ const EmailWindow = ({messages, currentUser}) => {
   return(
     <ul className="email-list">
       {messages.length > 0 && inMessages.map((message) => (
-          <MessageSubject subject = {message.subject} />
+        <MessageSubjectContainer message = {message} />
       ))}
     </ul>
   )
 }
 
 
-export default EmailWindow;
+export default MessageListWindow;
 

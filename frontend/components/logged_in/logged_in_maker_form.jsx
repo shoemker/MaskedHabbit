@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import EmailWindow from './email_window';
+import MessageListWindow from '../messages/message_list_window';
 
 import Task from '../tasks/task';
 
@@ -29,10 +29,11 @@ class LoggedInMaker extends React.Component {
 			{
 				tasksSelected.push(task);
 			}
+
 		})
 
 		const welcome = "Welcome " + this.props.currentUser.username + ". Here are the tasks you've created:";
-
+		
 		// if (this.props.messages.length > 0 ) debugger;
 		// if (this.props.tasks.length > 0 ) debugger;
 		return(
@@ -41,13 +42,13 @@ class LoggedInMaker extends React.Component {
 					<NavbarContainer />
 				</header>
 				<div className = "container-email-list-tasks">
-					<EmailWindow 
+					<MessageListWindow
 						messages = {this.props.messages} 
 						currentUser = {this.props.currentUser}
 					/>
 					<div className="parent-task-maker-container">
 						<nav className="new-task">
-							<div id="new-task-maker-button" className="category-button" onClick={() => this.props.openModal()}>Create New Task</div>
+							<div id="new-task-maker-button" className="category-button" onClick={() => this.props.openModal({type:'newTask'})}>Create New Task</div>
 						</nav>
 						<div className="tasks-cat-greeting-maker" style={{ width: welcome.length * 13 + "px" }}>
 							<h2 className="task-cat-greeting">{welcome}</h2>
