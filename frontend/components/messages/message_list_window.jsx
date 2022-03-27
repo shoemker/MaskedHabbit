@@ -3,7 +3,10 @@ import MessageSubjectContainer from './message_subject_container';
 import Tabs from './tabs';
 
 
-const MessageListWindow = ({messages, currentUser}) => {
+const MessageListWindow = ({messages, currentUser, openModal}) => {
+
+// const MessageListWindow = (props) => {
+  
   let inMessages = [];
   let outMessages = [];
 
@@ -19,7 +22,9 @@ const MessageListWindow = ({messages, currentUser}) => {
   return (
     <div className="message-window">
       <h1 className="message-window-heading" >Messages</h1>
-
+      <div className = "composeButton" 
+        onClick={() => openModal({ type: 'composeMessage' })} >Compose
+      </div>
       <Tabs>
         <div className = "tab" label="InBox">
           <ul className="email-list">
@@ -35,18 +40,10 @@ const MessageListWindow = ({messages, currentUser}) => {
             ))}
           </ul>
         </div>
-
+        {/* <div className="tab" label = "Compose"></div> */}
       </Tabs>
     </div>
   );
-
-
-
-  
-
-//   return(
-
-//   )
 
 
 }

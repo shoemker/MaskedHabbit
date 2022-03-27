@@ -16,10 +16,35 @@
 	font-size: 40px;
 	font-weight: bold;
 	margin: 10px;
-  justify-content: center;
+  text-align: center;
 	// width: 100%;
 	color: #61a14b;
 }
+
+.composeButton {
+  position:absolute;
+  margin-left: 190px;
+  margin-top: 5px;
+	border-radius: 5px;
+
+	background-color: #2e661b;
+	color: white;
+	font-family:  Arial, Helvetica, sans-serif;
+
+	font-size: 16px;
+	box-sizing: content-box;
+	width: 80px;
+	height: 22px;
+  padding-top: 3px;
+  text-align: center;
+}
+
+.composeButton:hover {
+	color: #61a14b;
+	background-color: white;
+}
+
+
 
 .message-subject  {
   border-top: 1px solid black;
@@ -55,4 +80,57 @@
   width: 300px;
   height: 800px;
   list-style-type: none;
+}
+
+
+.read-message-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.read-message-container {
+  font-family:  Arial, Helvetica, sans-serif;
+
+	display: block;
+	box-sizing: content-box;
+	margin: 0 auto;
+	position:absolute;
+  top:40%;
+	left:50%;
+	margin-top:-200px;
+	margin-left:-280px;
+	background-color:#e8ebef;
+	width: 500px;
+	height: 460px;
+	padding-top: 24px;
+  padding-right: 48px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+	border-radius: 5px;
+	z-index: 15;
+}
+
+.message-closing-x {
+	font-family: Arial, Helvetica, sans-serif;
+
+	margin-left:510px;
+}
+.message-field {
+  height: 30px;
+}
+
+.p-title{
+  font-weight: bold;
+  display: inline;
+
+}
+
+.p-field{
+  display: inline;
+
 }

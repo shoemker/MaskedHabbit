@@ -45,6 +45,7 @@ class LoggedInMaker extends React.Component {
 					<MessageListWindow
 						messages = {this.props.messages} 
 						currentUser = {this.props.currentUser}
+						openModal= {this.props.openModal}
 					/>
 					<div className="parent-task-maker-container">
 						<nav className="new-task">

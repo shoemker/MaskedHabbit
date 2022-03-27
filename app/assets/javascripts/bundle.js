@@ -876,7 +876,8 @@ var LoggedInMaker = /*#__PURE__*/function (_React$Component) {
         className: "container-email-list-tasks"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_list_window__WEBPACK_IMPORTED_MODULE_2__["default"], {
         messages: this.props.messages,
-        currentUser: this.props.currentUser
+        currentUser: this.props.currentUser,
+        openModal: this.props.openModal
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parent-task-maker-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -1693,6 +1694,87 @@ var Map = function Map(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/messages/compose_message_modal.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/messages/compose_message_modal.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ComposeMessageModal = function ComposeMessageModal(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "read-message-modal-background"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "read-message-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "message-closing-x",
+    onClick: props.closeModal
+  }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "message-field"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-title"
+  }, "To: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-field"
+  }, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "message-field"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-title"
+  }, "From: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-field"
+  }, " ", props.currentUser.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "message-field"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-title"
+  }, "Subject: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "p-field"
+  }, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ComposeMessageModal);
+
+/***/ }),
+
+/***/ "./frontend/components/messages/compose_message_modal_container.jsx":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/messages/compose_message_modal_container.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _compose_message_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./compose_message_modal */ "./frontend/components/messages/compose_message_modal.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var currentUser = state.entities.users[state.session.id];
+  return {
+    currentUser: currentUser
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_compose_message_modal__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/messages/message_list_window.jsx":
 /*!**************************************************************!*\
   !*** ./frontend/components/messages/message_list_window.jsx ***!
@@ -1712,7 +1794,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var MessageListWindow = function MessageListWindow(_ref) {
   var messages = _ref.messages,
-      currentUser = _ref.currentUser;
+      currentUser = _ref.currentUser,
+      openModal = _ref.openModal;
+  // const MessageListWindow = (props) => {
   var inMessages = [];
   var outMessages = []; // separates incoming and outgoing messages and reverses them
 
@@ -1726,7 +1810,14 @@ var MessageListWindow = function MessageListWindow(_ref) {
     className: "message-window"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "message-window-heading"
-  }, "Messages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tabs__WEBPACK_IMPORTED_MODULE_2__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Messages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "composeButton",
+    onClick: function onClick() {
+      return openModal({
+        type: 'composeMessage'
+      });
+    }
+  }, "Compose"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tabs__WEBPACK_IMPORTED_MODULE_2__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "tab",
     label: "InBox"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -1746,8 +1837,7 @@ var MessageListWindow = function MessageListWindow(_ref) {
       message: message,
       type: "sent"
     });
-  }))))); //   return(
-  //   )
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MessageListWindow);
@@ -1787,6 +1877,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var MessageModal = /*#__PURE__*/function (_React$Component) {
@@ -1795,20 +1887,48 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(MessageModal);
 
   function MessageModal(props) {
+    var _this;
+
     _classCallCheck(this, MessageModal);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+      _this.props.closeModal();
+    });
+
+    return _this;
   }
 
   _createClass(MessageModal, [{
     key: "render",
     value: function render() {
-      // debugger
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-background"
+        className: "read-message-modal-background"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "maker-form-container"
-      }, this.props.message.body));
+        className: "read-message-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "message-closing-x",
+        onClick: this.handleClick
+      }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-field"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-title"
+      }, "To: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-field"
+      }, " ", this.props.message.receiver_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-field"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-title"
+      }, "From: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-field"
+      }, " ", this.props.message.sender_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-field"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-title"
+      }, "Subject: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "p-field"
+      }, " ", this.props.message.subject)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.message.body)));
     }
   }]);
 
@@ -2523,6 +2643,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _make_new_task_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./make_new_task_container */ "./frontend/components/modal/make_new_task_container.jsx");
 /* harmony import */ var _messages_message_modal_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../messages/message_modal_container */ "./frontend/components/messages/message_modal_container.jsx");
+/* harmony import */ var _messages_compose_message_modal_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../messages/compose_message_modal_container */ "./frontend/components/messages/compose_message_modal_container.jsx");
+
 
 
 
@@ -2548,6 +2670,10 @@ function Modal(_ref) {
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_modal_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
         message: modal.data
       });
+      break;
+
+    case 'composeMessage':
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_compose_message_modal_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       break;
 
     default:

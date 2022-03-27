@@ -5,7 +5,6 @@ import MessageModal from './message_modal';
 
 
 const mapStateToProps = (state, ownProps) => {
-
 	let currentUser = state.entities.users[state.session.id];
 
 	return ({
