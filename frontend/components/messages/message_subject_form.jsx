@@ -2,12 +2,50 @@ import React from 'react';
 
 const MessageSubjectForm = (props) => {
   
-  return (
+  let fw = "bold";
+  if (props.message.read) fw = "normal";
 
-    <li onClick={() => props.openModal({ type: 'message', data: props.message})}>
-        {props.message.subject}</li>
-  )
+  let date = props.message.created_at;
+  date = date.split("");
+  date = "" + date[5] + date[6] + date[7] + date[8] + date[9] + "-" +
+    date[2]+ date[3];
+
+
+  switch(props.type) {
+    case "inbox" :
+      return (
+        <li onClick={() => props.openModal({ type: 'message', data: props.message })} >
+          <div 
+            key = {props.message.id}
+            className = "message-subject" 
+            style = {{fontWeight: fw}}
+            >
+              {props.message.subject}
+              <br></br>
+          </div>
+          <p className="p1">From: {props.message.sender_name}</p>
+          <p className="p2">{date}</p >
+        </li>
+      )
+    case "sent" :
+      return(
+        <li onClick={() => props.openModal({ type: 'message', data: props.message })} >
+          <div
+            key={props.message.id}
+            className="message-subject"
+            style={{ fontWeight: "normal" }}
+          >
+            {props.message.subject}
+            <br></br>
+          </div>
+          <p className="p1">To: {props.message.receiver_name}</p>
+          <p className="p2">{date}</p >
+        </li>
+
+      )
+  }
 
 }
 
 export default MessageSubjectForm;
+

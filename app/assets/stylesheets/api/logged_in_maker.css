@@ -7,14 +7,14 @@
 	position: relative;
 		/* background-color: #9C9D98; */
 	background-color:black;
-
-
-
-
 }
+
 .container-email-list-tasks{
 	display:flex;
 	flex-flow: row;
+	width: 100%;
+	justify-content: center;
+
 }
 
 #new-task-maker-button {
@@ -51,9 +51,8 @@
 .parent-task-maker-container {
 	display: flex ;
 	flex-flow: column;
-	justify-content: center;
 	/* position:absolute; */
-	width: 100%;
+	width: 800px;
 	margin-top: 0px;
 		/* background-color: #9C9D98; */
 	background-color:black;

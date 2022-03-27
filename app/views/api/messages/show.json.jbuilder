@@ -7,5 +7,5 @@ json.message do
 											:sender_name,
 											:receiver_name,    
  											:read,
-
+											:created_at
 end

@@ -1,3 +1,49 @@
 // Place all the styles related to the api/messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.message-window {
+  background-color: white;
+  border: 1px solid #7dd161;
+	border-radius: 4px;
+  width: 302px;
+  height: 800px;
+}
+
+.message-window-heading {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 10px;
+  justify-content: center;
+	// width: 100%;
+	color: #61a14b;
+}
+
+.message-subject  {
+  border-top: 1px solid black;
+  font-family:  Arial, Helvetica, sans-serif;
+	font-size: 16px;
+
+}
+
+.p1 {
+  display: inline;
+  font-family:  Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.p2 {
+  display: inline;
+  font-family:  Arial, Helvetica, sans-serif;
+	font-size: 13px;
+  float: right;
+}
+
+
+.email-list {
+  background-color: white;
+	border-radius: 4px;
+  width: 300px;
+  height: 800px;
+  list-style-type: none;
+}

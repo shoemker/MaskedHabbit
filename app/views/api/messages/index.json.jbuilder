@@ -6,7 +6,8 @@ json.array! @messages do |message|
 										:receiver_id,
 										:sender_name,
 										:receiver_name,        
-										:read
+										:read,
+										:created_at
 end
 
 
