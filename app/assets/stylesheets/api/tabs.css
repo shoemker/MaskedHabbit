@@ -16,8 +16,9 @@
 
 .tab-list-active {
   background-color: white;
-  border: solid #ccc;
+  border: solid rgb(10, 10, 10);
     /* border: solid #7dd161; */
 
-  border-width: 1px 1px 0 1px;
+  border-width: 2px 2px 0 2px;
+  /* border-radius: 4px; */
 }
