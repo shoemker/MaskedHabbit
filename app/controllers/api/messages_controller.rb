@@ -13,13 +13,13 @@ class Api::MessagesController < ApplicationController
 		@message = Message.find(params[:id])
 	end
 
-	def create
 
+	def create
 		@message = Message.new(message_params)
 
-		@message.sender_name = User.find(params[:sender_id]).username
-		@message.receiver_id = User.find_by(username: params[:receiver_name]).id
+		@message.receiver_id = User.find_by(username: message_params[:receiver_name]).id
 
+		@message.read = false
 
 		if @message.save
 			render json: @message

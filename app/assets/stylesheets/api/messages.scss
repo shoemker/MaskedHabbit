@@ -45,15 +45,15 @@
 }
 
 
-
 .message-subject  {
-  border-top: 1px solid black;
   font-family:  Arial, Helvetica, sans-serif;
 	font-size: 16px;
+
 }
 
 .message-list-item {
   background-color: white;
+  border-bottom: 1px solid black;
 }
 
 .message-list-item :hover {
@@ -102,11 +102,11 @@
 	position:absolute;
   top:40%;
 	left:50%;
-	margin-top:-200px;
+	margin-top:-100px;
 	margin-left:-280px;
 	background-color:#e8ebef;
-	width: 500px;
-	height: 460px;
+	width: 490px;
+	height: 330px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -133,5 +133,35 @@
 
 .p-field{
   display: inline;
+  background-color: #e8ebef;
+  border: none;
+  width: 400px;
+}
 
+.t-field {
+  background-color: #e8ebef;
+  border: none;
+}
+
+
+
+.send-message-button {
+  margin-left: 200px;
+  margin-top: 14px;
+	border-radius: 5px;
+
+	background-color: #e8ebef;
+	color: black;
+	font-family:  Arial, Helvetica, sans-serif;
+
+	font-size: 16px;
+	box-sizing: content-box;
+	width: 80px;
+	height: 22px;
+  text-align: center;
+}
+
+.send-message-button:hover {
+	color: white;
+	background-color: black;
 }
