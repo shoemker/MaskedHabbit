@@ -14,33 +14,41 @@ const MessageSubjectForm = (props) => {
   switch(props.type) {
     case "inbox" :
       return (
-        <li onClick={() => props.openModal({ type: 'message', data: props.message })} >
-          <div 
-            key = {props.message.id}
-            className = "message-subject" 
-            style = {{fontWeight: fw}}
-            >
-              {props.message.subject}
-              <br></br>
-          </div>
-          <p className="p1">From: {props.message.sender_name}</p>
-          <p className="p2">{date}</p >
-        </li>
+        <div className="message-list-item">
+          <li onClick={() => props.openModal({ type: 'message', data: props.message })} >
+              
+    
+            <div 
+              key = {props.message.id}
+              className = "message-subject" 
+              style = {{fontWeight: fw}}
+              >
+                {props.message.subject}
+                <br></br>
+            </div>
+            <p className="p1">From: {props.message.sender_name}</p>
+            <p className="p2">{date}</p >
+          </li>
+        </div>
       )
     case "sent" :
       return(
-        <li onClick={() => props.openModal({ type: 'message', data: props.message })} >
-          <div
-            key={props.message.id}
-            className="message-subject"
-            style={{ fontWeight: "normal" }}
-          >
-            {props.message.subject}
-            <br></br>
-          </div>
-          <p className="p1">To: {props.message.receiver_name}</p>
-          <p className="p2">{date}</p >
-        </li>
+        <div className="message-list-item">
+
+          <li onClick={() => props.openModal({ type: 'message', data: props.message })} 
+              className= "message-list-item">
+            <div
+              key={props.message.id}
+              className="message-subject"
+              style={{ fontWeight: "normal" }}
+            >
+              {props.message.subject}
+              <br></br>
+            </div>
+            <p className="p1">To: {props.message.receiver_name}</p>
+            <p className="p2">{date}</p >
+          </li>
+        </div>
 
       )
   }

@@ -461,7 +461,7 @@ numMessages = 200
 
 	Message.create(
 		subject: Faker::Commerce.product_name,
-		body: Faker::Lorem.paragraph_by_chars(number: rand(250), supplemental: false),
+		body: Faker::Lorem.paragraph_by_chars(number: rand(200) + 50, supplemental: false),
 		read: false,
 		sender_id: sender,
 		receiver_id: receiver,

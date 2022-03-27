@@ -1915,7 +1915,9 @@ var MessageSubjectForm = function MessageSubjectForm(props) {
 
   switch (props.type) {
     case "inbox":
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-list-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         onClick: function onClick() {
           return props.openModal({
             type: 'message',
@@ -1932,16 +1934,19 @@ var MessageSubjectForm = function MessageSubjectForm(props) {
         className: "p1"
       }, "From: ", props.message.sender_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p2"
-      }, date));
+      }, date)));
 
     case "sent":
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-list-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         onClick: function onClick() {
           return props.openModal({
             type: 'message',
             data: props.message
           });
-        }
+        },
+        className: "message-list-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: props.message.id,
         className: "message-subject",
@@ -1952,7 +1957,7 @@ var MessageSubjectForm = function MessageSubjectForm(props) {
         className: "p1"
       }, "To: ", props.message.receiver_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p2"
-      }, date));
+      }, date)));
   }
 };
 
