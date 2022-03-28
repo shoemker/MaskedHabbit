@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from '../tasks/task';
 import NavbarContainer from '../navbar/navbar_container';
+import MessageListWindow from '../messages/message_list_window';
 
 
 class LoggedInDoerForm extends React.Component {
@@ -26,6 +27,7 @@ class LoggedInDoerForm extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchTasks();
+		this.props.fetchMessages();
 	}
 
 
@@ -56,12 +58,17 @@ class LoggedInDoerForm extends React.Component {
 		
 		let instructions = "Click on category for more available tasks.";
 		return (
-			<div >
+			<div className="maker-background">
 				<header>
 					<NavbarContainer />
 				</header>
 
-				<div className="logged-in-doer-main">
+				<div className="container-email-list-tasks">
+					<MessageListWindow
+						messages={this.props.messages}
+						currentUser={this.props.currentUser}
+						openModal={this.props.openModal}
+					/>
 					<div className = "after-main">
 						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 12.7 + "px" }}>
 							<h2 className="task-cat-greeting">{welcome}</h2>
