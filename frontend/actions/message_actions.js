@@ -33,7 +33,7 @@ const removeMessage = (message) => ({
   messageId: message.id
 });
 
-export const clearMessageErrors = () => (dispatch) => (dispatch(clearErrors()))
+export const clearAllErrors = () => (dispatch) => (dispatch(clearErrors()))
 
 export const fetchMessages = () => (dispatch) => (
   MessageApiUtil.fetchMessages().then(messages => dispatch(receiveMessages(messages)))

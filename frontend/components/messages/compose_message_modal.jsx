@@ -17,7 +17,7 @@ class ComposeMessageModal extends React.Component {
   }
   
   closingX() {
-    this.props.clearMessageErrors();
+    this.props.clearAllErrors();
     this.props.closeModal();
   }
 
@@ -67,12 +67,15 @@ class ComposeMessageModal extends React.Component {
                 onChange={this.update('receiver_name')}
             />
             </div>
-            <div className='error-display'>
-              {this.renderErrors('User')}
+            <div className='message-error-display'>
+              {this.renderErrors('system')}
             </div>
+
             <div className="message-field">
               <p className="p-title">From: </p>
               <p className="p-field"> {this.props.currentUser.username}</p>
+            </div>
+            <div className='message-error-display'>
             </div>
             <div className="message-field">
               <p className="p-title">Subject: </p>
@@ -82,7 +85,7 @@ class ComposeMessageModal extends React.Component {
                 onChange={this.update('subject')}
               />
             </div>
-            <div className='error-display'>
+            <div className='message-error-display'>
               {this.renderErrors('Subject')}
             </div>
             <hr></hr><br></br>
@@ -95,7 +98,7 @@ class ComposeMessageModal extends React.Component {
               >
               </textarea>
             </div>
-            <div className='error-display'>
+            <div className='message-error-display'>
               {this.renderErrors('body')}
             </div>
             <input className="send-message-button" type="submit" value="Send" />

@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
 		elsif params[:user][:password].length < 6 
 			render json: ["password must be at least 6 chars"], status: 401
 		else			
-			render json: ["Invalid Username or Password"], status: 401
+			render json: ["Invalid username or password"], status: 401
 		end
   end
 

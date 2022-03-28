@@ -32,7 +32,8 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 	<li>Ability to create tasks</li>
   <li>Ability to delete tasks</li>
 	<li>Ability to update tasks by accepting them</li>
-  <li>Errors shown for login, signup, and task creation</li>
+  <li>Messaging system for users to communicate</li>
+  <li>Errors shown for login, signup, task, and message creation</li>
   <li>Small Google Map window for each task, showing where the tasks are located</li>
 </ol>
 <br>

@@ -106,7 +106,7 @@
 	margin-left:-280px;
 	background-color:#e8ebef;
 	width: 490px;
-	height: 330px;
+	height: 333px;
 	padding-top: 24px;
   padding-right: 48px;
   padding-bottom: 24px;
@@ -122,7 +122,7 @@
 	margin-left:510px;
 }
 .message-field {
-  height: 30px;
+  height: 25px;
 }
 
 .p-title{
@@ -144,10 +144,9 @@
 }
 
 
-
 .send-message-button {
   margin-left: 200px;
-  margin-top: 14px;
+  margin-top: 0px;
 	border-radius: 5px;
 
 	background-color: #e8ebef;
@@ -164,4 +163,17 @@
 .send-message-button:hover {
 	color: white;
 	background-color: black;
+}
+
+
+.message-error-display{
+	position: relative;
+  bottom: 5px;
+  // margin-left: 40px;
+	height: 10px;
+	width: 100%;
+	padding-bottom: 0px;
+	color: rgb(190, 55, 55);
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
 }

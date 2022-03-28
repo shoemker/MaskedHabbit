@@ -139,7 +139,7 @@ var fetchCategory = function fetchCategory(id) {
 /*!*********************************************!*\
   !*** ./frontend/actions/message_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, RECEIVE_SESSION_ERRORS, clearMessageErrors, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
+/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, RECEIVE_SESSION_ERRORS, clearAllErrors, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -148,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearMessageErrors", function() { return clearMessageErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearAllErrors", function() { return clearAllErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessage", function() { return fetchMessage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
@@ -196,7 +196,7 @@ var removeMessage = function removeMessage(message) {
   };
 };
 
-var clearMessageErrors = function clearMessageErrors() {
+var clearAllErrors = function clearAllErrors() {
   return function (dispatch) {
     return dispatch(clearErrors());
   };
@@ -1035,6 +1035,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(LoginForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.clearAllErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1083,18 +1088,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       this.props.processForm(user).then(function () {
         return _this5.props.history.push("/doer");
       });
-    } // renderIndErrors(type) {
-    // 	for (let i = 0; i < this.props.errors.length; i++) {
-    // 		if (this.props.errors[i].includes(type)) {
-    // 			return (
-    // 				<div className='error-display'>
-    // 					{this.props.errors[i]}
-    // 				</div>
-    // 			);
-    // 		}
-    // 	}
-    // }
-
+    }
   }, {
     key: "renderErrors",
     value: function renderErrors(type) {
@@ -1180,6 +1174,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login_form */ "./frontend/components/login_and_signup/login_form.jsx");
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
+
 
 
 
@@ -1201,6 +1197,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
+    },
+    clearAllErrors: function clearAllErrors() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_5__["clearAllErrors"])());
     }
   };
 };
@@ -1272,6 +1271,11 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SignupForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.clearAllErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1413,6 +1417,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _signup_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./signup_form */ "./frontend/components/login_and_signup/signup_form.jsx");
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
+
 
 
 
@@ -1431,6 +1437,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
+    },
+    clearAllErrors: function clearAllErrors() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_5__["clearAllErrors"])());
     }
   };
 };
@@ -1819,7 +1828,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
   _createClass(ComposeMessageModal, [{
     key: "closingX",
     value: function closingX() {
-      this.props.clearMessageErrors();
+      this.props.clearAllErrors();
       this.props.closeModal();
     }
   }, {
@@ -1876,14 +1885,16 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         value: this.state.receiver_name,
         onChange: this.update('receiver_name')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "error-display"
-      }, this.renderErrors('User')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-error-display"
+      }, this.renderErrors('system')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"
       }, "From: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-field"
       }, " ", this.props.currentUser.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-error-display"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"
@@ -1893,7 +1904,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         value: this.state.subject,
         onChange: this.update('subject')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "error-display"
+        className: "message-error-display"
       }, this.renderErrors('Subject')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         rows: "10",
         cols: "61",
@@ -1901,7 +1912,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         value: this.state.body,
         onChange: this.update('body')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "error-display"
+        className: "message-error-display"
       }, this.renderErrors('body')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "send-message-button",
         type: "submit",
@@ -1951,8 +1962,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     createMessage: function createMessage(message) {
       return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["createMessage"])(message));
     },
-    clearMessageErrors: function clearMessageErrors() {
-      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["clearMessageErrors"])());
+    clearAllErrors: function clearAllErrors() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["clearAllErrors"])());
     }
   };
 };

@@ -17,8 +17,9 @@ class Api::MessagesController < ApplicationController
 	def create
 		@message = Message.new(message_params)
 		@message.read = false
+		name = message_params[:receiver_name]
 
-		user = User.find_by(username: message_params[:receiver_name])
+		user = User.find_by(username: name)
 
 		if user
 			@message.receiver_id = user.id
@@ -28,7 +29,7 @@ class Api::MessagesController < ApplicationController
       	render json: ["Subject can't be blank"], status: 422
     	end
 		else 
-			render json: ["User not found"], status: 423
+			render json: [name +" not found in system"], status: 423
 		end
 	end
 
