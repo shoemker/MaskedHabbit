@@ -107,7 +107,7 @@
 	background-color:#e8ebef;
 	width: 490px;
 	height: 333px;
-	padding-top: 24px;
+	padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 24px;
   padding-left: 32px;
@@ -136,6 +136,12 @@
   background-color: #e8ebef;
   border: none;
   width: 400px;
+  height:25px;
+  font-size: 16px;
+}
+
+.p-field:focus {
+    outline: none !important;
 }
 
 .t-field {

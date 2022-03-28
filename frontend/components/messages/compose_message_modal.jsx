@@ -16,8 +16,11 @@ class ComposeMessageModal extends React.Component {
     this.closingX = this.closingX.bind(this);
   }
   
-  closingX() {
+  componentDidMount() {
     this.props.clearAllErrors();
+  }
+
+  closingX() {
     this.props.closeModal();
   }
 
@@ -36,7 +39,6 @@ class ComposeMessageModal extends React.Component {
     const message = Object.assign({}, this.state);
     
     this.props.createMessage(message).then(() => {
-      this.props.clearMessageErrors();
       this.props.closeModal();
     });
   
