@@ -139,7 +139,7 @@ var fetchCategory = function fetchCategory(id) {
 /*!*********************************************!*\
   !*** ./frontend/actions/message_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, RECEIVE_SESSION_ERRORS, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
+/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, RECEIVE_SESSION_ERRORS, clearMessageErrors, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -148,6 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearMessageErrors", function() { return clearMessageErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessage", function() { return fetchMessage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
@@ -159,6 +160,13 @@ var RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 var REMOVE_MESSAGE = 'REMOVE_MESSAGE';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+
+var clearErrors = function clearErrors() {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: []
+  };
+};
 
 var receiveErrors = function receiveErrors(errors) {
   return {
@@ -188,6 +196,11 @@ var removeMessage = function removeMessage(message) {
   };
 };
 
+var clearMessageErrors = function clearMessageErrors() {
+  return function (dispatch) {
+    return dispatch(clearErrors());
+  };
+};
 var fetchMessages = function fetchMessages() {
   return function (dispatch) {
     return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchMessages"]().then(function (messages) {
@@ -1761,10 +1774,17 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
       receiver_name: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.closingX = _this.closingX.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ComposeMessageModal, [{
+    key: "closingX",
+    value: function closingX() {
+      this.props.clearMessageErrors();
+      this.props.closeModal();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1805,7 +1825,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "message-closing-x",
-        onClick: this.props.closeModal
+        onClick: this.closingX
       }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1890,6 +1910,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     createMessage: function createMessage(message) {
       return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["createMessage"])(message));
+    },
+    clearMessageErrors: function clearMessageErrors() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["clearMessageErrors"])());
     }
   };
 };

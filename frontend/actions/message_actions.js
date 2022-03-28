@@ -6,10 +6,17 @@ export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';
 
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
-const receiveErrors = errors => ({
+const clearErrors = () => ({
   type: RECEIVE_SESSION_ERRORS,
-  errors
+  errors: []
 })
+
+const receiveErrors = errors =>  {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+  }
+}
 
 const receiveMessages = (messages) => ({
   type: RECEIVE_MESSAGES,
@@ -26,6 +33,7 @@ const removeMessage = (message) => ({
   messageId: message.id
 });
 
+export const clearMessageErrors = () => (dispatch) => (dispatch(clearErrors()))
 
 export const fetchMessages = () => (dispatch) => (
   MessageApiUtil.fetchMessages().then(messages => dispatch(receiveMessages(messages)))
