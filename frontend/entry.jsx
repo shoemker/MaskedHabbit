@@ -1,8 +1,10 @@
 // frontend/entry.jsx
 //import * as PostApiUtil from './util/session_api_util.js';
 // import * as sessionActions from './actions/session_actions';
-import * as taskActions from './actions/task_actions'
-import * as categoryActions from './actions/category_actions'
+// import * as taskActions from './actions/task_actions'
+// import * as categoryActions from './actions/category_actions'
+// import * as messageActions from './actions/message_actions'
+
 // import * as TaskApiUtil from './util/task_api_util.js'
 // import * as CategoryApiUtil from './util/category_api_util.js'
 
@@ -33,9 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// window.fetchCategories = CategoryApiUtil.fetchCategories;
 	// window.fetchCategory = CategoryApiUtil.fetchCategory;
 
-  window.getState = store.getState; // for testing
-	window.dispatch = store.dispatch; // just for testing!  
-	window.fetchCategories = categoryActions.fetchCategories;  
+  // window.getState = store.getState; // for testing
+	// window.dispatch = store.dispatch; // just for testing!  
+	// window.fetchCategories = categoryActions.fetchCategories; 
+	// window.fetchMessages = messageActions.fetchMessages;
   // window.login = sessionActions.login;
   // window.signup = sessionActions.signup;
 	// window.logout = sessionActions.logout;

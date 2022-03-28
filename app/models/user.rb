@@ -33,6 +33,14 @@ class User < ApplicationRecord
 	has_many :tasks_to_do,
 	foreign_key: :task_doer_id,
 	class_name: :Task
+
+  has_many :messages_sent,
+  foreign_key: :sender_id,
+  class_name: :Message
+
+  has_many :messages_received,
+  foreign_key: :receiver_id,
+  class_name: :Message
 	
 
   def self.find_by_credentials(username, password)

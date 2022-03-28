@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_210350) do
+ActiveRecord::Schema.define(version: 2022_03_24_154902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 2019_09_02_210350) do
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "subject"
+    t.text "body"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "read"
+    t.string "sender_name"
+    t.string "receiver_name"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "brief", null: false
     t.text "description", null: false
@@ -55,6 +68,10 @@ ActiveRecord::Schema.define(version: 2019_09_02_210350) do
     t.integer "task_doer_id"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "maker_name"
+    t.string "doer_name"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["task_doer_id"], name: "index_tasks_on_task_doer_id"
     t.index ["task_maker_id"], name: "index_tasks_on_task_maker_id"

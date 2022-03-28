@@ -8,6 +8,8 @@ json.array! @tasks do |task|
  											:task_maker_id, 
  											:category_id,    
  											:task_doer_id,
+											:maker_name,
+											:doer_name,
 											:latitude,
 											:longitude
 	json.photoUrl url_for(task.photo)

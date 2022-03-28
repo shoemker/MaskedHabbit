@@ -16,7 +16,7 @@
 	margin-top: 30px;
 	margin-bottom: 0px;
 	display: flex ;
-	flex-flow: wrap;
+	flex-flow: column;
 	
 }
 

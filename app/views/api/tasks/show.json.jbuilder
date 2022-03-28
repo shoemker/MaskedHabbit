@@ -12,6 +12,8 @@ json.task do
  											:task_maker_id, 
  											:category_id,    
  											:task_doer_id,
+											:maker_name,
+											:doer_name,
 											:latitude,
 											:longitude
 

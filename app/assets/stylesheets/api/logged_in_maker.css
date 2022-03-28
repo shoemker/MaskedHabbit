@@ -7,9 +7,15 @@
 	position: relative;
 		/* background-color: #9C9D98; */
 	background-color:black;
-
 }
 
+.container-email-list-tasks{
+	display:flex;
+	flex-flow: row;
+	width: 100%;
+	justify-content: center;
+
+}
 
 #new-task-maker-button {
 	border-radius: 5px;
@@ -38,19 +44,19 @@
 	background-color: #61a14b;
 	height: 38px;
 	margin-right: auto; margin-left: auto;
-	margin-top: 45px;
+	margin-top: 40px;
 	border-radius: 7px;
 }
 
 .parent-task-maker-container {
 	display: flex ;
-	flex-flow: row wrap;
-	justify-content: center;
+	flex-flow: column;
 	/* position:absolute; */
-	width: 100%;
+	width: 800px;
 	margin-top: 0px;
 		/* background-color: #9C9D98; */
 	background-color:black;
+  display:row;
 
 }
 
@@ -89,4 +95,13 @@
 	color: #909090;
 	font-size: 20px;
 	margin: 10px;
+}
+
+.doer-task-container2{
+
+	height: 230px;
+	margin-top:20px;
+	margin-bottom: 140px;
+	margin-left:20px;
+	width:100%;
 }

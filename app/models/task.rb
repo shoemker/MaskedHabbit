@@ -11,6 +11,8 @@
 #  task_maker_id  :integer          not null
 #  category_id    :integer          not null
 #  task_doer_id   :integer
+#  latitude       :decimal(, )
+#  longitude      :decimal(, )
 #
 
 

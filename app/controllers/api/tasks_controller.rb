@@ -13,6 +13,7 @@ class Api::TasksController < ApplicationController
 	def create
 		@task = Task.new(task_params)
 		@task.task_maker_id = current_user.id
+		@task.maker_name = User.find(current_user.id).username
 
 		if @task.save
 			render json: @task
@@ -44,7 +45,7 @@ class Api::TasksController < ApplicationController
 
 	def task_params
 		params.require(:task).permit(:brief,:description,:location,:vehicle_needed,
-				:completed,:task_maker_id,:task_doer_id, :category_id, :photo, :latitude,
-				:longitude)
+				:completed,:task_maker_id,:task_doer_id, :maker_name, :doer_name, 
+				:category_id, :photo, :latitude, :longitude)
 	end
 end
