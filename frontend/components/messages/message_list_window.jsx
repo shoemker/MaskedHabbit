@@ -4,8 +4,6 @@ import Tabs from './tabs';
 
 
 const MessageListWindow = ({messages, currentUser, openModal}) => {
-
-// const MessageListWindow = (props) => {
   
   let inMessages = [];
   let outMessages = [];
@@ -40,7 +38,6 @@ const MessageListWindow = ({messages, currentUser, openModal}) => {
             ))}
           </ul>
         </div>
-        {/* <div className="tab" label = "Compose"></div> */}
       </Tabs>
     </div>
   );

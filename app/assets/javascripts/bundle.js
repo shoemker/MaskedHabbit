@@ -1944,7 +1944,6 @@ var MessageListWindow = function MessageListWindow(_ref) {
   var messages = _ref.messages,
       currentUser = _ref.currentUser,
       openModal = _ref.openModal;
-  // const MessageListWindow = (props) => {
   var inMessages = [];
   var outMessages = []; // separates incoming and outgoing messages and reverses them
 
@@ -2137,7 +2136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _message_subject_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message_subject_form */ "./frontend/components/messages/message_subject_form.jsx");
 
 
-
+ // import { updateMessage, fetchMessages } from '../../actions/message_actions';
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var currentUser = state.entities.users[state.session.id];
@@ -2153,7 +2152,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
-    }
+    } // updateMessage: (message) => dispatch(updateMessage(message)),
+    // fetchMessages: () => dispatch(fetchMessages()),
+
   };
 };
 
@@ -2172,62 +2173,115 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-var MessageSubjectForm = function MessageSubjectForm(props) {
-  var fw = "bold";
-  if (props.message.read) fw = "normal";
-  var date = props.message.created_at;
-  date = date.split("");
-  date = "" + date[5] + date[6] + date[7] + date[8] + date[9] + "-" + date[2] + date[3];
 
-  switch (props.type) {
-    case "inbox":
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "message-list-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: function onClick() {
-          return props.openModal({
-            type: 'message',
-            data: props.message
-          });
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: props.message.id,
-        className: "message-subject",
-        style: {
-          fontWeight: fw
-        }
-      }, props.message.subject, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "p1"
-      }, "From: ", props.message.sender_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "p2"
-      }, date)));
+var MessageSubjectForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(MessageSubjectForm, _React$Component);
 
-    case "sent":
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "message-list-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: function onClick() {
-          return props.openModal({
-            type: 'message',
-            data: props.message
-          });
-        },
-        className: "message-list-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: props.message.id,
-        className: "message-subject",
-        style: {
-          fontWeight: "normal"
-        }
-      }, props.message.subject, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "p1"
-      }, "To: ", props.message.receiver_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "p2"
-      }, date)));
+  var _super = _createSuper(MessageSubjectForm);
+
+  function MessageSubjectForm(props) {
+    var _this;
+
+    _classCallCheck(this, MessageSubjectForm);
+
+    _this = _super.call(this, props);
+    _this.openMessage = _this.openMessage.bind(_assertThisInitialized(_this));
+    return _this;
   }
-};
+
+  _createClass(MessageSubjectForm, [{
+    key: "openMessage",
+    value: function openMessage() {
+      // const message = Object.assign({}, this.props.message);
+      // message.read = true;
+      this.props.openModal({
+        type: 'message',
+        data: this.props.message
+      }); // debugger
+      // this.props.updateMessage(message).then(() => this.props.fetchMessages());
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var fw = "bold";
+      if (this.props.message.read) fw = "normal";
+      var date = this.props.message.created_at;
+      date = date.split("");
+      date = "" + date[5] + date[6] + date[7] + date[8] + date[9] + "-" + date[2] + date[3];
+
+      switch (this.props.type) {
+        case "inbox":
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "message-list-item"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            onClick: function onClick() {
+              return _this2.openMessage();
+            }
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: this.props.message.id,
+            className: "message-subject",
+            style: {
+              fontWeight: fw
+            }
+          }, this.props.message.subject, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "p1"
+          }, "From: ", this.props.message.sender_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "p2"
+          }, date)));
+
+        case "sent":
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "message-list-item"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            onClick: function onClick() {
+              return _this2.props.openModal({
+                type: 'message',
+                data: _this2.props.message
+              });
+            },
+            className: "message-list-item"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: this.props.message.id,
+            className: "message-subject",
+            style: {
+              fontWeight: "normal"
+            }
+          }, this.props.message.subject, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "p1"
+          }, "To: ", this.props.message.receiver_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "p2"
+          }, date)));
+      }
+    }
+  }]);
+
+  return MessageSubjectForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (MessageSubjectForm);
 
@@ -3036,6 +3090,8 @@ var Task = function Task(_ref) {
     lat: Number(task.latitude),
     lng: Number(task.longitude)
   };
+  var doer = "Available";
+  if (task.doer_name) doer = task.doer_name;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "task-container",
     key: task.id
@@ -3060,7 +3116,7 @@ var Task = function Task(_ref) {
     className: "task-fields-4"
   }, "Maker : ", task.maker_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "task-fields-4"
-  }, "Doer : ", task.doer_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Doer : ", doer)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     location: location,
     zoomLevel: 18
   }))));

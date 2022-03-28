@@ -48,7 +48,6 @@ export const deleteMessage = (id) => (dispatch) => (
 )
 
 export const updateMessage = (message) => (dispatch) => {
-
   return MessageApiUtil.updateMessage(message).then(message => dispatch(receiveMessage(message)))
 }
 

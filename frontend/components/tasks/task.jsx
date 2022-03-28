@@ -8,6 +8,8 @@ const Task = ({task}) => {
     lng: Number(task.longitude),
   }
   
+  let doer = "Available";
+  if (task.doer_name) doer = task.doer_name;
 
   return (
     <div className='task-container' key = {task.id}>
@@ -24,7 +26,7 @@ const Task = ({task}) => {
           <p className='task-fields-2'>At: {task.location}</p>
           <p className='task-fields-3'>Need a Vehicle? : {task.vehicle_needed ? "yes" : "no"}</p>
           <p className='task-fields-4'>Maker : {task.maker_name}</p>
-          <p className='task-fields-4'>Doer : {task.doer_name}</p>
+          <p className='task-fields-4'>Doer : {doer}</p>
 
         </div>
 
