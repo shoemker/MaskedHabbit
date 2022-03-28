@@ -6,9 +6,11 @@ import ComposeMessageModal from './compose_message_modal';
 
 
 const mapStateToProps = (state, ownProps) => {
+  
   let currentUser = state.entities.users[state.session.id];
   return ({
     currentUser: currentUser,
+    errors: state.errors.session
   })
 }
 

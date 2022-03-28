@@ -28,10 +28,18 @@ class ComposeMessageModal extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const message = Object.assign({}, this.state);
+    
     this.props.createMessage(message).then(() => {
       this.props.closeModal();
     });
   
+  }
+
+  renderErrors(type) {
+    // if (this.props.errors.length > 0) debugger;
+    for (let i = 0; i < this.props.errors.length; i++) {
+      if (this.props.errors[i].includes(type)) return this.props.errors[i];
+    }
   }
 
   
@@ -52,6 +60,9 @@ class ComposeMessageModal extends React.Component {
                 onChange={this.update('receiver_name')}
             />
             </div>
+            <div className='error-display'>
+              {this.renderErrors('User')}
+            </div>
             <div className="message-field">
               <p className="p-title">From: </p>
               <p className="p-field"> {this.props.currentUser.username}</p>
@@ -64,6 +75,9 @@ class ComposeMessageModal extends React.Component {
                 onChange={this.update('subject')}
               />
             </div>
+            <div className='error-display'>
+              {this.renderErrors('Subject')}
+            </div>
             <hr></hr><br></br>
 
             <div>
@@ -73,6 +87,9 @@ class ComposeMessageModal extends React.Component {
                 onChange={this.update('body')}
               >
               </textarea>
+            </div>
+            <div className='error-display'>
+              {this.renderErrors('body')}
             </div>
             <input className="send-message-button" type="submit" value="Send" />
 

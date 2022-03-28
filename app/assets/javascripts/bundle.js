@@ -139,7 +139,7 @@ var fetchCategory = function fetchCategory(id) {
 /*!*********************************************!*\
   !*** ./frontend/actions/message_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
+/*! exports provided: RECEIVE_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE, RECEIVE_SESSION_ERRORS, fetchMessages, fetchMessage, deleteMessage, updateMessage, createMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,6 +147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGES", function() { return RECEIVE_MESSAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessage", function() { return fetchMessage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
@@ -157,6 +158,14 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 var REMOVE_MESSAGE = 'REMOVE_MESSAGE';
+var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+
+var receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors
+  };
+};
 
 var receiveMessages = function receiveMessages(messages) {
   return {
@@ -211,6 +220,8 @@ var createMessage = function createMessage(message) {
   return function (dispatch) {
     return _util_message_api_util_js__WEBPACK_IMPORTED_MODULE_0__["createMessage"](message).then(function (message) {
       return dispatch(receiveMessage(message));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -1775,6 +1786,14 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors(type) {
+      // if (this.props.errors.length > 0) debugger;
+      for (var i = 0; i < this.props.errors.length; i++) {
+        if (this.props.errors[i].includes(type)) return this.props.errors[i];
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1797,6 +1816,8 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         value: this.state.receiver_name,
         onChange: this.update('receiver_name')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-display"
+      }, this.renderErrors('User')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"
@@ -1811,13 +1832,17 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         className: "p-field",
         value: this.state.subject,
         onChange: this.update('subject')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-display"
+      }, this.renderErrors('Subject')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         rows: "10",
         cols: "61",
         className: "t-field",
         value: this.state.body,
         onChange: this.update('body')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-display"
+      }, this.renderErrors('body')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "send-message-button",
         type: "submit",
         value: "Send"
@@ -1853,7 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var currentUser = state.entities.users[state.session.id];
   return {
-    currentUser: currentUser
+    currentUser: currentUser,
+    errors: state.errors.session
   };
 };
 

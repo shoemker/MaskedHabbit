@@ -16,16 +16,20 @@ class Api::MessagesController < ApplicationController
 
 	def create
 		@message = Message.new(message_params)
-
-		@message.receiver_id = User.find_by(username: message_params[:receiver_name]).id
-
 		@message.read = false
 
-		if @message.save
-			render json: @message
-    else
-      render json: @message.errors.full_messages, status: 422
-    end
+		user = User.find_by(username: message_params[:receiver_name])
+
+		if user
+			@message.receiver_id = user.id
+			if @message.save
+				render json: @message
+			elsif message_params[:subject] == ""
+      	render json: ["Subject can't be blank"], status: 422
+    	end
+		else 
+			render json: ["User not found"], status: 423
+		end
 	end
 
 
