@@ -1802,6 +1802,8 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var message = Object.assign({}, this.state);
       this.props.createMessage(message).then(function () {
+        _this3.props.clearMessageErrors();
+
         _this3.props.closeModal();
       });
     }

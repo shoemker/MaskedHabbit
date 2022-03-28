@@ -36,6 +36,7 @@ class ComposeMessageModal extends React.Component {
     const message = Object.assign({}, this.state);
     
     this.props.createMessage(message).then(() => {
+      this.props.clearMessageErrors();
       this.props.closeModal();
     });
   
