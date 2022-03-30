@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: currentUser,
   })
-}
+} 
 
 const mapDispatchToProps = dispatch => {
   return {
