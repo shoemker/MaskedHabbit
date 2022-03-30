@@ -8,11 +8,6 @@ class Api::MessagesController < ApplicationController
 		@messages = sent + received
 	end
 
-	
-	def show
-		@message = Message.find(params[:id])
-	end
-
 
 	def create
 		@message = Message.new(message_params)
@@ -29,7 +24,7 @@ class Api::MessagesController < ApplicationController
       	render json: ["Subject can't be blank"], status: 422
     	end
 		else 
-			render json: [name +" not found in system"], status: 423
+			render json: ["User '" + name + "' not found in system"], status: 422
 		end
 	end
 

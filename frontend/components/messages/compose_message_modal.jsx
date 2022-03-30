@@ -70,7 +70,7 @@ class ComposeMessageModal extends React.Component {
             />
             </div>
             <div className='message-error-display'>
-              {this.renderErrors('system')}
+              {this.renderErrors('User')}
             </div>
 
             <div className="message-field">

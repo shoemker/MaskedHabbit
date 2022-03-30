@@ -11,13 +11,15 @@ class MessageSubjectForm extends React.Component {
 
 
   openMessage(){
-    // const message = Object.assign({}, this.props.message);
-    // message.read = true;
-
+    const message = Object.assign({}, this.props.message);
+    if (!message.read) {
+      message.read = true;
+      this.props.updateMessage(message);
+    }
+    
     this.props.openModal({ type: 'message', data: this.props.message });
-    // debugger
-    // this.props.updateMessage(message).then(() => this.props.fetchMessages());
   }
+  
   
   render() {
     let fw = "bold";
@@ -35,7 +37,6 @@ class MessageSubjectForm extends React.Component {
           <div className="message-list-item">
             <li onClick={() => this.openMessage()} >
                 
-      
               <div 
                 key = {this.props.message.id}
                 className = "message-subject" 
@@ -53,8 +54,7 @@ class MessageSubjectForm extends React.Component {
         return(
           <div className="message-list-item">
 
-            <li onClick={() => this.props.openModal({ type: 'message', data: this.props.message })}
-                className= "message-list-item">
+            <li onClick={() => this.props.openModal({ type: 'message', data: this.props.message })}>
               <div
                 key={this.props.message.id}
                 className="message-subject"

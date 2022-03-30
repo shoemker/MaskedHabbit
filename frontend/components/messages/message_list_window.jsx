@@ -16,7 +16,7 @@ const MessageListWindow = ({messages, currentUser, openModal}) => {
     })
   }
 
-  
+
   return (
     <div className="message-window">
       <h1 className="message-window-heading" >Messages</h1>

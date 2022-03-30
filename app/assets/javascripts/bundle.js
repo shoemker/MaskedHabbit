@@ -1752,10 +1752,8 @@ var Map = function Map(_ref) {
     className: "map"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "google-map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    bootstrapURLKeys: {
-      key: window.googleAPIKey
-    },
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"] // bootstrapURLKeys={{ key: window.googleAPIKey}}
+  , {
     defaultCenter: location,
     defaultZoom: zoomLevel
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_locationPin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1890,7 +1888,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('receiver_name')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-error-display"
-      }, this.renderErrors('system')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderErrors('User')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"
@@ -2187,9 +2185,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _message_subject_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message_subject_form */ "./frontend/components/messages/message_subject_form.jsx");
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
 
 
- // import { updateMessage, fetchMessages } from '../../actions/message_actions';
+
+
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var currentUser = state.entities.users[state.session.id];
@@ -2205,8 +2205,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
-    } // updateMessage: (message) => dispatch(updateMessage(message)),
-    // fetchMessages: () => dispatch(fetchMessages()),
+    },
+    updateMessage: function updateMessage(message) {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_3__["updateMessage"])(message));
+    } // fetchMessages: () => dispatch(fetchMessages()),
 
   };
 };
@@ -2268,13 +2270,17 @@ var MessageSubjectForm = /*#__PURE__*/function (_React$Component) {
   _createClass(MessageSubjectForm, [{
     key: "openMessage",
     value: function openMessage() {
-      // const message = Object.assign({}, this.props.message);
-      // message.read = true;
+      var message = Object.assign({}, this.props.message);
+
+      if (!message.read) {
+        message.read = true;
+        this.props.updateMessage(message);
+      }
+
       this.props.openModal({
         type: 'message',
         data: this.props.message
-      }); // debugger
-      // this.props.updateMessage(message).then(() => this.props.fetchMessages());
+      });
     }
   }, {
     key: "render",
@@ -2316,8 +2322,7 @@ var MessageSubjectForm = /*#__PURE__*/function (_React$Component) {
                 type: 'message',
                 data: _this2.props.message
               });
-            },
-            className: "message-list-item"
+            }
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: this.props.message.id,
             className: "message-subject",
@@ -3751,7 +3756,12 @@ var messagesReducer = function messagesReducer() {
       return action.messages;
 
     case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MESSAGE"]:
-      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, _defineProperty({}, action.message.id, action.message));
+      // not a regular index, so must find 
+      var index;
+      Object.values(oldState).forEach(function (m, i) {
+        if (m.id === action.message.id) index = i;
+      });
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, _defineProperty({}, index, action.message));
       return newState;
 
     case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_MESSAGE"]:

@@ -14,7 +14,13 @@ const messagesReducer = (oldState = {}, action) => {
     case RECEIVE_MESSAGES:
       return action.messages;
     case RECEIVE_MESSAGE:
-      newState = merge({}, oldState, { [action.message.id]: action.message });
+      // not a regular index, so must find 
+      let index;
+      Object.values(oldState).forEach((m, i) => {
+        if (m.id === action.message.id) index = i;
+      })
+
+      newState = merge({}, oldState, { [index]: action.message });
       return newState;
     case REMOVE_MESSAGE:
       newState = merge({}, oldState);
