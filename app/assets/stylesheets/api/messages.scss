@@ -129,11 +129,17 @@
   height: 25px;
 }
 
+.message-to-field {
+  height: 30px;
+}
+
 .p-title{
   font-weight: bold;
   display: inline;
-
+  margin:none;
+  padding:none;
 }
+
 
 .p-field{
   display: inline;
@@ -142,7 +148,23 @@
   width: 400px;
   height:25px;
   font-size: 16px;
+  margin:none;
+    padding:none;
+
 }
+
+.p-to-field{
+  display: inline;
+  background-color: #e8ebef;
+  border: none;
+  width: 400px;
+  height:25px;
+  font-size: 16px;
+  margin-bottom: 100px;
+  padding-bottom: 10px; 
+
+}
+
 
 .p-field:focus {
     outline: none !important;

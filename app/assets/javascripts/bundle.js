@@ -1890,7 +1890,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         className: "message-closing-x",
         onClick: this.closingX
       }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "message-field"
+        className: "message-to-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"
       }, "To: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1908,7 +1908,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         className: "p-field"
       }, " ", this.props.currentUser.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-error-display"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderErrors('not-used')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-title"

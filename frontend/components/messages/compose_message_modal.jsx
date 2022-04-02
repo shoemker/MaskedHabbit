@@ -73,7 +73,7 @@ class ComposeMessageModal extends React.Component {
 
             <p className="message-closing-x" onClick={this.closingX}>X</p>
 
-            <div className="message-field">
+            <div className="message-to-field">
               <p className="p-title">To: </p>
               <input type="text" 
                 className="p-field"
@@ -90,6 +90,7 @@ class ComposeMessageModal extends React.Component {
               <p className="p-field"> {this.props.currentUser.username}</p>
             </div>
             <div className='message-error-display'>
+              {this.renderErrors('not-used')}
             </div>
             <div className="message-field">
               <p className="p-title">Subject: </p>
