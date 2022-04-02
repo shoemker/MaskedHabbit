@@ -3,7 +3,7 @@
 <a href="http://masked-habbit.herokuapp.com/?#"><img src="./app/assets/images/Logo1.jpg" alt="logo"></a>
 
 <br>
-<h1><a href="http://masked-habbit.herokuapp.com/?#">Masked-Habbit</a> is a clone of <a href="https://www.taskrabbit.com/">TaskRabbit.</a></h1>
+<h1><a href="http://masked-habbit.herokuapp.com/?#">Masked-Habbit</a> is inspired by <a href="https://www.taskrabbit.com/">TaskRabbit.</a></h1>
 <br>
 
 <h2>Masked-Habbit Overview</h2>
@@ -16,7 +16,7 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 	<li>PostgreSQL: The Rails backend uses a PostgreSQL relational database.
 	<li>React: This app is a one-page app that re-renders with a React frontend.</li>
 	<li>Redux: In the app, React uses the Redux library.</li>
-	<li>Javascript: As the Rails backend uses Ruby as its programming language, React and Redux use Javascript for the frontend programming language.</li>
+	<li>JavaScript: As the Rails backend uses Ruby as its programming language, React and Redux use JavaScript for the frontend programming language.</li>
 	<li>AJAX: The frontend uses AJAX to get information from the database.
 	<li>HTML: The page is, of course, rendered in HTML.</li>
 	<li>CSS: The HTML is styled with CSS.
@@ -29,12 +29,12 @@ Like many apps, Masked-Habbit connects people. It starts with people that have t
 <ol>
 	<li>User Auth: Frontend to backend user authentication using BCrypt for passwords, giving the ability to securely signup, login and logut. </li>
 	<li>Tasks organized into categories</li>
-	<li>Ability to create tasks</li>
-  <li>Ability to delete tasks</li>
-	<li>Ability to update tasks by accepting them</li>
-  <li>Messaging system for users to communicate</li>
+	<li>Users have ability to create, read, update (through accepting) and delete, tasks</li>
+  <li>Messaging system for users to communicate, with tabs for inbox and sent messages.</li>
+  <li>Users can read, send, or reply to messages.
+  <li>Messages subjects are displayed in bold if unread, and updated to display without boldness if read </li>
   <li>Errors shown for login, signup, task, and message creation</li>
-  <li>Small Google Map window for each task, showing where the tasks are located</li>
+  <li>Small Google Map window for each task, showing where the tasks are located.</li>
 </ol>
 <br>
 

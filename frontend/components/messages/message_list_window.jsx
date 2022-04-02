@@ -8,7 +8,7 @@ const MessageListWindow = ({messages, currentUser, openModal}) => {
   let inMessages = [];
   let outMessages = [];
 
-  // separates incoming and outgoing messages and reverses them
+  // separates incoming and outgoing messages and reverses the order
   if (messages.length > 0) {
     messages.forEach((message) => {
       if (message.receiver_id === currentUser.id) inMessages.unshift(message);

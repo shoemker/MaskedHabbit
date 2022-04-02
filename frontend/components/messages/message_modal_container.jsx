@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { closeModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import MessageModal from './message_modal';
 
 
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return ({
 		closeModal: () => dispatch(closeModal()),
+		openModal: (data) => dispatch(openModal(data)),
 	})
 }
 

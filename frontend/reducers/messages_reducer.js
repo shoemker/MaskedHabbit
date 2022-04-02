@@ -14,6 +14,7 @@ const messagesReducer = (oldState = {}, action) => {
     case RECEIVE_MESSAGES:
       return action.messages;
     case RECEIVE_MESSAGE:
+      
       // not a regular index route, so must find old message to update
       let index;
       Object.values(oldState).forEach((m, i) => {

@@ -19,7 +19,7 @@ function Modal({ modal, closeModal }) {
 			component = <MessageModalContainer message = {modal.data} />;
 			break;
 		case 'composeMessage':
-			component = <ComposeMessageModalContainer />;
+			component = <ComposeMessageModalContainer reply = {modal.data}/>;
 			break;
 		default:
 			return null;

@@ -4,12 +4,24 @@ class ComposeMessageModal extends React.Component {
   constructor(props){
     super(props);
 
+    // for replies
+    let receiver_name;
+    let subject;
+    if (props.reply) {
+      receiver_name = props.reply.receiver;
+      subject = props.reply.subject;
+    } else {
+      receiver_name = "";
+      subject = "";
+    }
+
+    
     this.state = {
-      subject:"",
+      subject,
       body:"",
       sender_id: this.props.currentUser.id,
       sender_name: this.props.currentUser.username,
-      receiver_name: ""
+      receiver_name
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class MessageModal extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +7,33 @@ class MessageModal extends React.Component {
 
   handleClick = (e) => {
     this.props.closeModal();
+  }
+
+
+  handleReply = (e) => {
+    let data = {
+      receiver: this.props.message.sender_name,
+      subject: "re:" + this.props.message.subject
+    }
+
+    this.props.closeModal();
+    this.props.openModal({ type: 'composeMessage', data });
+
+  }
+
+
+  replyButton = () => {
+    if (this.props.currentUser.username !== this.props.message.sender_name) {
+      return (
+        <input
+          className="send-message-button"
+          type="submit"
+          value="Reply"
+          onClick={this.handleReply} />
+      )
+    } else
+      return ( <div>
+               </div>)
   }
 
   render() {
@@ -30,10 +56,14 @@ class MessageModal extends React.Component {
             <p className="p-field"> {this.props.message.subject}</p>        
           </div>
           <hr></hr><br></br>
-          <div>
+          <div className = 'read-message-body'>
             {this.props.message.body}
           </div>
+          <div>
+            {this.replyButton()}
+          </div>
         </div>
+
       </div>
     )
   }

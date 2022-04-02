@@ -1752,10 +1752,8 @@ var Map = function Map(_ref) {
     className: "map"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "google-map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    bootstrapURLKeys: {
-      key: window.googleAPIKey
-    },
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"] // bootstrapURLKeys={{ key: window.googleAPIKey}}
+  , {
     defaultCenter: location,
     defaultZoom: zoomLevel
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_locationPin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1814,13 +1812,25 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, ComposeMessageModal);
 
-    _this = _super.call(this, props);
+    _this = _super.call(this, props); // for replies
+
+    var receiver_name;
+    var subject;
+
+    if (props.reply) {
+      receiver_name = props.reply.receiver;
+      subject = props.reply.subject;
+    } else {
+      receiver_name = "";
+      subject = "";
+    }
+
     _this.state = {
-      subject: "",
+      subject: subject,
       body: "",
       sender_id: _this.props.currentUser.id,
       sender_name: _this.props.currentUser.username,
-      receiver_name: ""
+      receiver_name: receiver_name
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.closingX = _this.closingX.bind(_assertThisInitialized(_this));
@@ -1998,7 +2008,7 @@ var MessageListWindow = function MessageListWindow(_ref) {
       currentUser = _ref.currentUser,
       openModal = _ref.openModal;
   var inMessages = [];
-  var outMessages = []; // separates incoming and outgoing messages and reverses them
+  var outMessages = []; // separates incoming and outgoing messages and reverses the order
 
   if (messages.length > 0) {
     messages.forEach(function (message) {
@@ -2097,6 +2107,31 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
       _this.props.closeModal();
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleReply", function (e) {
+      var data = {
+        receiver: _this.props.message.sender_name,
+        subject: "re:" + _this.props.message.subject
+      };
+
+      _this.props.closeModal();
+
+      _this.props.openModal({
+        type: 'composeMessage',
+        data: data
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "replyButton", function () {
+      if (_this.props.currentUser.username !== _this.props.message.sender_name) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "send-message-button",
+          type: "submit",
+          value: "Reply",
+          onClick: _this.handleReply
+        });
+      } else return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    });
+
     return _this;
   }
 
@@ -2128,7 +2163,9 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
         className: "p-title"
       }, "Subject: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "p-field"
-      }, " ", this.props.message.subject)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.message.body)));
+      }, " ", this.props.message.subject)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "read-message-body"
+      }, this.props.message.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.replyButton())));
     }
   }]);
 
@@ -2167,6 +2204,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
+    },
+    openModal: function openModal(data) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])(data));
     }
   };
 };
@@ -2935,7 +2975,9 @@ function Modal(_ref) {
       break;
 
     case 'composeMessage':
-      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_compose_message_modal_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_compose_message_modal_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        reply: modal.data
+      });
       break;
 
     default:
