@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import LocationPin from './locationPin'
 
@@ -11,7 +11,7 @@ const Map = ({ location, zoomLevel }) => {
   <div className="map">
     <div className="google-map">
       <GoogleMapReact
-        // bootstrapURLKeys={{ key: window.googleAPIKey}}
+        bootstrapURLKeys={{ key: window.googleAPIKey}}
         defaultCenter={location}
         defaultZoom={zoomLevel}
       >

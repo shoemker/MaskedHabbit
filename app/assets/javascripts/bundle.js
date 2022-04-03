@@ -1736,11 +1736,9 @@ var LocationPin = function LocationPin(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-map-react */ "./node_modules/google-map-react/dist/index.modern.js");
-/* harmony import */ var _locationPin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./locationPin */ "./frontend/components/map/locationPin.jsx");
-
+/* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! google-map-react */ "./node_modules/google-map-react/dist/index.modern.js");
+/* harmony import */ var _locationPin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./locationPin */ "./frontend/components/map/locationPin.jsx");
+// import React from 'react'
 
  // excellent instructions from 
 // https://blog.logrocket.com/integrating-google-maps-react/
@@ -1748,15 +1746,17 @@ __webpack_require__.r(__webpack_exports__);
 var Map = function Map(_ref) {
   var location = _ref.location,
       zoomLevel = _ref.zoomLevel;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "google-map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1__["default"] // bootstrapURLKeys={{ key: window.googleAPIKey}}
-  , {
+  }, /*#__PURE__*/React.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    bootstrapURLKeys: {
+      key: window.googleAPIKey
+    },
     defaultCenter: location,
     defaultZoom: zoomLevel
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_locationPin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/React.createElement(_locationPin__WEBPACK_IMPORTED_MODULE_1__["default"], {
     text: location.address
   }))));
 };
