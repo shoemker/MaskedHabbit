@@ -4,16 +4,13 @@ class ComposeMessageModal extends React.Component {
   constructor(props){
     super(props);
 
-    // for replies
-    let receiver_name;
-    let subject;
+    // for replies receiver_name and subject arrive as props
+    let receiver_name = "";
+    let subject = "";
     if (props.reply) {
       receiver_name = props.reply.receiver;
       subject = props.reply.subject;
-    } else {
-      receiver_name = "";
-      subject = "";
-    }
+    } 
 
     
     this.state = {
@@ -38,7 +35,6 @@ class ComposeMessageModal extends React.Component {
 
 
   update(field) {
-    // console.log(this.state);
 
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -57,7 +53,6 @@ class ComposeMessageModal extends React.Component {
   }
 
   renderErrors(type) {
-    // if (this.props.errors.length > 0) debugger;
     for (let i = 0; i < this.props.errors.length; i++) {
       if (this.props.errors[i].includes(type)) return this.props.errors[i];
     }

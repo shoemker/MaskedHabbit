@@ -136,7 +136,9 @@ class MakeNewTaskForm extends React.Component {
 
 			<div className = "modal-background">
 				<div className= "maker-form-container">
-					<div className = "closing-x" onClick = {this.handleClick}>X</div>
+					<div className="closing-x-container">
+						<div className="closing-x" onClick = {this.handleClick}>X</div>
+					</div>
 					<form onSubmit={this.handleSubmit} className="signup-form-box">
 
 						<div className="signup-form">

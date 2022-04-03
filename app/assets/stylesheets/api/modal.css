@@ -42,12 +42,24 @@
 	font-weight: normal;
 }
 
-.closing-x {
+.closing-x-container {
 	font-family: Arial, Helvetica, sans-serif;
-
-	padding-left:510px;
+   height: 20px;
+  width: 20px;
+  border-radius: 50%;
+    text-align: center;
+	margin-left:510px;
 }
 
+
+.closing-x-container:hover {
+	background-color:white;
+}
+
+
+.closing-x{
+	padding-top: 2px;
+}
 
 .pic-upload-label {
 	margin-top:10px;

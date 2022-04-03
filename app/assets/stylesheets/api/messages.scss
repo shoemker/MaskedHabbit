@@ -104,14 +104,14 @@
 	left:50%;
 	margin-top:-100px;
 	margin-left:-280px;
-	background-color:#e8ebef;
+	background-color:#e8ebef;  
 	width: 490px;
 	height: 333px;
 	padding-top: 12px;
   padding-right: 48px;
   padding-bottom: 24px;
   padding-left: 32px;
-	border-radius: 5px;
+	border-radius: 5px; 
 	z-index: 15;
 }
 
@@ -120,11 +120,25 @@
 }
 
 .message-closing-x {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  text-align: center;
+
 	font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
-
-	margin-left:510px;
+	margin-left:505px;
+  padding-bottom:3px;
 }
+
+
+.message-closing-x:hover{
+  background-color: #bbb;
+
+}
+
+
+
 .message-field {
   height: 25px;
 }

@@ -1812,17 +1812,14 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, ComposeMessageModal);
 
-    _this = _super.call(this, props); // for replies
+    _this = _super.call(this, props); // for replies receiver_name and subject arrive as props
 
-    var receiver_name;
-    var subject;
+    var receiver_name = "";
+    var subject = "";
 
     if (props.reply) {
       receiver_name = props.reply.receiver;
       subject = props.reply.subject;
-    } else {
-      receiver_name = "";
-      subject = "";
     }
 
     _this.state = {
@@ -1852,7 +1849,6 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      // console.log(this.state);
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
@@ -1871,7 +1867,6 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors(type) {
-      // if (this.props.errors.length > 0) debugger;
       for (var i = 0; i < this.props.errors.length; i++) {
         if (this.props.errors[i].includes(type)) return this.props.errors[i];
       }
@@ -2782,9 +2777,11 @@ var MakeNewTaskForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "maker-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "closing-x-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "closing-x",
         onClick: this.handleClick
-      }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "signup-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
