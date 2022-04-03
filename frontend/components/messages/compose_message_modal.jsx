@@ -22,15 +22,10 @@ class ComposeMessageModal extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.closingX = this.closingX.bind(this);
   }
   
   componentDidMount() {
     this.props.clearAllErrors();
-  }
-
-  closingX() {
-    this.props.closeModal();
   }
 
 
@@ -66,7 +61,7 @@ class ComposeMessageModal extends React.Component {
         <div className="read-message-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
 
-            <p className="message-closing-x" onClick={this.closingX}>X</p>
+            <p className="message-closing-x" onClick={this.props.closeModal}>X</p>
 
             <div className="message-to-field">
               <p className="p-title">To: </p>

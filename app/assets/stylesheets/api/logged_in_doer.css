@@ -107,6 +107,7 @@
 .doer-task-container2{
 
 	height: 230px;
+	width: 800px;
 	margin-top:20px;
 	margin-bottom: 140px;
 	margin-left:20px
@@ -120,11 +121,14 @@
 	font-family:  Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	/* margin-right: auto; margin-left: auto; */
-  position: absolute;
-  left: 62%;
-  transform: translate(-50%, -50%);
-	margin-top: 23px;
+  /* position: absolute; */
+  /* left: 62%; */
+  /* transform: translate(-50%, -50%); */
+	/* margin: auto; */
 	margin-bottom: 10px;
+	float:none;
+	margin-left: 45%;
+
 }
 
 .task-accept-button:hover{

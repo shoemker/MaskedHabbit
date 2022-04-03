@@ -83,7 +83,6 @@ https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-inp
 	padding: 5px 8px;
   outline: none;
   white-space: nowrap;
-  -webkit-user-select: none;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
   font-weight: 700;

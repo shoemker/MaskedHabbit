@@ -60,6 +60,8 @@
 
 }
 
+
+
 .logged-in-maker-task{
 	width:500px;
 	height:500px;
@@ -97,11 +99,9 @@
 	margin: 10px;
 }
 
-.doer-task-container2{
 
-	height: 230px;
-	margin-top:20px;
-	margin-bottom: 140px;
-	margin-left:20px;
-	width:100%;
+
+.maker-task-container2 {
+	width: 802px;
+  justify-content: center;
 }

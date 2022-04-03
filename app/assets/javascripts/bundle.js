@@ -1830,7 +1830,6 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
       receiver_name: receiver_name
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.closingX = _this.closingX.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1838,11 +1837,6 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.clearAllErrors();
-    }
-  }, {
-    key: "closingX",
-    value: function closingX() {
-      this.props.closeModal();
     }
   }, {
     key: "update",
@@ -1883,7 +1877,7 @@ var ComposeMessageModal = /*#__PURE__*/function (_React$Component) {
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "message-closing-x",
-        onClick: this.closingX
+        onClick: this.props.closeModal
       }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-to-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
