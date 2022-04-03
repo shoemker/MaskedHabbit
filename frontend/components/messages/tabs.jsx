@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tab from './tab';
 
-// 
+// https://www.digitalocean.com/community/tutorials/react-tabs-component
+
 class Tabs extends Component {
   static propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
