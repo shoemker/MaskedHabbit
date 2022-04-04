@@ -58,7 +58,7 @@ class ComposeMessageModal extends React.Component {
     return (
       <div className="read-message-modal-background">
 
-        <div className="read-message-container">
+        <div className="compose-message-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
 
             <p className="message-closing-x" onClick={this.props.closeModal}>X</p>
