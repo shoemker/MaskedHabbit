@@ -91,7 +91,7 @@ task = Task.create(brief: "Install sound system",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/car_sound_system.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/car_sound_system.jpeg')
 task.photo.attach(io: file, filename: 'car_sound_system.jpeg')
 
  
@@ -107,7 +107,7 @@ task = Task.create(brief: "Put in garbage disposal",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garbage_disposal.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/garbage_disposal.jpeg')
 task.photo.attach(io: file, filename: 'garbage_disposal.jpeg')
 
 
@@ -123,7 +123,7 @@ task = Task.create(brief: "Help me move",
 						longitude: -122.4013518,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/moving.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/moving.jpeg')
 task.photo.attach(io: file, filename: 'moving.jpeg')
 
 
@@ -139,7 +139,7 @@ task = Task.create(brief: "Pack some Boxes",
 						longitude: -122.4013518,
 						maker_name: User.find(maker).username,
 						)						
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/pack_boxes.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/pack_boxes.jpeg')
 task.photo.attach(io: file, filename: 'pack_boxes.jpeg')
 
 
@@ -155,7 +155,7 @@ task = Task.create(brief: "Put together bunk beds",
 						longitude: -122.3901793,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/bunk_beds.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/bunk_beds.jpeg')
 task.photo.attach(io: file, filename: 'bunk_beds.jpeg')
 
 
@@ -171,7 +171,7 @@ task = Task.create(brief: "Build a table",
 						longitude: -122.4250061,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/build_table.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/build_table.jpeg')
 task.photo.attach(io: file, filename: 'build_table.jpeg')
 
 
@@ -187,7 +187,7 @@ task = Task.create(brief: "Renovate bathroom",
 						longitude: -122.422071,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/renovate_bathroom.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/renovate_bathroom.jpeg')
 task.photo.attach(io: file, filename: 'renovate_bathroom.jpeg')
 
 
@@ -203,7 +203,7 @@ task = Task.create(brief: "Knock down wall",
 						longitude: -122.422071,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/knock_down_wall.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/knock_down_wall.jpeg')
 task.photo.attach(io: file, filename: 'knock_down_wall.jpeg')
 
 
@@ -219,7 +219,7 @@ task = Task.create(brief: "Fix door",
 						longitude: -122.4130493,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/fix_door.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/fix_door.jpeg')
 task.photo.attach(io: file, filename: 'fix_door.jpeg')
 
 
@@ -235,7 +235,7 @@ task = Task.create(brief: "Change light bulbs",
 						longitude: -122.4130493,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/change_light_bulb.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/change_light_bulb.jpeg')
 task.photo.attach(io: file, filename: 'change_light_bulb.jpeg')
 
 
@@ -251,7 +251,7 @@ task = Task.create(brief: "Move boxes",
 						longitude: -122.4130493,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/move_boxes.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/move_boxes.jpeg')
 task.photo.attach(io: file, filename: 'move_boxes.jpeg')
 
 
@@ -267,7 +267,7 @@ task = task = Task.create(brief: "Carry dog to vet",
 						longitude: -122.4130493,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/bouvier.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/bouvier.jpeg')
 task.photo.attach(io: file, filename: 'bouvier.jpeg')
 
 
@@ -283,7 +283,7 @@ task = Task.create(brief: "Install wall television",
 						longitude: -122.4250061,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/install_tv.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/install_tv.jpeg')
 task.photo.attach(io: file, filename: 'install_tv.jpeg')
 
 
@@ -299,7 +299,7 @@ task = Task.create(brief: "Unplug toilet.",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/plunge_toilet.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/plunge_toilet.jpeg')
 task.photo.attach(io: file, filename: 'plunge_toilet.jpeg')
 
 
@@ -315,7 +315,7 @@ task = Task.create(brief: "Sweep chimney.",
 						longitude: -122.4250061,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/chimney_sweep.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/chimney_sweep.jpeg')
 task.photo.attach(io: file, filename: 'chimney_sweep.jpeg')
 
 
@@ -331,7 +331,7 @@ task = Task.create(brief: "Carry stuff upstairs.",
 						longitude: -122.4250061,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/magazines.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/magazines.jpeg')
 task.photo.attach(io: file, filename: 'magazines.jpeg')
 
 
@@ -347,7 +347,7 @@ task = Task.create(brief: "Pack Kitchen",
 						longitude: -122.4013518,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/pack_kitchen.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/pack_kitchen.jpeg')
 task.photo.attach(io: file, filename: 'pack_kitchen.jpeg')
 
 
@@ -363,7 +363,7 @@ task = Task.create(brief: "Redo Bathroom",
 						longitude: -122.422071,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/redo_bathroom.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/redo_bathroom.jpeg')
 task.photo.attach(io: file, filename: 'redo_bathroom.jpeg')
 
 
@@ -379,7 +379,7 @@ task = Task.create(brief: "Install Washer-Dryer",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/washer_dryer.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/washer_dryer.jpeg')
 task.photo.attach(io: file, filename: 'washer_dryer.jpeg')
 
 
@@ -395,7 +395,7 @@ task = Task.create(brief: "Hang pictures",
 						longitude: -122.422071,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/hang_pictures.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/hang_pictures.jpeg')
 task.photo.attach(io: file, filename: 'hang_pictures.jpeg')
 
 
@@ -411,7 +411,7 @@ task = Task.create(brief: "Put bed together",
 						longitude: -122.422071,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/assemble_bed.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/assemble_bed.jpeg')
 task.photo.attach(io: file, filename: 'assemble_bed.jpeg')
 
 
@@ -427,7 +427,7 @@ task = Task.create(brief: "Drive me to airport",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/drive_airport.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/drive_airport.jpeg')
 task.photo.attach(io: file, filename: 'drive_airport.jpeg')
 
 
@@ -443,7 +443,7 @@ task = Task.create(brief: "Fix garage door",
 						longitude: -122.4308763,
 						maker_name: User.find(maker).username,
 						)
-file = open('https://masked-habbit-background.s3-us-west-1.amazonaws.com/seeds/garage_door.jpeg')
+file = open('https://maskedhabbit-reg.s3.us-west-1.amazonaws.com/seeds/garage_door.jpeg')
 task.photo.attach(io: file, filename: 'garage_door.jpeg')
 
 
