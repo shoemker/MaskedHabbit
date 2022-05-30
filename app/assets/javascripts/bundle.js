@@ -670,6 +670,8 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "after-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "agreed-tasks"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-doer",
         style: {
           width: welcome.length * 12.7 + "px"
@@ -682,7 +684,7 @@ var LoggedInDoerForm = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tasks_task__WEBPACK_IMPORTED_MODULE_1__["default"], {
           task: task
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks-cat-greeting-doer2",
         style: {
           width: instructions.length * 12.7 + "px"

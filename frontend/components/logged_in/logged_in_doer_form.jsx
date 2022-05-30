@@ -71,17 +71,21 @@ class LoggedInDoerForm extends React.Component {
 							openModal={this.props.openModal}
 						/>
 					</div>
+					
 					<div className = "after-main">
-						<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 12.7 + "px" }}>
-							<h2 className="task-cat-greeting">{welcome}</h2>
-						</div>
+						{/* <div className="buttons-all"></div> */}
+						<div className = "agreed-tasks">
+							<div className="tasks-cat-greeting-doer" style={{ width: welcome.length * 12.7 + "px" }}>
+								<h2 className="task-cat-greeting">{welcome}</h2>
+							</div>
 
-						<div className="parent-task-doer-container">
-							{this.props.tasks.length > 0 && tasksToDo.map((task) => {
-								return (
-									<Task task={task} />
-								)	
-							})}
+							<div className="parent-task-doer-container">
+								{this.props.tasks.length > 0 && tasksToDo.map((task) => {
+									return (
+										<Task task={task} />
+									)	
+								})}
+							</div>
 						</div>
 						<div className="tasks-cat-greeting-doer2" style={{ width: instructions.length * 12.7 + "px" }}>
 							<h2 className="task-cat-greeting">{instructions}</h2>
