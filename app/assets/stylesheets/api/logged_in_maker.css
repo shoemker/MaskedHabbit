@@ -43,7 +43,9 @@
 .tasks-cat-greeting-maker {
 	background-color: #61a14b;
 	height: 38px;
-	margin-right: auto; margin-left: auto;
+	position: relative;
+	left: 52%;
+	transform: translateX(-50%);
 	margin-top: 40px;
 	border-radius: 7px;
 }
