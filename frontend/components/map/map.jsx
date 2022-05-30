@@ -5,7 +5,7 @@ import LocationPin from './locationPin'
 // excellent instructions from 
 // https://blog.logrocket.com/integrating-google-maps-react/
 
-// const Map = ({ location, zoomLevel }) => {
+const Map = ({ location, zoomLevel }) => {
   
   return (
   <div className="map">
@@ -23,6 +23,6 @@ import LocationPin from './locationPin'
     </div>
   </div>
   )
-
+  }
 
 export default Map;
