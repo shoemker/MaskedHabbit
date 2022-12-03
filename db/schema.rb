@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(version: 2022_03_24_154902) do
   create_table "messages", force: :cascade do |t|
     t.string "subject"
     t.text "body"
-    t.integer "sender_id"
-    t.integer "receiver_id"
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "read"
     t.string "sender_name"
     t.string "receiver_name"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
