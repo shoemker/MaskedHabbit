@@ -6,7 +6,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@googlemaps/react-wrapper": "^1.1.26",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.3.0",
     "google-map-react": "^2.1.10",
     "lodash": "^4.17.15",
     "react": "^16.14.0",
@@ -18,8 +18,8 @@
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
