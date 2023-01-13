@@ -5,7 +5,7 @@
 <br>
 <h1><a href="http://masked-habbit.herokuapp.com/?#">Masked-Habbit</a> is inspired by <a href="https://www.taskrabbit.com/">TaskRabbit.</a></h1>
 <br>
-
+ 
 <h2>Masked-Habbit Overview</h2>
 Like many apps, Masked-Habbit connects people. It starts with people that have tasks that need done and are willing to pay people to do them. They can post these tasks on TaskRabbit and get matched with local people (professional or amateur) who have the skills to do these tasks and will agree to the price offered.
 <br><br>
