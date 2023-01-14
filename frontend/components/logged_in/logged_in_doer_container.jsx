@@ -6,7 +6,7 @@ import { fetchMessages } from '../../actions/message_actions';
 import LoggedInDoerForm from './logged_in_doer_form';
 import { openModal } from '../../actions/modal_actions';
 
-
+ 
 const mapStateToProps = (state, ownProps) => {
 
 	let tasks = Object.values(state.entities.tasks)
